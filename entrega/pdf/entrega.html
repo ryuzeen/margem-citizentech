@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Margem — Global Solution 2026/2 — Entrega</title>
+<style>
+@font-face { font-family: "Atkinson"; src: url("../../area3_mvp_iot/web/vendor/fonts/atkinson-next-var.woff2") format("woff2"); font-weight: 200 800; }
+@font-face { font-family: "Archivo"; src: url("../../area3_mvp_iot/web/vendor/fonts/archivo-var.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
+@font-face { font-family: "Plex"; src: url("../../area3_mvp_iot/web/vendor/fonts/plex-mono-400.woff2") format("woff2"); font-weight: 400; }
+@font-face { font-family: "Plex"; src: url("../../area3_mvp_iot/web/vendor/fonts/plex-mono-600.woff2") format("woff2"); font-weight: 600; }
+
+@page { size: A4; margin: 15mm 15mm 16mm; }
+@page :first { margin: 0; }
+:root { --tinta: #0B0B0C; --t2: #52525B; --t3: #71717A; --linha: #E4E4E7; --fundo: #F4F4F5; --r0: #2E7A52; --r1: #A87700; --r2: #C2541A; --r3: #C21F3A; --agua: #1F6F8B; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; font-family: "Atkinson", sans-serif; font-size: 9.6pt; line-height: 1.45; color: var(--tinta); }
+h1, h2, h3, h4 { font-family: "Archivo", sans-serif; font-stretch: 100%; letter-spacing: -0.03em; line-height: 1.05; margin: 0; }
+h2 { font-size: 24pt; margin: 0 0 4.5mm; font-weight: 750; }
+h2 .c, h1 .c { color: #8A8A93; }
+h3 { font-size: 12.5pt; margin: 5mm 0 2mm; font-weight: 700; display: flex; align-items: baseline; gap: 8px; }
+h3 .pts { margin-left: auto; font-family: "Atkinson"; font-size: 9pt; font-weight: 600; color: var(--t3); letter-spacing: 0; }
+h4 { font-size: 10.8pt; margin: 4mm 0 1.5mm; font-weight: 700; letter-spacing: -0.015em; }
+p { margin: 0 0 2.5mm; }
+ul, ol { margin: 0 0 2.5mm; padding-left: 5mm; }
+li { margin-bottom: 1mm; }
+code, .mono { font-family: "Plex", monospace; font-size: 8.4pt; }
+pre { font-family: "Plex", monospace; font-size: 7pt; line-height: 1.45; background: var(--fundo); border: 1px solid var(--linha); border-radius: 8px; padding: 3mm 3.5mm; margin: 0 0 3mm; white-space: pre-wrap; word-break: break-word; }
+table { width: 100%; border-collapse: collapse; margin: 0 0 3.5mm; font-size: 9pt; }
+th { text-align: left; font-weight: 700; color: var(--t2); border-bottom: 1.5px solid var(--tinta); padding: 1.6mm 2mm; font-size: 8.4pt; }
+td { border-bottom: 1px solid var(--linha); padding: 1.6mm 2mm; vertical-align: top; }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+tr.destaque td { font-weight: 700; }
+.pag { break-before: page; }
+.sec-cab { display: flex; align-items: baseline; gap: 10px; margin-bottom: 1mm; color: var(--t3); font-weight: 600; font-size: 9.5pt; }
+.sec-cab b { color: var(--tinta); }
+.lead { font-size: 11pt; color: var(--t2); max-width: 165mm; margin-bottom: 5mm; }
+.fig { margin: 0 0 4mm; break-inside: avoid; }
+.fig img { width: 100%; display: block; border-radius: 8px; border: 1px solid var(--linha); }
+.fig figcaption { font-size: 8.4pt; color: var(--t3); margin-top: 1.5mm; }
+.fig.alta img { max-height: 108mm; object-fit: cover; object-position: top; }
+.fig.media img { max-height: 76mm; object-fit: cover; object-position: top; }
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; }
+.g-cel { display: grid; grid-template-columns: 1.6fr 1fr; gap: 4mm; align-items: start; }
+.caixa { border: 1px solid var(--linha); border-radius: 10px; padding: 3.5mm 4mm; margin: 0 0 3.5mm; break-inside: avoid; background: #FAFAFA; }
+.caixa h4 { margin-top: 0; }
+.nums { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1.5px solid var(--tinta); border-bottom: 1px solid var(--linha); margin: 0 0 5mm; }
+.nums div { padding: 3mm 3mm 3mm 0; }
+.nums div + div { padding-left: 3mm; border-left: 1px solid var(--linha); }
+.nums b { display: block; font-family: "Archivo"; font-size: 22pt; letter-spacing: -0.04em; line-height: 1; }
+.nums b small { font-size: 11pt; margin-left: 1px; }
+.nums span { font-size: 8.4pt; color: var(--t2); display: block; margin-top: 1.5mm; }
+.tag { display: inline-block; font-size: 7.8pt; font-weight: 700; padding: 0.4mm 2mm; border-radius: 99px; border: 1px solid var(--linha); white-space: nowrap; }
+.ok { color: var(--r0); }
+.pendente { border: 1.5px solid var(--r1); background: #FFFBEB; border-radius: 10px; padding: 3.5mm 4mm; margin: 0 0 3.5mm; break-inside: avoid; }
+.pendente h4 { margin-top: 0; color: #7A5800; }
+.passos { counter-reset: p; list-style: none; padding: 0; }
+.passos li { counter-increment: p; display: grid; grid-template-columns: 7mm 1fr; gap: 2mm; margin-bottom: 1.8mm; }
+.passos li::before { content: counter(p); width: 5.5mm; height: 5.5mm; border-radius: 50%; border: 1.5px solid var(--tinta); display: grid; place-items: center; font-family: "Archivo"; font-weight: 800; font-size: 7.5pt; }
+.sumario { columns: 2; column-gap: 10mm; list-style: none; padding: 0; font-size: 10pt; }
+.sumario li { display: flex; gap: 3mm; padding: 1.4mm 0; border-bottom: 1px solid var(--linha); break-inside: avoid; }
+.sumario li b { font-family: "Archivo"; width: 7mm; }
+.criterio { font-size: 8.4pt; color: var(--t3); margin: -1.5mm 0 2.5mm; }
+
+/* capa */
+.capa { height: 297mm; background: #0B0B0C; color: #F4F4F5; padding: 22mm 20mm 18mm; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+.capa::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 45% at 30% 20%, rgb(255 255 255 / 0.08), transparent 70%); }
+.capa > * { position: relative; }
+.capa .marca { display: flex; align-items: center; gap: 10px; font-family: "Archivo"; font-weight: 800; font-size: 15pt; letter-spacing: -0.02em; }
+.capa .marca svg { width: 20px; height: 24px; }
+.capa .rot { margin-top: 30mm; color: #A1A1AA; font-weight: 600; font-size: 11pt; }
+.capa h1 { font-size: 54pt; font-weight: 800; letter-spacing: -0.055em; line-height: 0.92; margin-top: 5mm; }
+.capa h1 .c { color: #8A8A93; }
+.capa .sub { font-size: 13pt; color: #A1A1AA; max-width: 140mm; margin-top: 8mm; }
+.capa .rodape { margin-top: auto; display: grid; grid-template-columns: 1.15fr 1fr; gap: 10mm; border-top: 1px solid rgb(255 255 255 / 0.14); padding-top: 7mm; font-size: 9.5pt; }
+.capa .rodape table { font-size: 9.5pt; margin: 0; }
+.capa .rodape th { color: #A1A1AA; border-color: rgb(255 255 255 / 0.3); }
+.capa .rodape td { border-color: rgb(255 255 255 / 0.1); color: #E4E4E7; padding: 1.2mm 2mm; }
+.capa .links p { margin-bottom: 3mm; color: #E4E4E7; }
+.capa .links span { display: block; color: #8A8A93; font-size: 8.5pt; font-weight: 600; }
+.capa .obj { position: absolute; right: 14mm; top: 16mm; width: 58mm; opacity: 0.95; }
+
+/* diagrama */
+.graf img { height: 58mm; object-fit: contain; background: #fff; }
+.ods { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; font-size: 8.6pt; color: var(--t2); }
+.ods b { display: block; font-family: "Archivo"; font-size: 16pt; color: var(--tinta); letter-spacing: -0.03em; }
+.g3 .fig.media img { max-height: 62mm; }
+.fig.baixa img { max-height: 56mm; object-fit: cover; object-position: top; }
+.arq { width: 100%; height: auto; display: block; margin: 0 0 4mm; }
+</style>
+</head>
+<body>
+
+<!-- ================= CAPA ================= -->
+<section class="capa">
+  <div class="marca"><svg viewBox="0 0 26 30" aria-hidden="true"><rect x="5" y="1" width="12" height="28" fill="#1b1b1e" stroke="#F4F4F5" stroke-width="1.6"/><path d="M5 4h7M5 8h7M5 12h7" stroke="#F4F4F5" stroke-width="2"/><path d="M17 16h-7M17 20h-7" stroke="#FF6B82" stroke-width="2"/><path d="M1 23c3 0 3-2 6-2s3 2 6 2 3-2 6-2 3 2 6 2v6H1z" fill="#4FA3BF" opacity=".85"/></svg>Margem</div>
+  <img class="obj" src="../../area3_mvp_iot/web/img/3d/estacao.svg" alt="">
+  <p class="rot">FIAP · Global Solution 2026/2 · CitizenTech · Turma 4ESOA</p>
+  <h1>O aviso antes,<br><span class="c">o socorro primeiro.</span></h1>
+  <p class="sub">Alerta comunitário de enchentes para quem mora na várzea do Rio Tietê, zona leste de São Paulo. Documento de entrega com a solução, a arquitetura e as evidências de cada área.</p>
+  <div class="rodape">
+    <table>
+      <thead><tr><th>Integrante</th><th class="n">RM</th></tr></thead>
+      <tbody>
+        <tr><td>Italo de Souza</td><td class="n">551500</td></tr>
+        <tr><td>Victor Montenegro Borges</td><td class="n">98708</td></tr>
+        <tr><td>Matheus Morete Espinoso</td><td class="n">552428</td></tr>
+        <tr><td>Octávio Hernandez (Chiste Cordeiro)</td><td class="n">97894</td></tr>
+        <tr><td>Rafael Perussi Caczan</td><td class="n">93092</td></tr>
+      </tbody>
+    </table>
+    <div class="links">
+      <p><span>Site (demonstração)</span>ryuzeen.github.io/margem-citizentech</p>
+      <p><span>Repositório</span>github.com/ryuzeen/margem-citizentech</p>
+      <p><span>Vídeo pitch</span>{{LINK_PITCH}}</p>
+      <p><span>ODS</span>11 · 13 · 10 · 3</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SUMÁRIO + PROBLEMA ================= -->
+<section class="pag">
+  <h2>O problema <span class="c">e a solução</span></h2>
+  
+
+  <h3>Quem é o cidadão</h3>
+  <p>Moradores da várzea do Tietê na zona leste de São Paulo: Jardim Pantanal, Vila Itaim, Jardim Romano e Jardim Helena. Em 2009 o Jardim Pantanal ficou <b>90 dias debaixo d’água</b> (Brasil de Fato, 24/10/2020), e a área continua alagando depois de cada chuva forte. Boa parte dos moradores é idosa, usa celular simples e fica sabendo da cheia quando a água já está na porta.</p>
+  <h3>O que falha hoje</h3>
+  <ul>
+    <li>O aviso depende de alguém olhar a régua do rio: chega tarde, quando a água já passou da cota.</li>
+    <li>Os pedidos de ajuda chegam todos juntos e em ordem de chegada. Um acamado ilhado espera atrás de um poste sem luz.</li>
+    <li>A orientação do que fazer está espalhada em cartilhas que ninguém lê durante a enchente.</li>
+  </ul>
+  <h3>O que o Margem faz</h3>
+  <ol class="passos">
+    <li><span><b>Estações IoT</b> com ESP32 medem nível do rio, chuva e umidade do solo e mandam leituras assinadas (HMAC) por MQTT.</span></li>
+    <li><span>Os dados passam por um <b>data lake em camadas</b> (bruta, confiável, refinada, quarentena), em streaming com Kafka e em lote com Spark.</span></li>
+    <li><span>Uma <b>rede neural</b> prevê a chance de transbordo nas próximas 2 horas. O nível final é o maior entre a régua e o modelo, no padrão da Defesa Civil.</span></li>
+    <li><span>Quando o risco sobe, um <b>agente comunicador</b> redige o alerta (SMS de até 160 caracteres) e ele chega ao app do morador em tempo real.</span></li>
+    <li><span>O morador responde “Estou seguro” ou “Preciso de ajuda” e pode escrever um relato livre. <b>Agentes de IA</b> classificam, buscam o protocolo certo (RAG) e põem idosos, PcD e acamados no topo da fila da Defesa Civil.</span></li>
+    <li><span>A Defesa Civil acompanha tudo num <b>console</b> com fila priorizada, check-ins, emissão de alertas e dashboard com 6 indicadores; os mesmos dados alimentam um relatório <b>Power BI</b>.</span></li>
+  </ol>
+  <h3>O ganho medido <span class="pts">dados simulados, avaliação walk-forward</span></h3>
+  <div class="nums">
+    <div><b>222<small>min</small></b><span>antecedência média do aviso, contra 162 min só pela régua</span></div>
+    <div><b>82<small>%</small></b><span>das enchentes avisadas com 2 h de folga, contra 24%</span></div>
+    <div><b>87<small>%</small></b><span>dos relatos na categoria certa, contra 62% por palavra-chave</span></div>
+    <div><b>11<small>º</small></b><span>posição média dos casos críticos na fila, contra 20,6º por ordem de chegada</span></div>
+  </div>
+  <p class="criterio">Todos os dados (estações, histórico de 365 dias, relatos, moradores) são simulados e marcados como simulados no produto. Os números mostram o ganho do método, não desempenho em campo.</p>
+  <h3>ODS atendidos</h3>
+  <div class="ods"><p><b>11</b> Cidades sustentáveis: bairros mais resilientes, aviso antes da água chegar.</p><p><b>13</b> Ação climática: chuvas extremas mais frequentes; prever é adaptar.</p><p><b>10</b> Menos desigualdade: quem mora na várzea é quem mais perde.</p><p><b>3</b> Saúde: menos gente ilhada; socorro primeiro para vulneráveis.</p></div>
+</section>
+
+<!-- ================= ARQUITETURA ================= -->
+<section class="pag">
+  <div class="sec-cab"><b>2</b> Arquitetura geral · vale também para o critério 04 da Área 3</div>
+  <h2>Uma solução, <span class="c">quatro áreas ligadas</span></h2>
+  <svg class="arq" viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg" font-family="Atkinson, sans-serif" font-size="13">
+    <defs><marker id="s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0B0B0C"/></marker></defs>
+    <!-- grupos -->
+    <g fill="#FAFAFA" stroke="#D4D4D8"><rect x="10" y="10" width="230" height="300" rx="14"/><rect x="270" y="10" width="330" height="300" rx="14"/><rect x="630" y="10" width="360" height="300" rx="14"/><rect x="10" y="340" width="980" height="210" rx="14"/></g>
+    <g font-weight="700" font-size="12" fill="#71717A"><text x="26" y="34">ÁREA 3 · IoT</text><text x="286" y="34">ÁREA 2 · BIG DATA</text><text x="646" y="34">ÁREA 1 · IA</text><text x="26" y="364">ÁREA 3 · MVP  +  ÁREA 4 · DEVOPS, SEGURANÇA E QUALIDADE</text></g>
+    <!-- caixas -->
+    <g fill="#fff" stroke="#0B0B0C" stroke-width="1.3">
+      <rect x="30" y="50" width="190" height="62" rx="10"/><rect x="30" y="130" width="150" height="50" rx="10"/><rect x="30" y="220" width="190" height="62" rx="10"/>
+      <rect x="290" y="50" width="140" height="62" rx="10"/><rect x="450" y="50" width="130" height="62" rx="10"/>
+      <rect x="290" y="140" width="290" height="70" rx="10"/><rect x="290" y="232" width="135" height="58" rx="10"/><rect x="445" y="232" width="135" height="58" rx="10"/>
+      <rect x="650" y="50" width="320" height="62" rx="10"/><rect x="650" y="132" width="320" height="86" rx="10"/><rect x="650" y="238" width="320" height="52" rx="10"/>
+      <rect x="380" y="385" width="250" height="70" rx="10"/>
+      <rect x="30" y="385" width="160" height="50" rx="10"/><rect x="30" y="455" width="160" height="50" rx="10"/>
+      <rect x="690" y="385" width="140" height="50" rx="10"/><rect x="845" y="385" width="130" height="50" rx="10"/>
+      <rect x="690" y="460" width="140" height="66" rx="10"/><rect x="845" y="460" width="130" height="66" rx="10"/>
+      <rect x="380" y="475" width="250" height="52" rx="10"/>
+    </g>
+    <rect x="290" y="140" width="290" height="70" rx="10" fill="#F4F4F5" stroke="#0B0B0C" stroke-width="1.3"/>
+    <g fill="#0B0B0C">
+      <text x="44" y="74" font-weight="700">ESP32 no Wokwi</text><text x="44" y="94" fill="#52525B">nível (ultrassom) · chuva · solo</text>
+      <text x="44" y="152" font-weight="700">Simulador</text><text x="44" y="170" fill="#52525B">4 estações</text>
+      <text x="44" y="244" font-weight="700">Mosquitto (MQTT)</text><text x="44" y="264" fill="#52525B">leitura + HMAC + seq</text>
+      <text x="304" y="74" font-weight="700">Ponte MQTT</text><text x="304" y="94" fill="#52525B">HMAC · faixa · replay</text>
+      <text x="464" y="74" font-weight="700">Kafka</text><text x="464" y="94" fill="#52525B">tópico de leituras</text>
+      <text x="304" y="164" font-weight="700">Data lake</text><text x="304" y="184" fill="#52525B">bruta › confiável › refinada</text><text x="304" y="200" fill="#52525B">+ quarentena com motivo</text>
+      <text x="304" y="256" font-weight="700">Spark / pandas</text><text x="304" y="276" fill="#52525B">pipeline em lote</text>
+      <text x="459" y="256" font-weight="700">Indicadores</text><text x="459" y="276" fill="#52525B">6 KPIs · Power BI/DAX</text>
+      <text x="664" y="74" font-weight="700">Rede neural MLP (32, 16)</text><text x="664" y="94" fill="#52525B">risco de transbordo em 2 h · 10 features</text>
+      <text x="664" y="154" font-weight="700">Multiagentes</text><text x="664" y="174" fill="#52525B">Triagem (TF-IDF + regressão logística + regras)</text><text x="664" y="192" fill="#52525B">Protocolos (RAG) · Prioridade (0–100)</text><text x="664" y="210" fill="#52525B">Comunicador (SMS ≤ 160)</text>
+      <text x="664" y="262" font-weight="700">LLM local opcional (Ollama)</text><text x="664" y="280" fill="#52525B">desligado por padrão · validado</text>
+      <text x="394" y="410" font-weight="700">API FastAPI</text><text x="394" y="430" fill="#52525B">JWT · RBAC · rate limit · LGPD</text><text x="394" y="446" fill="#52525B">SSE em tempo real · /metrics</text>
+      <text x="44" y="415" font-weight="700">App do morador</text>
+      <text x="44" y="485" font-weight="700">Console Defesa Civil</text>
+      <text x="704" y="415" font-weight="700">Prometheus</text><text x="859" y="415" font-weight="700">Grafana</text>
+      <text x="704" y="486" font-weight="700">Jenkins</text><text x="704" y="506" fill="#52525B">lint › testes › build</text><text x="704" y="520" fill="#52525B">› deploy › smoke</text>
+      <text x="859" y="486" font-weight="700">GitHub Actions</text><text x="859" y="506" fill="#52525B">testes › imagem</text><text x="859" y="520" fill="#52525B">› Pages</text>
+      <text x="394" y="499" font-weight="700">Docker Compose</text><text x="394" y="517" fill="#52525B">perfis: app · completo · cicd</text>
+    </g>
+    <!-- setas -->
+    <g stroke="#0B0B0C" stroke-width="1.4" fill="none" marker-end="url(#s)">
+      <path d="M202 112 V218"/><path d="M105 180 V218"/>
+      <path d="M220 250 H255 V81 H288"/>
+      <path d="M430 81 H448"/><path d="M515 112 V138"/>
+      <path d="M357 210 V230"/><path d="M425 261 H443"/>
+      <path d="M580 175 H648"/><path d="M580 81 Q615 81 648 81"/>
+      <path d="M810 112 V130"/><path d="M810 218 V236"/>
+      <path d="M720 290 V320 H560 V383"/>
+      <path d="M512 290 V320 H470 V383"/>
+      <path d="M378 410 H192"/><path d="M378 430 H300 V480 H192"/>
+      <path d="M630 410 H688"/><path d="M830 410 H843"/>
+      <path d="M690 493 H632"/><path d="M845 493 L832 493"/>
+    </g>
+    <g font-size="11" fill="#52525B"><text x="232" y="166">MQTT</text><text x="590" y="168">features</text><text x="300" y="400">SSE</text><text x="640" y="402">métricas</text><text x="640" y="486">deploy</text></g>
+  </svg>
+  <h4>Fluxo de ponta a ponta</h4>
+  <p>Leitura do sensor › validação (HMAC, anti-replay, faixa física) › data lake › features › rede neural prevê o risco › se o nível sobe para <i>Alerta</i>, o agente comunicador redige o alerta › SSE para o app › morador pede ajuda ou relata › multiagentes triam › fila priorizada no console, com nome e telefone mascarados (LGPD) › indicadores no dashboard e no Power BI.</p>
+  <p>Níveis no padrão da Defesa Civil: <b>Observação › Atenção › Alerta › Alerta máximo</b>. O nível final é o maior entre a regra por cota da régua e a probabilidade do modelo (limiares 0,35 / 0,60 / 0,85).</p>
+  <div class="g2">
+    <div>
+      <h4>Organização do repositório</h4>
+<pre>area1_ia/       triagem, RAG, agentes, MLP
+area2_bigdata/  histórico, MQTT/Kafka,
+                pipeline, Spark, Power BI
+area3_mvp_iot/  api/ (FastAPI), web/,
+                iot/ (ESP32 + simulador)
+area4_devops/   Jenkins, monitoramento,
+                segurança, testes
+comum/ config/  níveis, HMAC, território
+docs/           contratos, design, erros
+entrega/        PDF, .txt, pitch, evidências</pre>
+    </div>
+    <div>
+      <h4>Tecnologias × conteúdo do curso</h4>
+      <table>
+        <tr><th>Tecnologia</th><th>Área</th><th>Fase</th></tr>
+        <tr><td>Python, pandas, scikit-learn, MLP</td><td>1, 2</td><td>F1–F2</td></tr>
+        <tr><td>Prompts, LLM local opcional</td><td>1</td><td>F3</td></tr>
+        <tr><td>RAG</td><td>1</td><td>F4</td></tr>
+        <tr><td>Multiagentes</td><td>1</td><td>F6</td></tr>
+        <tr><td>Spark, Kafka, data lake</td><td>2</td><td>F4–F5</td></tr>
+        <tr><td>DAX / Power BI</td><td>2</td><td>F6–F7</td></tr>
+        <tr><td>Wokwi, ESP32, C/C++, MQTT</td><td>3</td><td>F3–F5</td></tr>
+        <tr><td>Segurança IoT e aplicações</td><td>3, 4</td><td>F4–F5</td></tr>
+        <tr><td>Docker, Jenkins, CI/CD, monitoramento</td><td>4</td><td>F4–F7</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ÁREA 1 ================= -->
+<section class="pag">
+  <div class="sec-cab"><b>3</b> Área 1 de 4 · 4 pontos</div>
+  <h2>IA e automação</h2>
+  <p class="lead">Duas partes reais do problema: <b>prever o transbordo antes</b> da régua chegar na cota e <b>triar os pedidos de ajuda</b> para a Defesa Civil atender primeiro quem mais precisa. Tudo roda offline, sem chave de API e sem GPU.</p>
+
+  <h3>01 · IA aplicada <span class="pts">1,5 pt</span></h3>
+  <div class="g2">
+    <div class="caixa">
+      <h4>Previsão de transbordo (rede neural)</h4>
+      <p><code>StandardScaler › MLPClassifier(32, 16)</code> com early stopping, alvo <code>transbordo_2h</code>, sobre 10 features: nível, variação em 1 h e 3 h, chuva em 1/3/6/24 h, umidade do solo, % da cota de alerta e hora.</p>
+      <p>Split temporal (85/15) e validação walk-forward. Limiar pelo maior F2 (recall pesa 2×: perder uma enchente custa mais que um alarme a mais).</p>
+    </div>
+    <div class="caixa">
+      <h4>Triagem de relatos (ML + regras)</h4>
+      <p>TF-IDF de palavras (1–2 gramas) e de caracteres (2–5, aguenta erro de digitação e gíria) › regressão logística para <b>categoria</b> (6 classes) e <b>gravidade</b> (1–5).</p>
+      <p>Léxico de vulneráveis com negação (“não tem criança aqui” não conta) e regras de segurança R1–R4 por cima do modelo, para risco de vida nunca ficar com gravidade baixa.</p>
+    </div>
+  </div>
+
+  <h3>02 · Prompts, agentes e automação <span class="pts">1 pt</span></h3>
+  <table>
+    <tr><th>Agente</th><th>O que faz</th><th>Regras de automação</th></tr>
+    <tr><td><b>Triagem</b></td><td>categoria, gravidade e vulneráveis do relato</td><td>R1 termos de risco de vida › gravidade 4–5; R2 ilhado nunca abaixo de 4; R3 “preso em casa” › pessoa ilhada</td></tr>
+    <tr><td><b>Protocolos (RAG)</b></td><td>busca em 12 documentos de orientação (45 trechos, TF-IDF + cosseno)</td><td>consulta expandida com categoria e vulneráveis; máx. 2 trechos por documento; caso grave sempre começa com “ligue 193 ou 199”</td></tr>
+    <tr><td><b>Prioridade</b></td><td>nota 0–100 explicável no rastro</td><td>G gravidade (0–50) + V vulneráveis (0–20) + R risco do bairro (0–20) + E espera (0–10)</td></tr>
+    <tr><td><b>Comunicador</b></td><td>título, SMS e mensagem completa do alerta</td><td>SMS ≤ 160 caracteres; 193/199 obrigatórios em Alerta; descarta resposta do LLM que invente telefone ou endereço</td></tr>
+  </table>
+  <p>Cada chamada devolve um <b>rastro</b> com o agente, o tempo em ms e um resumo da saída, mostrado ao morador e ao operador. Os prompts ficam versionados em <code>area1_ia/prompts/</code>, com entradas, formato de saída e regras de segurança. Trecho do prompt do agente comunicador (usado quando o LLM local está ligado; sem ele, o texto sai de modelos fixos com as mesmas regras):</p>
+<pre>Você redige alertas de enchente do Margem para moradores da zona leste de São Paulo, junto com a Defesa Civil.
+Escreva em português do Brasil, em tom calmo, direto e respeitoso, com frases curtas e verbos no imperativo.
+Não invente endereços, abrigos, horários nem telefones. Use apenas o abrigo informado e os telefones 193, 199, 192, 190 e 40199.
+Nos níveis Alerta e Alerta máximo, cite 193 ou 199 no SMS e na mensagem completa.
+Responda SOMENTE com um objeto JSON com as chaves "titulo", "mensagem_curta" e "mensagem_completa".
+
+BAIRRO: $bairro · NÍVEL DE RISCO: $nivel · CHANCE DE TRANSBORDO EM 2 H: $prob
+PONTO DE APOIO DO BAIRRO: $abrigo · AÇÕES RECOMENDADAS: $acoes</pre>
+</section>
+
+<section class="pag">
+  <h3>03 · Demonstração: entrada e saída <span class="pts">0,5 pt</span></h3>
+  <div class="g2">
+    <div>
+      <h4>Entrada (relato do morador + contexto)</h4>
+<pre>"minha avó acamada tá presa no quarto e a água tá subindo,
+ não consigo carregar ela sozinho"
+bairro: jardim-pantanal · risco: alerta máximo (0,91)
+espera: 5 min</pre>
+      <h4>Saída dos agentes</h4>
+<pre>categoria:  pessoa_ilhada · gravidade 4/5
+vulneráveis: idoso, acamado
+prioridade: 78 = G37.5 + V20 + R20 + E0.8
+rastro:     triagem 2 ms › protocolos 1 ms › prioridade 0 ms
+orientação: "Ligue 193. Vá para o ponto mais alto da casa
+ (andar de cima, laje) levando celular, água e remédios.
+ Se não der para tirar a pessoa acamada com segurança,
+ ligue 193 e avise. Ajude primeiro a pessoa idosa..."
+fontes:     10_pessoa_ilhada_resgate.md,
+            04_evacuacao_vulneraveis.md</pre>
+      <p class="criterio">Mais 5 exemplos em <code>area1_ia/avaliacao/saida/exemplos_entrada_saida.json</code>.</p>
+    </div>
+    <figure class="fig alta"><img src="../evidencias/telas_web/06_app_relatar_triagem_desktop.png" alt=""><figcaption>No app, o relato passa pelos 3 agentes e o rastro aparece com tempo e fontes.</figcaption></figure>
+  </div>
+  <figure class="fig media"><img src="../evidencias/telas_web/12_console_alerta_rascunho_desktop.png" alt=""><figcaption>Agente comunicador: o operador gera o rascunho do alerta (SMS + mensagem completa), revisa e emite.</figcaption></figure>
+</section>
+
+<section class="pag">
+  <h3>04 · Lógica e ganho: antes × depois <span class="pts">1 pt</span></h3>
+  <p><b>Antes</b> = regra por cota (avisar quando o nível passa da cota de alerta) e triagem por palavra-chave. <b>Depois</b> = Margem. Avaliação walk-forward em 243 dias (17 transbordos, 4 estações), em que cada bloco é testado com o modelo treinado só no passado; triagem testada em 94 relatos escritos à mão.</p>
+  <table>
+    <tr><th></th><th class="n">Antes</th><th class="n">Margem</th></tr>
+    <tr class="destaque"><td>Antecedência média do aviso</td><td class="n">162 min</td><td class="n">222 min</td></tr>
+    <tr class="destaque"><td>Enchentes avisadas com ≥ 2 h de folga</td><td class="n">24%</td><td class="n">82%</td></tr>
+    <tr><td>Enchentes avisadas com ≥ 1 h de folga</td><td class="n">71%</td><td class="n">100%</td></tr>
+    <tr><td>Falsos alarmes por mês (custo)</td><td class="n">2,2</td><td class="n">2,8</td></tr>
+    <tr class="destaque"><td>Triagem: categoria certa (acurácia)</td><td class="n">62%</td><td class="n">87%</td></tr>
+    <tr><td>Triagem: recall de casos graves (gravidade 4–5)</td><td class="n">24%</td><td class="n">70%</td></tr>
+    <tr><td>Posição média dos casos críticos na fila (30 lotes de 40)</td><td class="n">20,6º</td><td class="n">11,0º</td></tr>
+    <tr><td>RAG: documento certo no top 3 (20 perguntas)</td><td class="n">—</td><td class="n">100%</td></tr>
+    <tr><td>Tempo de triagem por relato</td><td class="n">2–4 min (manual)</td><td class="n">2,7 ms</td></tr>
+  </table>
+  <div class="g2 graf">
+    <figure class="fig"><img src="../../area1_ia/avaliacao/saida/curva_antecedencia.png" alt=""><figcaption>Antecedência do aviso por transbordo: regra por cota × rede neural.</figcaption></figure>
+    <figure class="fig"><img src="../../area1_ia/avaliacao/saida/comparacao_baseline_modelo.png" alt=""><figcaption>Triagem: palavra-chave × ML + regras.</figcaption></figure>
+    <figure class="fig"><img src="../../area1_ia/avaliacao/saida/fila_priorizada.png" alt=""><figcaption>Fila: ordem de chegada × priorizada pela IA.</figcaption></figure>
+    <figure class="fig"><img src="../../area1_ia/avaliacao/saida/matriz_confusao_categoria.png" alt=""><figcaption>Matriz de confusão da categoria (teste escrito à mão).</figcaption></figure>
+  </div>
+  <p class="criterio">Leitura honesta: em produção o Margem usa o maior nível entre a régua e o modelo, então herda os falsos alarmes da régua; o ganho é antecedência. Relatório completo em <code>area1_ia/avaliacao/saida/relatorio_ia.md</code>, regenerado com <code>python -m area1_ia.avaliacao</code>.</p>
+</section>
+
+<!-- ================= ÁREA 2 ================= -->
+<section class="pag">
+  <div class="sec-cab"><b>4</b> Área 2 de 4 · 4 pontos</div>
+  <h2>Big Data <span class="c">e visualização</span></h2>
+  <p class="lead">Os dados das estações viram informação para decidir: onde o rio vai sair, quem está em risco e se a Defesa Civil está chegando a tempo.</p>
+
+  <h3>01 · Estrutura dos dados <span class="pts">1 pt</span></h3>
+  <div class="g-cel">
+    <table>
+      <tr><th>Camada</th><th>Conteúdo</th></tr>
+      <tr><td><b>Bruta</b></td><td>cada leitura como chegou (JSONL por dia e origem: MQTT, HTTP, histórico)</td></tr>
+      <tr><td><b>Confiável</b></td><td>validada (assinatura, faixa física, sem repetição), tipada e deduplicada; 1 linha por estação + horário</td></tr>
+      <tr><td><b>Refinada</b></td><td>leituras por hora com as features do modelo, risco por bairro, indicadores e CSVs do Power BI</td></tr>
+      <tr><td><b>Quarentena</b></td><td>o que foi recusado, com o motivo (<code>assinatura_invalida</code>, <code>seq_repetido</code>, <code>fora_da_faixa</code>…)</td></tr>
+    </table>
+    <img src="../../area3_mvp_iot/web/img/3d/camadas.svg" alt="" style="width:100%;max-height:48mm;background:#0B0B0C;border-radius:10px;padding:4mm">
+  </div>
+  <h4>Modelo de dados (estrela) do Power BI</h4>
+  <table>
+    <tr><th>Tabela</th><th>Grão</th><th>Colunas principais</th></tr>
+    <tr><td><code>fato_leitura_hora</code></td><td>estação × hora</td><td>nível, variações, chuvas, umidade, % da cota, prob_2h, nivel_risco, transbordo_2h</td></tr>
+    <tr><td><code>fato_ocorrencia</code></td><td>1 por ocorrência</td><td>categoria, gravidade, prioridade, vulneráveis, status, tempos de atendimento</td></tr>
+    <tr><td><code>fato_alerta</code></td><td>1 por alerta</td><td>bairro, estação, nível, motivo, emitido_em, encerrado_em</td></tr>
+    <tr><td><code>dim_bairro</code> · <code>dim_estacao</code> · <code>dim_morador</code></td><td>1 por item</td><td>população, cotas de alerta e transbordo, vulnerabilidades (telefone mascarado)</td></tr>
+  </table>
+
+  <h3>02 · Ingestão e processamento <span class="pts">1 pt</span></h3>
+  <ol class="passos">
+    <li><span><b>Coleta</b>: ESP32 / simulador publicam a leitura assinada no Mosquitto (MQTT), uma a cada 5 min (3 s no modo acelerado).</span></li>
+    <li><span><b>Validação na borda</b>: a ponte MQTT confere HMAC, token da estação, faixa física e <code>seq</code> anti-replay. Inválido vai para a quarentena com o motivo.</span></li>
+    <li><span><b>Streaming</b>: a ponte publica no <b>Kafka</b>; o consumidor grava a camada bruta.</span></li>
+    <li><span><b>Processamento</b>: pipeline incremental (pandas) ou o mesmo pipeline em <b>Spark</b> gera confiável e refinada, sem duplicar ao reprocessar.</span></li>
+    <li><span><b>Consumo</b>: a API lê a refinada para o modelo e o dashboard; <code>atualizar_dados.py</code> exporta os CSVs do Power BI.</span></li>
+  </ol>
+  <div class="g2">
+<pre># Job Spark no modo completo (docker compose run spark-job)
+{ "confiavel_leituras": 642,
+  "leituras_hora": 68,
+  "quarentena": 0 }</pre>
+<pre># Ponte MQTT recusando mensagens forjadas
+EST-PANTANAL-01 -> rejeitada (seq_repetido)
+EST-PANTANAL-01 -> rejeitada (assinatura_invalida)
+EST-PANTANAL-01 -> rejeitada (json_invalido)</pre>
+  </div>
+  
+</section>
+
+<section class="pag">
+  <h3>03 · Dashboard: 6 indicadores com filtros <span class="pts">1,5 pt</span></h3>
+  <p>No console da Defesa Civil, com filtros de período (24 h a 1 ano), bairro e estação, e um ⓘ em cada indicador mostrando a fórmula e o DAX equivalente. A decisão que cada um apoia:</p>
+  <table>
+    <tr><th>Indicador</th><th>Ajuda a decidir</th></tr>
+    <tr><td>1 · Nível vs cota por estação</td><td>qual estação está perto de transbordar</td></tr>
+    <tr><td>2 · Risco previsto por bairro (2 h)</td><td>para onde mandar alerta e equipe primeiro</td></tr>
+    <tr><td>3 · Ocorrências por categoria × gravidade</td><td>que tipo de equipe acionar (resgate, energia, estrutura)</td></tr>
+    <tr><td>4 · Tempo médio até atendimento e % em 30 min</td><td>se precisa reforçar o plantão</td></tr>
+    <tr><td>5 · Vulneráveis em área de risco e % com check-in</td><td>quem ainda não respondeu e precisa de visita</td></tr>
+    <tr><td>6 · Antecedência do alerta (modelo × régua)</td><td>se o modelo está ganhando tempo de verdade</td></tr>
+  </table>
+  <figure class="fig alta"><img src="../evidencias/telas_web/17_console_dashboard_desktop.png" alt=""><figcaption>Dashboard do console durante o cenário de enchente (filtro: 30 dias, todos os bairros). O indicador 6 mede só a janela filtrada; a avaliação completa do modelo (área 1) usa 243 dias de teste walk-forward: 222 min contra 162 min da régua.</figcaption></figure>
+</section>
+
+<section class="pag">
+  <div class="g2">
+    <figure class="fig"><img src="../evidencias/powerbi/01_visao_geral.png" alt=""><figcaption>Power BI (PBIP no repositório): visão geral.</figcaption></figure>
+    <figure class="fig"><img src="../evidencias/powerbi/02_antecedencia_alertas.png" alt=""><figcaption>Power BI: antecedência e alertas.</figcaption></figure>
+  </div>
+  <h3>04 · Funções analíticas (DAX) <span class="pts">0,5 pt</span></h3>
+  <p>26 medidas DAX no modelo semântico do Power BI, cada uma com a fórmula em Python equivalente usada no dashboard web (<code>area2_bigdata/analytics/MEDIDAS.md</code>). Exemplos:</p>
+<pre>Tempo Medio Atendimento (min) =
+AVERAGEX (
+    FILTER ( fato_ocorrencia, NOT ISBLANK ( fato_ocorrencia[atendido_em] ) ),
+    ( fato_ocorrencia[atendido_em] - fato_ocorrencia[criado_em] ) * 1440 )
+
+% Atendidas em 30 min =
+VAR Atendidas = CALCULATE ( COUNTROWS ( fato_ocorrencia ), NOT ISBLANK ( fato_ocorrencia[atendido_em] ) )
+VAR Rapidas   = CALCULATE ( COUNTROWS ( fato_ocorrencia ), fato_ocorrencia[tempo_atendimento_min] &lt;= 30 )
+RETURN IF ( Atendidas = 0, BLANK (), DIVIDE ( Rapidas, Atendidas ) * 100 )
+
+Vulneraveis em Risco =
+VAR BairrosEmAlerta = FILTER ( VALUES ( dim_bairro[bairro_id] ), [Ordem Risco Atual] &gt;= 2 )
+RETURN CALCULATE ( COUNTROWS ( dim_morador ),
+    dim_morador[vulnerabilidades] &lt;&gt; "", dim_morador[em_area_risco] = TRUE (),
+    KEEPFILTERS ( TREATAS ( BairrosEmAlerta, dim_morador[bairro_id] ) ) )</pre>
+  <figure class="fig media"><img src="../evidencias/telas_web/18_console_dashboard_filtro_formula_desktop.png" alt=""><figcaption>O ⓘ de cada indicador mostra a fórmula e o DAX equivalente.</figcaption></figure>
+</section>
+
+<!-- ================= ÁREA 3 ================= -->
+<section class="pag">
+  <div class="sec-cab"><b>5</b> Área 3 de 4 · 4 pontos</div>
+  <h2>MVP, IoT <span class="c">e experiência digital</span></h2>
+  <h3>01 · Protótipo: 12 telas funcionais, web e mobile <span class="pts">1 pt</span></h3>
+  <p>App do morador (PWA, funciona sem internet com o último estado em cache): entrar, cadastro com LGPD, meu alerta, mapa, relatar, meus relatos. Console da Defesa Civil: fila priorizada, check-ins, alertas, dashboard, estações IoT. Landing pública. Acessibilidade: letra grande, alto contraste, leitura do alerta em voz, alvos de toque de 48 px. Abaixo, uma amostra; as 25 capturas estão em <code>entrega/evidencias/telas_web</code>.</p>
+  <div class="g3">
+    <figure class="fig media"><img src="../evidencias/telas_web/01_landing_desktop.png" alt=""><figcaption>Landing pública.</figcaption></figure>
+    <figure class="fig media"><img src="../evidencias/telas_web/04_app_alerta_desktop.png" alt=""><figcaption>App · Meu alerta (régua, chance em 100, o que fazer, check-in).</figcaption></figure>
+    <figure class="fig media"><img src="../evidencias/telas_web/05_app_mapa_desktop.png" alt=""><figcaption>App · Mapa com estações, bairros e pontos de apoio.</figcaption></figure>
+    <figure class="fig media"><img src="../evidencias/telas_web/03_app_cadastro_desktop.png" alt=""><figcaption>App · Cadastro com consentimento LGPD.</figcaption></figure>
+    <figure class="fig media"><img src="../evidencias/telas_web/09_console_fila_normal_desktop.png" alt=""><figcaption>Console · Fila de ocorrências priorizada pela IA.</figcaption></figure>
+    <figure class="fig media"><img src="../evidencias/telas_web/16_console_checkins_desktop.png" alt=""><figcaption>Console · Check-ins com nome e telefone mascarados.</figcaption></figure>
+  </div>
+</section>
+
+<section class="pag">
+  <div class="g3">
+    <figure class="fig"><img src="../evidencias/telas_web/22b_app_alerta_mobile_tela.png" alt=""><figcaption>Celular · Meu alerta.</figcaption></figure>
+    <figure class="fig"><img src="../evidencias/testes/e2e/e2e_g1_landing_375.png" alt="" style="max-height:120mm;object-fit:cover;object-position:top"><figcaption>Celular · Landing (375 px).</figcaption></figure>
+    <figure class="fig"><img src="../evidencias/testes/e2e/e2e_f1_demo_app.png" alt="" style="max-height:120mm;object-fit:cover;object-position:top"><figcaption>Modo demonstração (GitHub Pages, sem API).</figcaption></figure>
+  </div>
+  <h3>02 · IoT: 3 sensores no ESP32 + simulador das 4 estações <span class="pts">1 pt</span></h3>
+  <table>
+    <tr><th>Componente (Wokwi)</th><th>Mede / faz</th><th>Pino</th></tr>
+    <tr><td>HC-SR04 (ultrassom)</td><td>distância até a água › <code>nível = 520 − distância</code> (cm)</td><td>TRIG 5, ECHO 18</td></tr>
+    <tr><td>Potenciômetro</td><td>pluviômetro (0–200 mm/h)</td><td>34</td></tr>
+    <tr><td>Slide potenciômetro</td><td>umidade do solo (%)</td><td>35</td></tr>
+    <tr><td>OLED SSD1306, LEDs verde/amarelo/vermelho, buzzer</td><td>mostra a leitura e toca o alarme local mesmo sem internet</td><td>SDA 21, SCL 22 · 25/26/27 · 13</td></tr>
+  </table>
+  <p>O firmware (C++, <code>area3_mvp_iot/iot/firmware/</code>) publica JSON no MQTT com <b>assinatura HMAC-SHA256</b> e número de sequência anti-replay. O simulador em Python reproduz as 4 estações com os cenários normal, chuva forte e enchente, usado no modo completo e na demonstração. Projeto no Wokwi: {{LINK_WOKWI}}.</p>
+<pre>{"estacao_id": "EST-PANTANAL-01", "ts": "2026-11-09T02:57:05-03:00", "seq": 1794202539,
+ "nivel_cm": 148.8, "chuva_mm_h": 9.4, "umidade_solo_pct": 41.7, "bateria_pct": 95,
+ "firmware": "sim-1.0.0", "sig": "78a825a6a5fd7ec749dce26724d73938b769295e5f03e286e0029eda5a347d16"}</pre>
+</section>
+
+<section class="pag">
+  <h3>03 · Fluxo funcional: um uso completo, do sensor ao socorro <span class="pts">1 pt</span></h3>
+  <p>Roteiro reproduzível pelo README (<code>python iniciar.py</code>), coberto pelo teste E2E <code>test_cenario_enchente_no_console_gera_alerta_no_app</code>:</p>
+  <ol class="passos">
+    <li><span>O operador liga o cenário <b>Enchente</b> no console. As estações mostram o rio subindo.</span></li>
+    <li><span>A rede neural eleva o risco e o sistema emite o <b>alerta automático</b>, que chega ao app da Maria por SSE.</span></li>
+    <li><span>O operador gera um rascunho com o <b>agente comunicador</b>, revisa e confirma o envio.</span></li>
+    <li><span>Maria recebe o alerta, com o que fazer e o ponto de apoio, e toca em <b>Preciso de ajuda</b>.</span></li>
+    <li><span>O pedido entra nos check-ins e o relato entra na <b>fila priorizada</b>, com dados mascarados.</span></li>
+  </ol>
+  <figure class="fig media"><img src="../evidencias/telas_web/10_console_estacoes_enchente_desktop.png" alt=""><figcaption>1 · Console · Estações IoT durante o cenário Enchente: nível de cada estação contra as cotas.</figcaption></figure>
+  <div class="g2">
+    <figure class="fig media"><img src="../evidencias/telas_web/11_console_fila_enchente_desktop.png" alt=""><figcaption>1–2 · Fila do console com os bairros em Alerta máximo.</figcaption></figure>
+    <figure class="fig media"><img src="../evidencias/telas_web/13_console_alerta_confirmar_desktop.png" alt=""><figcaption>3 · Confirmação antes de emitir (não dá para desfazer o SMS).</figcaption></figure>
+    <figure class="fig media"><img src="../evidencias/telas_web/14_app_alerta_recebido_desktop.png" alt=""><figcaption>4 · Alerta recebido no app da moradora.</figcaption></figure>
+    <figure class="fig media"><img src="../evidencias/telas_web/15_app_pedir_ajuda_desktop.png" alt=""><figcaption>4 · Pedido de ajuda com observação.</figcaption></figure>
+  </div>
+  <h3>04 · Arquitetura <span class="pts">1 pt</span></h3>
+  <p>Diagrama geral com as 4 áreas e as conexões na seção 2 deste documento.</p>
+</section>
+
+<!-- ================= ÁREA 4 ================= -->
+<section class="pag">
+  <div class="sec-cab"><b>6</b> Área 4 de 4 · 3 pontos</div>
+  <h2>DevOps, segurança <span class="c">e qualidade</span></h2>
+  <h3>01 · Organização <span class="pts">0,5 pt</span></h3>
+  <p>Repositório Git (<code>github.com/ryuzeen/margem-citizentech</code>) dividido por área, com README na raiz e em cada área, contratos entre áreas (<code>docs/CONTRATOS.md</code>), decisões, roadmap e registro de erros corrigidos. Configuração em <code>.env</code> (fora do Git), com <code>.env.example</code> de demonstração.</p>
+  <h3>02 · DevOps: Docker, CI/CD e monitoramento funcionando <span class="pts">1 pt</span></h3>
+  <ul>
+    <li><b>Docker Compose</b> com perfis: só a aplicação; <i>completo</i> (Mosquitto, Kafka, ponte, consumidor, simulador, Spark, Prometheus, Grafana); <i>cicd</i> (Jenkins).</li>
+    <li><b>Jenkins</b> configurado por código (JCasC): consulta o GitHub a cada 2 min e, a cada commit, roda ambiente › lint › testes (JUnit + cobertura) › build da imagem › deploy › smoke test, sem passo manual.</li>
+    <li><b>GitHub Actions</b>: testes, build da imagem e publicação do site no GitHub Pages.</li>
+    <li><b>Prometheus + Grafana</b>: a API expõe <code>/metrics</code> (requisições, latência, leituras aceitas e recusadas, nível por estação, risco por bairro, alertas); regras de alerta no Prometheus.</li>
+  </ul>
+  <div class="g2">
+    <figure class="fig"><img src="../evidencias/devops/01_jenkins_job_stage_view.png" alt=""><figcaption>Jenkins: etapas do pipeline, build #2 verde.</figcaption></figure>
+    <figure class="fig"><img src="../evidencias/devops/05_jenkins_build2_testes.png" alt=""><figcaption>Jenkins: resultado dos testes (JUnit).</figcaption></figure>
+    <figure class="fig"><img src="../evidencias/devops/10_github_actions_run_verde.png" alt=""><figcaption>GitHub Actions: testes, imagem e Pages.</figcaption></figure>
+    <figure class="fig"><img src="../evidencias/devops/06_grafana_dashboard_margem.png" alt=""><figcaption>Grafana: painel “Margem” com dados ao vivo.</figcaption></figure>
+  </div>
+</section>
+
+<section class="pag">
+  <div class="g2">
+    <figure class="fig"><img src="../evidencias/devops/07_prometheus_targets_up.png" alt=""><figcaption>Prometheus: target <code>margem-api</code> UP.</figcaption></figure>
+    <figure class="fig"><img src="../evidencias/devops/08_prometheus_regras_alerta.png" alt=""><figcaption>Prometheus: regras de alerta.</figcaption></figure>
+  </div>
+  <h3>03 · Segurança: 10 práticas <span class="pts">0,5 pt</span></h3>
+  <table>
+    <tr><th>Prática</th><th>Onde</th><th>Prova</th></tr>
+    <tr><td>Autenticação JWT (expira em 8 h, segredo aleatório no <code>.env</code>)</td><td><code>api/seguranca.py</code></td><td>teste automático</td></tr>
+    <tr><td>Senhas com bcrypt (custo 12)</td><td><code>seguranca.gerar_hash</code></td><td>teste automático</td></tr>
+    <tr><td>Autorização por papel (morador × Defesa Civil)</td><td><code>exigir_papel()</code></td><td>401 / 403 / 200 no roteiro manual</td></tr>
+    <tr><td>Validação de entrada (Pydantic, campo extra recusado)</td><td><code>api/modelos.py</code></td><td>422 ao mandar <code>"papel"</code> no cadastro</td></tr>
+    <tr><td>HMAC-SHA256 + token por estação + anti-replay nas leituras IoT</td><td><code>comum/seguranca_iot.py</code>, firmware</td><td>replay, adulterada e token errado recusados</td></tr>
+    <tr><td>Limite de requisições (login, relatos, IoT)</td><td><code>LimitadorTaxa</code></td><td>429 depois do limite</td></tr>
+    <tr><td>LGPD: consentimento, dado sensível opcional, nome e telefone mascarados</td><td><code>mascarar_*</code></td><td>E2E: “Maria S.”, <code style="white-space:nowrap">(11) •••••-••21</code></td></tr>
+    <tr><td>Login sem revelar se o e-mail existe (mesma resposta e tempo)</td><td><code>rotas/auth.py</code></td><td>teste automático</td></tr>
+    <tr><td>Cabeçalhos HTTP (CSP, X-Frame-Options, nosniff…)</td><td><code>api/app.py</code></td><td>teste automático</td></tr>
+    <tr><td>Segredos fora do código, contêiner sem root, SQL parametrizado</td><td><code>.gitignore</code>, <code>Dockerfile</code></td><td>ruff com regras de segurança (bandit)</td></tr>
+  </table>
+  <h3>04 · Testes: plano com 25 casos e execução <span class="pts">1 pt</span></h3>
+  <div class="nums">
+    <div><b>123</b><span>testes unitários e de integração, todos passando (cobertura 75%)</span></div>
+    <div><b>8</b><span>testes ponta a ponta no navegador (Playwright), todos passando</span></div>
+    <div><b>25</b><span>casos no plano de testes, todos com resultado igual ao esperado</span></div>
+    <div><b>3</b><span>defeitos achados nos testes e corrigidos</span></div>
+  </div>
+</section>
+
+<section class="pag">
+  <table>
+    <tr><th>ID</th><th>Área</th><th>Caso</th><th>Resultado</th></tr>
+    <tr><td>CT-01</td><td>IA</td><td>Triagem melhor que palavra-chave</td><td class="ok">OK · 0,617 › 0,872</td></tr>
+    <tr><td>CT-02</td><td>IA</td><td>RAG devolve o protocolo certo</td><td class="ok">OK · top 3 = 1,00</td></tr>
+    <tr><td>CT-03</td><td>IA</td><td>Rastro dos 3 agentes e prioridade para vulneráveis</td><td class="ok">OK</td></tr>
+    <tr><td>CT-04</td><td>IA</td><td>Fila priorizada × ordem de chegada</td><td class="ok">OK · 20,6º › 11,0º</td></tr>
+    <tr><td>CT-05</td><td>IA</td><td>Rede neural antecipa mais que a régua</td><td class="ok">OK · 162 › 222 min (walk-forward)</td></tr>
+    <tr><td>CT-06</td><td>IA</td><td>SMS ≤ 160 e fallback quando o LLM falha</td><td class="ok">OK · 52/52</td></tr>
+    <tr><td>CT-07</td><td>Big Data</td><td>Inválido vai para a quarentena com motivo</td><td class="ok">OK · 14/14</td></tr>
+    <tr><td>CT-08</td><td>Big Data</td><td>Pipeline idempotente e incremental</td><td class="ok">OK · 8/8</td></tr>
+    <tr><td>CT-09</td><td>Big Data</td><td>Job Spark no modo completo</td><td class="ok">OK · 642 / 68 / 0</td></tr>
+    <tr><td>CT-10</td><td>Big Data / IoT</td><td>MQTT › ponte › Kafka › consumidor › bruta</td><td class="ok">OK · 2532 aceitas</td></tr>
+    <tr><td>CT-11</td><td>IoT / Seg.</td><td>HMAC e anti-replay barram leitura forjada (MQTT)</td><td class="ok">OK</td></tr>
+    <tr><td>CT-12</td><td>IoT / Seg.</td><td>HMAC, token e anti-replay na rota HTTP</td><td class="ok">OK · 202 / 422 / 422 / 401</td></tr>
+    <tr><td>CT-13</td><td>MVP</td><td>Alerta de ponta a ponta (automático e manual)</td><td class="ok">OK</td></tr>
+    <tr><td>CT-14</td><td>MVP / LGPD</td><td>Pedido de ajuda chega mascarado</td><td class="ok">OK</td></tr>
+    <tr><td>CT-15</td><td>MVP / LGPD</td><td>Cadastro exige consentimento (front e API)</td><td class="ok">OK</td></tr>
+    <tr><td>CT-16</td><td>MVP</td><td>Modo demonstração e site publicado</td><td class="ok">OK</td></tr>
+    <tr><td>CT-17</td><td>MVP</td><td>Mobile 375 px sem rolagem horizontal</td><td class="ok">OK</td></tr>
+    <tr><td>CT-18</td><td>DevOps</td><td>Pipeline Jenkins verde</td><td class="ok">OK · build #2</td></tr>
+    <tr><td>CT-19</td><td>DevOps</td><td>GitHub Actions verde</td><td class="ok">OK</td></tr>
+    <tr><td>CT-20</td><td>DevOps</td><td>Healthcheck e monitoramento</td><td class="ok">OK</td></tr>
+    <tr><td>CT-21</td><td>Segurança</td><td>RBAC e JWT</td><td class="ok">OK · 401/403/200/403/401</td></tr>
+    <tr><td>CT-22</td><td>Segurança</td><td>Rate limit e login sem vazar informação</td><td class="ok">OK</td></tr>
+    <tr><td>CT-23</td><td>Segurança</td><td>Cabeçalhos HTTP de segurança</td><td class="ok">OK</td></tr>
+    <tr><td>CT-24</td><td>Qualidade</td><td>Lint e testes automatizados</td><td class="ok">OK · 123 + 8</td></tr>
+    <tr><td>CT-25</td><td>Carga</td><td>10 clientes em paralelo, 1600 requisições</td><td class="ok">OK · 0 erros, p95 ≤ 60 ms</td></tr>
+  </table>
+  <p class="criterio">Plano completo (escopo, estratégia, ambiente, passos, evidência de cada caso e defeitos) em <code>area4_devops/testes/PLANO_DE_TESTES.md</code>; saídas em <code>entrega/evidencias/testes/</code>.</p>
+
+</section>
+
+<!-- ================= DIFERENCIAIS ================= -->
+<section class="pag">
+  <div class="sec-cab"><b>7</b> Diferenciais</div>
+  <h2>O que vai <span class="c">além do pedido</span></h2>
+  <table>
+    <tr><th>Diferencial</th><th>Como o Margem atende</th></tr>
+    <tr><td><b>Áreas integradas</b></td><td>As leituras dos sensores (área 3) passam pelo data lake (área 2), alimentam a rede neural (área 1) e o dashboard (área 2); a API e o console (área 3) usam os agentes de IA; tudo é testado e publicado pelo pipeline (área 4).</td></tr>
+    <tr><td><b>Pipeline ponta a ponta</b></td><td>Um commit na <code>main</code> dispara o Jenkins (lint › testes › build › deploy › smoke) e o GitHub Actions (testes › imagem › Pages), sem passo manual.</td></tr>
+    <tr><td><b>IA medida</b></td><td>Antes × depois com validação walk-forward, conjunto de teste escrito à mão, tempo de triagem medido e limitações declaradas.</td></tr>
+    <tr><td><b>Validado com gente real</b></td><td>Entrevistas com moradores e possíveis usuários, registradas abaixo.</td></tr>
+  </table>
+
+  <h3>Validação com pessoas reais</h3>
+  {{ENTREVISTAS}}
+</section>
+
+<!-- ================= IA GENERATIVA ================= -->
+<section class="pag">
+  <div class="sec-cab"><b>8</b> Transparência</div>
+  <h2>Uso de IA generativa <span class="c">e créditos</span></h2>
+  <table>
+    <tr><th>Ferramenta</th><th>Para quê</th></tr>
+    <tr><td>Claude (Anthropic), via Claude Code</td><td>apoio no planejamento da arquitetura, geração e revisão de partes do código, explicação de erros, revisão de texto da documentação e do roteiro do pitch</td></tr>
+  </table>
+  <p>Todo código e texto gerado com apoio da ferramenta foi lido, executado e revisado pelo grupo antes de entrar no repositório; os resultados foram conferidos rodando os testes (123 automatizados + 8 E2E) e a aplicação. Decisões de produto, escolha do problema, validação com moradores e o vídeo pitch são do grupo. A IA <b>dentro</b> do produto (área 1) é própria e roda offline: modelos treinados por nós com scikit-learn, sem chamada a serviço externo.</p>
+  <h3>Créditos</h3>
+  <ul>
+    <li>Mapa: Leaflet (BSD-2) e dados © colaboradores do OpenStreetMap (ODbL).</li>
+    <li>Ícones: Lucide (ISC). Fontes: Atkinson Hyperlegible Next (Braille Institute), Archivo e IBM Plex Mono (OFL).</li>
+    <li>Contexto do problema: reportagens do Brasil de Fato sobre as enchentes do Jardim Pantanal (24/10/2020 e 14/09/2026).</li>
+    <li>Níveis de alerta inspirados no padrão da Defesa Civil do Estado de São Paulo; orientações da base de conhecimento a partir de material público da Defesa Civil de SP, Corpo de Bombeiros PMESP, Ministério da Saúde e Cemaden.</li>
+  </ul>
+  <h3>Como rodar</h3>
+<pre>python iniciar.py                 # cria o .venv, gera dados e modelo, sobe na 8080
+docker compose --profile completo up -d --build    # modo completo (MQTT, Kafka, Spark, Grafana)
+docker compose --profile cicd up -d --build jenkins # Jenkins em http://localhost:8081
+
+Morador:      maria@demo.margem.app    / Margem@2026
+Defesa Civil: operador@demo.margem.app / DefesaCivil@2026</pre>
+</section>
+</body>
+</html>

@@ -293,7 +293,7 @@ def escrever_relatorio(tri: dict, rag: dict, risco: dict, fila: dict, tempo: dic
         "Leitura honesta: o Margem em produção usa o MAIOR nível entre cota e modelo (contrato §3), então herda os "
         "falsos alarmes da regra por cota; o ganho dele é antecedência. O MLP sozinho mostra quanto daria para "
         "reduzir falsos alarmes se a Defesa Civil alertasse só pelo modelo. O histórico da área 2 tem poucos "
-        "transbordos (90 dias), então os números de evento ali têm margem de erro grande.",
+        "transbordos (17 no teste de 365 dias), então os números de evento ali têm margem de erro grande.",
         "",
         "![Curva de antecedência](curva_antecedencia.png)",
         "",

@@ -65,7 +65,7 @@ def preparar_env() -> None:
 def preparar_dados() -> None:
     refinada = RAIZ / "dados" / "data_lake" / "refinada" / "leituras_hora.parquet"
     if not refinada.exists():
-        etapa("Gerando 90 dias de histórico simulado das estações (Área 2)")
+        etapa("Gerando 365 dias de histórico simulado das estações (Área 2)")
         rodar("-m", "area2_bigdata.historico.gerar")
         etapa("Processando o data lake: bruta → confiável → refinada (Área 2)")
         rodar("-m", "area2_bigdata.processamento")

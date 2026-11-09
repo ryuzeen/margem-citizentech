@@ -25,7 +25,7 @@ area1_ia/            IA e automação (pacote python `area1_ia`)
 area2_bigdata/       Big Data e visualização (pacote `area2_bigdata`)
   ingestao/          gravação na camada bruta, ponte MQTT -> Kafka -> data lake
   processamento/     bruta -> confiavel -> refinada (python) + job Spark equivalente
-  historico/         gerador do histórico simulado (90 dias)
+  historico/         gerador do histórico simulado (365 dias)
   analytics/         medidas/indicadores (equivalentes DAX documentados)
   powerbi/           projeto Power BI (PBIP) lendo a camada refinada
   tests/

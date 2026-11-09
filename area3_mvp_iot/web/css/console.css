@@ -48,7 +48,7 @@ body.console { background: var(--c-fundo); color: var(--c-texto); font-size: var
 .principal { min-width: 0; display: flex; flex-direction: column; }
 .topo-c {
   position: sticky; top: 0; z-index: 30; display: flex; align-items: center; gap: var(--e5); flex-wrap: wrap;
-  padding: var(--e3) var(--e6); min-height: 64px; background: rgb(11 11 12 / 0.8); border-bottom: 1px solid var(--c-linha);
+  padding: var(--e3) var(--e6); min-height: 64px; background: rgb(11 11 12 / 0.97); border-bottom: 1px solid var(--c-linha);
 }
 .topo-c h1 { font-size: 20px; font-stretch: 112%; }
 .topo-c .ctx { color: var(--c-texto-2); font-size: 13.5px; }

@@ -159,8 +159,9 @@ só aparece quando o LLM respondeu e a resposta passou nas validações.
 
 | dados | sistema | antecedência média | avisados >= 1 h antes | falsos alarmes/mês |
 |---|---|---|---|---|
-| histórico área 2 (4 transbordos) | regra por cota | 45 min | 75% | 0,0 |
-| | **Margem (MLP + cota)** | **60-75 min** | **100%** | 0,0-0,5 |
+| histórico área 2 (365 dias, 17 transbordos, walk-forward) | regra por cota | 162 min | 71% | 2,2 |
+| | **Margem (MLP + cota)** | **222 min** | **100%** | 2,8 |
+| | MLP sozinho | 95 min | 82% | **1,2** |
 | fixture 2 anos (16 transbordos) | regra por cota | 112 min | 100% (50% com >= 2 h) | 4,9 |
 | | **Margem (MLP + cota)** | **158 min** | 100% (94% com >= 2 h) | 4,9 |
 | | MLP sozinho | 135 min | 100% (94% com >= 2 h) | **1,4** |
@@ -173,7 +174,7 @@ Triagem automática ~3 ms por relato x 2-4 min na triagem manual (premissa da eq
 - Treino de triagem por template e teste escrito pela equipe: o desempenho com relatos reais será menor.
 - Gravidade é subjetiva e é o ponto fraco (F1 0,58); as regras R1/R2 protegem os casos de risco de vida.
 - O léxico de vulneráveis não entende contexto longo nem doenças ("sogra com alzheimer" não vira idoso).
-- O histórico da área 2 tem só 90 dias e poucos transbordos; os números por evento têm margem de erro grande.
+- O histórico da área 2 é simulado (365 dias, 17 transbordos no teste); os números por evento têm margem de erro grande.
   A fixture é física simplificada (com uma onda de montante não observada para não ficar trivial).
 - O Margem em produção usa o maior nível entre cota e modelo (contrato §3): herda os falsos alarmes da cota.
 - A prioridade usa pesos definidos pela equipe; precisam ser calibrados com a Defesa Civil.

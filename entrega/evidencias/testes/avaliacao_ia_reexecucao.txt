@@ -71,7 +71,7 @@ Por evento (16 transbordos, 109.5 dias de teste, 4 estações):
 | MLP sozinho | 135 min | 1,000 | 0,938 | 1.37 |
 | **Margem: MLP + cota (como roda)** | 158 min | 1,000 | 0,938 | 4.93 |
 
-Leitura honesta: o Margem em produção usa o MAIOR nível entre cota e modelo (contrato §3), então herda os falsos alarmes da regra por cota; o ganho dele é antecedência. O MLP sozinho mostra quanto daria para reduzir falsos alarmes se a Defesa Civil alertasse só pelo modelo. O histórico da área 2 tem poucos transbordos (90 dias), então os números de evento ali têm margem de erro grande.
+Leitura honesta: o Margem em produção usa o MAIOR nível entre cota e modelo (contrato §3), então herda os falsos alarmes da regra por cota; o ganho dele é antecedência. O MLP sozinho mostra quanto daria para reduzir falsos alarmes se a Defesa Civil alertasse só pelo modelo. O histórico da área 2 tem poucos transbordos (17 no teste de 365 dias), então os números de evento ali têm margem de erro grande.
 
 ![Curva de antecedência](curva_antecedencia.png)
 
