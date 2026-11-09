@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Chip de inteligência artificial">
+  <defs>
+    <linearGradient id="topo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4b4b53"/><stop offset=".5" stop-color="#26262b"/><stop offset="1" stop-color="#121214"/>
+    </linearGradient>
+    <linearGradient id="nucleo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#121214"/><stop offset="1" stop-color="#2e2e34"/>
+    </linearGradient>
+    <linearGradient id="ladoE" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1a1d"/><stop offset="1" stop-color="#080809"/></linearGradient>
+    <linearGradient id="ladoD" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f0f11"/><stop offset="1" stop-color="#030304"/></linearGradient>
+    <filter id="sombra" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+  </defs>
+  <ellipse cx="122" cy="196" rx="86" ry="14" fill="#000" opacity=".6" filter="url(#sombra)"/>
+  <g stroke="#3a3a40" stroke-width="6" stroke-linecap="round">
+    <path d="M52 112 l-16 9 M66 120 l-16 9 M80 128 l-16 9 M94 136 l-16 9 M108 144 l-16 9"/>
+    <path d="M132 144 l16 9 M146 136 l16 9 M160 128 l16 9 M174 120 l16 9 M188 112 l16 9"/>
+  </g>
+  <path d="M120 40 L204 88 L120 136 L36 88 Z" fill="url(#topo)"/>
+  <path d="M36 88 L120 136 V156 L36 108 Z" fill="url(#ladoE)"/>
+  <path d="M204 88 L120 136 V156 L204 108 Z" fill="url(#ladoD)"/>
+  <path d="M120 64 L162 88 L120 112 L78 88 Z" fill="url(#nucleo)"/>
+  <path d="M78 88 L120 64 L162 88" fill="none" stroke="#fff" stroke-opacity=".16" stroke-width="1.5"/>
+  <path d="M36 88 L120 40 L204 88" fill="none" stroke="#fff" stroke-opacity=".25" stroke-width="1.5" stroke-linejoin="round"/>
+  <g fill="none" stroke="#5c5c64" stroke-opacity=".5" stroke-width="1.2">
+    <path d="M100 76 l-22 -12 M140 76 l22 -12 M100 100 l-22 12 M140 100 l22 12"/>
+  </g>
+</svg>

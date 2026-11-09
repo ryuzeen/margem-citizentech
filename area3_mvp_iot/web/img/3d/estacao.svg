@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Estação de medição com sensor ultrassônico">
+  <defs>
+    <linearGradient id="frente" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a3a40"/><stop offset=".25" stop-color="#232327"/><stop offset="1" stop-color="#0b0b0c"/>
+    </linearGradient>
+    <linearGradient id="topo" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4a4a52"/><stop offset="1" stop-color="#2a2a2f"/>
+    </linearGradient>
+    <linearGradient id="lado" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#151517"/><stop offset="1" stop-color="#050506"/>
+    </linearGradient>
+    <radialGradient id="olho" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#020203"/><stop offset=".55" stop-color="#0d0d0f"/><stop offset=".8" stop-color="#3c3c43"/><stop offset="1" stop-color="#18181b"/>
+    </radialGradient>
+    <pattern id="malha" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r=".9" fill="#2c2c31"/></pattern>
+    <linearGradient id="haste" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0a0a0b"/><stop offset=".4" stop-color="#3b3b41"/><stop offset="1" stop-color="#08080a"/>
+    </linearGradient>
+    <filter id="sombra" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="8"/></filter>
+  </defs>
+  <ellipse cx="124" cy="218" rx="70" ry="9" fill="#000" opacity=".6" filter="url(#sombra)"/>
+  <rect x="112" y="150" width="14" height="66" fill="url(#haste)"/>
+  <rect x="151.5" y="22" width="5" height="40" rx="2" fill="url(#haste)"/>
+  <circle cx="154" cy="20" r="6" fill="#2a2a2f"/>
+  <path d="M40 66 L62 52 H200 L178 66 Z" fill="url(#topo)"/>
+  <path d="M178 66 L200 52 V140 L178 156 Z" fill="url(#lado)"/>
+  <rect x="40" y="66" width="138" height="90" rx="4" fill="url(#frente)"/>
+  <path d="M42 67 H176" stroke="#fff" stroke-opacity=".22" stroke-width="1.5"/>
+  <circle cx="78" cy="110" r="25" fill="url(#olho)"/>
+  <circle cx="78" cy="110" r="16" fill="url(#malha)"/>
+  <circle cx="140" cy="110" r="25" fill="url(#olho)"/>
+  <circle cx="140" cy="110" r="16" fill="url(#malha)"/>
+  <path d="M60 94 A25 25 0 0 1 84 86" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M122 94 A25 25 0 0 1 146 86" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1.5" stroke-linecap="round"/>
+  <rect x="104" y="140" width="10" height="4" rx="2" fill="#5a5a62"/>
+</svg>

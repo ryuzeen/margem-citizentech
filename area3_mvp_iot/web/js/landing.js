@@ -6,6 +6,15 @@ import { criarRegua } from "./ui/regua.js";
 
 const api = apiPara("app");
 
+// Luz que segue o mouse nos cards.
+document.addEventListener("pointermove", (ev) => {
+  const card = ev.target.closest?.(".passos-l li, .ba");
+  if (!card) return;
+  const r = card.getBoundingClientRect();
+  card.style.setProperty("--mx", `${ev.clientX - r.left}px`);
+  card.style.setProperty("--my", `${ev.clientY - r.top}px`);
+}, { passive: true });
+
 async function iniciar() {
   injetarIcones();
   const modo = await api.iniciar();

@@ -1,5 +1,5 @@
 // Service worker do Margem: guarda o app (casca) e o último estado da API para uso sem internet.
-const VERSAO = "margem-v3";
+const VERSAO = "margem-v4";
 const CASCA = [
   "./", "index.html", "app.html", "console.html", "manifest.webmanifest",
   "css/tokens.css", "css/base.css", "css/componentes.css", "css/app.css", "css/console.css", "css/landing.css",

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 250" role="img" aria-label="Camadas do data lake">
+  <defs>
+    <linearGradient id="t1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5c5c64"/><stop offset="1" stop-color="#2c2c31"/></linearGradient>
+    <linearGradient id="t2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3f3f46"/><stop offset="1" stop-color="#202024"/></linearGradient>
+    <linearGradient id="t3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2c2c31"/><stop offset="1" stop-color="#161618"/></linearGradient>
+    <linearGradient id="le" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1a1d"/><stop offset="1" stop-color="#0a0a0b"/></linearGradient>
+    <linearGradient id="ld" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0e0e10"/><stop offset="1" stop-color="#040405"/></linearGradient>
+    <filter id="sombra" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="7"/></filter>
+  </defs>
+  <ellipse cx="104" cy="232" rx="84" ry="10" fill="#000" opacity=".6" filter="url(#sombra)"/>
+  <!-- bruta (base) -->
+  <g transform="translate(0 150)">
+    <path d="M100 0 L184 42 L100 84 L16 42 Z" fill="url(#t3)"/>
+    <path d="M16 42 L100 84 V96 L16 54 Z" fill="url(#le)"/><path d="M184 42 L100 84 V96 L184 54 Z" fill="url(#ld)"/>
+    <g fill="#fff" fill-opacity=".09"><circle cx="70" cy="40" r="2"/><circle cx="96" cy="30" r="2"/><circle cx="120" cy="46" r="2"/><circle cx="84" cy="56" r="2"/><circle cx="138" cy="36" r="2"/><circle cx="108" cy="62" r="2"/></g>
+  </g>
+  <!-- confiável -->
+  <g transform="translate(0 92)">
+    <path d="M100 0 L184 42 L100 84 L16 42 Z" fill="url(#t2)"/>
+    <path d="M16 42 L100 84 V96 L16 54 Z" fill="url(#le)"/><path d="M184 42 L100 84 V96 L184 54 Z" fill="url(#ld)"/>
+    <path d="M58 42 L100 21 L142 42 L100 63 Z" fill="none" stroke="#fff" stroke-opacity=".1"/>
+  </g>
+  <!-- refinada (topo) -->
+  <g transform="translate(0 34)">
+    <path d="M100 0 L184 42 L100 84 L16 42 Z" fill="url(#t1)"/>
+    <path d="M16 42 L100 84 V96 L16 54 Z" fill="url(#le)"/><path d="M184 42 L100 84 V96 L184 54 Z" fill="url(#ld)"/>
+    <path d="M16 42 L100 0 L184 42" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.2" stroke-linejoin="round"/>
+    <g stroke="#fff" stroke-opacity=".22" stroke-width="5" stroke-linecap="round"><path d="M76 50 l0 -10"/><path d="M92 58 l0 -20"/><path d="M108 66 l0 -16"/><path d="M124 58 l0 -26"/></g>
+  </g>
+  <!-- quarentena (placa solta) -->
+  <g transform="translate(160 6)">
+    <path d="M26 0 L52 13 L26 26 L0 13 Z" fill="url(#t3)"/>
+    <path d="M0 13 L26 26 V31 L0 18 Z" fill="url(#le)"/><path d="M52 13 L26 26 V31 L52 18 Z" fill="url(#ld)"/>
+    <path d="M19 10 l14 7 M33 10 l-14 7" stroke="#fff" stroke-opacity=".3" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+</svg>

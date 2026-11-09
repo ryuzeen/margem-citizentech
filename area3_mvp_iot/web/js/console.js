@@ -19,7 +19,7 @@ const riscoDe = (id) => C.risco.find((r) => r.bairro_id === id);
 const agoraMs = () => api.agora().getTime();
 const anunciar = (t, urgente = false) => { const el = $(urgente ? "#anuncio-urgente" : "#anuncio"); el.textContent = ""; setTimeout(() => (el.textContent = t), 60); };
 
-const MARCA = `<svg viewBox="0 0 26 30" aria-hidden="true"><rect x="5" y="1" width="12" height="28" fill="#E8E4DA" stroke="#E8E4DA" stroke-width="1.6"/><path d="M5 4h7M5 8h7M5 12h7" stroke="#0B141B" stroke-width="2"/><path d="M17 16h-7M17 20h-7" stroke="#C21F3A" stroke-width="2"/><path d="M1 23c3 0 3-2 6-2s3 2 6 2 3-2 6-2 3 2 6 2v6H1z" fill="#4FA3BF" opacity=".9"/></svg>`;
+const MARCA = `<svg viewBox="0 0 26 30" aria-hidden="true"><rect x="5" y="1" width="12" height="28" fill="#1b1b1e" stroke="currentColor" stroke-width="1.6"/><path d="M5 4h7M5 8h7M5 12h7" stroke="currentColor" stroke-width="2"/><path d="M17 16h-7M17 20h-7" stroke="#FF6B82" stroke-width="2"/><path d="M1 23c3 0 3-2 6-2s3 2 6 2 3-2 6-2 3 2 6 2v6H1z" fill="#4FA3BF" opacity=".85"/></svg>`;
 
 // ---------- Inicialização ----------
 async function iniciar() {
@@ -490,7 +490,7 @@ function desenharDashboard(ind) {
   $("#ctx").textContent = `Indicadores · ${PERIODOS[C.dash.periodo][0]}${C.dash.bairro_id ? ` · ${bairro(C.dash.bairro_id).nome}` : ""}${C.dash.estacao_id ? ` · ${estacao(C.dash.estacao_id).nome}` : ""}`;
   const maxRisco = ind.risco_bairro[0];
   const cats = ind.ocorrencias.por_categoria.filter((c) => c.total).sort((a, b) => b.total - a.total);
-  const coresG = ["#3C4F5B", "#5C7B8A", "#C9A24A", "#E07B3A", "#FF6B82"];
+  const coresG = ["#3F3F46", "#71717A", "#C9A24A", "#E07B3A", "#FF6B82"];
   const ant = ind.antecedencia;
   const maxAnt = Math.max(ant.modelo_min ?? 0, ant.cota_min ?? 0, 1);
   el.innerHTML = String(html`

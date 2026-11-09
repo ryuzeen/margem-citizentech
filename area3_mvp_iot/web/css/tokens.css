@@ -35,20 +35,26 @@
 }
 
 :root {
-  /* Paleta base */
-  --tinta: #0E1A24;
-  --papel: #F4F1EA;
-  --superficie: #FFFFFF;
-  --linha: #D9D3C7;
-  --linha-forte: #B9B1A2;
-  --agua: #1F6F8B;
-  --agua-escura: #16566C;
-  --agua-clara: #CFE6EC;
-  --agua-media: #8FC3D1;
+  /* Paleta base — família escura monocromática (redesign 2026-11): quase preto, camadas de grafite,
+     linhas finas; a única cor é o risco e a água. O modo "alto contraste" (app.css) volta para preto no branco. */
+  color-scheme: dark;
+  --tinta: #F4F4F5;
+  --papel: #0B0B0C;
+  --superficie: #141416;
+  --superficie-2: #1B1B1E;
+  --linha: rgb(255 255 255 / 0.08);
+  --linha-forte: rgb(255 255 255 / 0.16);
+  --agua: #4FA3BF;
+  --agua-escura: #3B8BA6;
+  --agua-clara: #173847;
+  --agua-media: #2E6F86;
+  --cartao: linear-gradient(180deg, #19191C 0%, #111113 100%);
+  --brilho-topo: inset 0 1px 0 rgb(255 255 255 / 0.06);
 
-  /* Texto secundário (contraste ≥ 6.7:1 sobre papel) */
-  --tinta-2: #4A5560;
-  --tinta-3: #5B6670;
+  /* Texto secundário (#A1A1AA = 7.9:1 sobre #0B0B0C; #8A8A93 = 5.6:1) */
+  --tinta-2: #A1A1AA;
+  --tinta-3: #8A8A93;
+  --tinta-4: #71717A;
 
   /* Risco (padrão Defesa Civil, §3) */
   --risco-0: #3D8B5F;
@@ -57,28 +63,28 @@
   --risco-3: #C21F3A;
   /* Cor do texto SOBRE a placa de risco (texto grande, AA/AAA) */
   --risco-0-sobre: #FFFFFF;
-  --risco-1-sobre: #0E1A24;
-  --risco-2-sobre: #0E1A24;
+  --risco-1-sobre: #0B0B0C;
+  --risco-2-sobre: #0B0B0C;
   --risco-3-sobre: #FFFFFF;
-  /* Risco como texto sobre papel/branco (≥ 4.6:1) */
-  --risco-0-texto: #2E7A52;
-  --risco-1-texto: #7A5800;
-  --risco-2-texto: #A0471A;
-  --risco-3-texto: #B01B34;
+  /* Risco como texto sobre o fundo escuro (≥ 4.6:1) */
+  --risco-0-texto: #5DB585;
+  --risco-1-texto: #E0A92B;
+  --risco-2-texto: #F07B3A;
+  --risco-3-texto: #FF6B82;
   /* Fundos suaves por nível */
-  --risco-0-fundo: #E3F0E7;
-  --risco-1-fundo: #F7ECCF;
-  --risco-2-fundo: #FBE3D4;
-  --risco-3-fundo: #F8DDE2;
+  --risco-0-fundo: #12291F;
+  --risco-1-fundo: #2E2510;
+  --risco-2-fundo: #321C10;
+  --risco-3-fundo: #351620;
 
-  /* Console Defesa Civil (escuro) */
-  --c-fundo: #0B141B;
-  --c-painel: #121E27;
-  --c-painel-2: #172631;
-  --c-linha: #22343F;
-  --c-linha-forte: #2F4552;
-  --c-texto: #E8E4DA;
-  --c-texto-2: #9AA3A9;
+  /* Console Defesa Civil (mesma família, mais densa) */
+  --c-fundo: #0B0B0C;
+  --c-painel: #141416;
+  --c-painel-2: #1B1B1E;
+  --c-linha: #232326;
+  --c-linha-forte: #34343A;
+  --c-texto: #F4F4F5;
+  --c-texto-2: #A1A1AA;
   --c-agua: #4FA3BF;
   --c-risco-0: #5DB585;
   --c-risco-1: #E0A92B;
@@ -114,12 +120,12 @@
   --e9: 96px;
 
   /* Forma */
-  --raio-p: 6px;
-  --raio: 8px;
-  --raio-g: 10px;
+  --raio-p: 8px;
+  --raio: 12px;
+  --raio-g: 20px;
   --borda: 1px solid var(--linha);
-  --sombra: 0 1px 2px rgb(14 26 36 / 0.06);
-  --sombra-flutuante: 0 8px 24px -8px rgb(14 26 36 / 0.22), 0 1px 3px rgb(14 26 36 / 0.08);
+  --sombra: var(--brilho-topo);
+  --sombra-flutuante: 0 16px 40px -12px rgb(0 0 0 / 0.7), 0 0 0 1px var(--linha-forte);
 
   /* Toque */
   --alvo: 48px;
@@ -132,7 +138,7 @@
   --d-medio: 220ms;
   --d-agua: 1400ms;
 
-  --foco: 0 0 0 3px var(--papel), 0 0 0 5px var(--agua);
+  --foco: 0 0 0 2px var(--papel), 0 0 0 4px #E4E4E7;
 }
 
 @media (prefers-reduced-motion: reduce) {

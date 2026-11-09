@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Sino de alerta">
+  <defs>
+    <linearGradient id="corpo" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0a0a0b"/>
+      <stop offset=".28" stop-color="#2e2e33"/>
+      <stop offset=".42" stop-color="#46464d"/>
+      <stop offset=".7" stop-color="#1b1b1e"/>
+      <stop offset="1" stop-color="#060607"/>
+    </linearGradient>
+    <linearGradient id="borda" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#101012"/><stop offset=".35" stop-color="#55555c"/><stop offset="1" stop-color="#0b0b0c"/>
+    </linearGradient>
+    <radialGradient id="esfera" cx=".35" cy=".3" r=".75">
+      <stop offset="0" stop-color="#6a6a72"/><stop offset=".45" stop-color="#26262a"/><stop offset="1" stop-color="#050506"/>
+    </radialGradient>
+    <filter id="sombra" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="8"/></filter>
+  </defs>
+  <ellipse cx="122" cy="216" rx="70" ry="9" fill="#000" opacity=".6" filter="url(#sombra)"/>
+  <circle cx="114" cy="40" r="13" fill="url(#esfera)"/>
+  <path d="M114 50 C70 52 62 92 60 130 C58 160 46 170 38 178 L190 178 C182 170 170 160 168 130 C166 92 158 52 114 50 Z" fill="url(#corpo)"/>
+  <path d="M60 128 C62 92 72 56 112 52" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="2" stroke-linecap="round"/>
+  <rect x="30" y="172" width="168" height="18" rx="9" fill="url(#borda)"/>
+  <path d="M40 174 H150" stroke="#fff" stroke-opacity=".2" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="114" cy="202" r="15" fill="url(#esfera)"/>
+  <circle cx="178" cy="78" r="26" fill="url(#esfera)"/>
+  <circle cx="178" cy="78" r="25.5" fill="none" stroke="#fff" stroke-opacity=".07"/>
+</svg>

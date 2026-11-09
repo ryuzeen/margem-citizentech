@@ -24,10 +24,10 @@ body {
 
 h1, h2, h3, h4 {
   font-family: var(--f-titulo);
-  font-stretch: 112%;
+  font-stretch: 100%;
   font-weight: 700;
   line-height: 1.12;
-  letter-spacing: -0.012em;
+  letter-spacing: -0.03em;
   text-wrap: balance;
 }
 h1 { font-size: var(--t4); }
@@ -72,9 +72,9 @@ input, textarea { caret-color: var(--agua); }
 
 /* Fundo topográfico (curvas de nível muito leves) */
 .topo {
-  background-image: url("../img/curvas.svg");
-  background-size: 900px auto;
-  background-repeat: repeat;
+  background-image: radial-gradient(ellipse 80% 50% at 50% -10%, #1F1F23, transparent 70%), url("../img/curvas-escuro.svg");
+  background-size: 100% 900px, 900px auto; background-attachment: scroll;
+  background-repeat: no-repeat, repeat;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Margem — alerta comunitário de enchentes na várzea do Tietê</title>
   <meta name="description" content="Margem avisa quem mora na várzea do Rio Tietê antes de o rio sair da margem: estações IoT, previsão de risco por IA, alerta em linguagem simples e fila priorizada para a Defesa Civil.">
-  <meta name="theme-color" content="#F4F1EA">
+  <meta name="theme-color" content="#0B0B0C">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="img/icone.svg" type="image/svg+xml">
   <link rel="preload" href="vendor/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
@@ -20,66 +20,80 @@
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
   <header class="l-cab">
     <a class="marca" href="index.html" aria-label="Margem — início">
-      <svg viewBox="0 0 26 30" aria-hidden="true"><rect x="5" y="1" width="12" height="28" fill="#fff" stroke="currentColor" stroke-width="1.6"/><path d="M5 4h7M5 8h7M5 12h7" stroke="currentColor" stroke-width="2"/><path d="M17 16h-7M17 20h-7" stroke="#C21F3A" stroke-width="2"/><path d="M1 23c3 0 3-2 6-2s3 2 6 2 3-2 6-2 3 2 6 2v6H1z" fill="#1F6F8B" opacity=".85"/></svg>
+      <svg viewBox="0 0 26 30" aria-hidden="true"><rect x="5" y="1" width="12" height="28" fill="#1b1b1e" stroke="currentColor" stroke-width="1.6"/><path d="M5 4h7M5 8h7M5 12h7" stroke="currentColor" stroke-width="2"/><path d="M17 16h-7M17 20h-7" stroke="#FF6B82" stroke-width="2"/><path d="M1 23c3 0 3-2 6-2s3 2 6 2 3-2 6-2 3 2 6 2v6H1z" fill="#4FA3BF" opacity=".85"/></svg>
       <span>Margem</span>
     </a>
     <nav class="l-nav" aria-label="Seções">
       <a href="#como">Como funciona</a><a href="#areas">O que tem dentro</a><a href="#ods">ODS</a>
     </nav>
     <div class="l-cab-acoes">
-      <a class="btn btn-p btn-fantasma" href="console.html">Sou Defesa Civil</a>
-      <a class="btn btn-p btn-primario" href="app.html">Sou morador</a>
+      <a class="btn lb lb-escuro btn-fantasma" href="console.html">Sou Defesa Civil</a>
+      <a class="btn lb lb-claro" href="app.html">Sou morador</a>
     </div>
   </header>
 
   <main id="conteudo">
-    <section class="abertura topo">
+    <section class="abertura" aria-labelledby="ab-titulo">
+      <div class="ab-luz" aria-hidden="true"></div>
       <div class="ab-texto">
-        <p class="ab-local">Várzea do Rio Tietê · zona leste de São Paulo</p>
-        <h1>Em 2009, o Jardim Pantanal ficou <span class="destaque">90 dias</span> debaixo d’água.</h1>
-        <p class="fonte-dado">Fonte: Brasil de Fato, “Bairro de SP continua sofrendo com enchentes, mesmo após obra de R$ 117 mi de Doria”, 24/10/2020.</p>
+        <p class="rotulo ab-local">Várzea do Rio Tietê · zona leste de São Paulo</p>
+        <h1 id="ab-titulo"><span class="h-claro">Em 2009, o Jardim Pantanal ficou</span> <span class="h-cinza"><span class="destaque">90 dias</span> debaixo d’água.</span></h1>
         <p class="ab-lead">O Margem avisa quem mora na beira do rio <strong>antes</strong> de a água sair da margem, em linguagem simples, e mostra à Defesa Civil quem precisa de ajuda primeiro.</p>
         <div class="ab-acoes">
-          <a class="btn btn-primario btn-g" href="app.html">Sou morador</a>
-          <a class="btn btn-tinta btn-g" href="console.html">Sou Defesa Civil</a>
+          <a class="btn lb lb-claro lb-g" href="app.html">Sou morador <span class="lb-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          <a class="btn lb lb-escuro lb-g" href="console.html">Sou Defesa Civil</a>
         </div>
+        <p class="fonte-dado">Fonte: Brasil de Fato, “Bairro de SP continua sofrendo com enchentes, mesmo após obra de R$ 117 mi de Doria”, 24/10/2020.</p>
       </div>
-      <figure class="ab-agora" aria-labelledby="agora-t">
-        <figcaption><span id="agora-t">Agora no Jardim Pantanal</span><span class="selo-demo" id="agora-modo" hidden>dados simulados</span></figcaption>
-        <div class="ab-medidor">
-          <div class="ab-regua" id="ab-regua"></div>
-          <div class="ab-leitura">
-            <div class="ab-nivel num" id="ab-nivel">—</div>
-            <div class="ab-det">nível do rio na estação <span class="mono">EST-PANTANAL-01</span></div>
-            <div id="ab-risco"></div>
-            <p class="ab-chance" id="ab-chance"></p>
+      <div class="ab-palco">
+        <figure class="ab-agora" aria-labelledby="agora-t">
+          <figcaption><span id="agora-t" class="rotulo">Agora no Jardim Pantanal</span><span class="selo-demo" id="agora-modo" hidden>dados simulados</span></figcaption>
+          <div class="ab-medidor">
+            <div class="ab-regua" id="ab-regua"></div>
+            <div class="ab-leitura">
+              <div class="ab-nivel num" id="ab-nivel">—</div>
+              <div class="ab-det">nível do rio na estação <span class="mono">EST-PANTANAL-01</span></div>
+              <div id="ab-risco"></div>
+              <p class="ab-chance" id="ab-chance"></p>
+            </div>
           </div>
-        </div>
-      </figure>
+        </figure>
+      </div>
+    </section>
+
+    <section class="numeros" aria-labelledby="num-t">
+      <h2 id="num-t" class="sr-only">O ganho medido</h2>
+      <dl class="faixa-num">
+        <div><dt class="rotulo">Antecedência do aviso</dt><dd><b class="num">222<small>min</small></b><span>em média, contra 162 min da régua sozinha</span></dd></div>
+        <div><dt class="rotulo">Avisados com 2 h de folga</dt><dd><b class="num">82<small>%</small></b><span>das enchentes, contra 24% da régua</span></dd></div>
+        <div><dt class="rotulo">Relatos triados certo</dt><dd><b class="num">87<small>%</small></b><span>na categoria certa, contra 62% por palavra-chave</span></dd></div>
+        <div><dt class="rotulo">Estações IoT</dt><dd><b class="num">4</b><span>com leitura assinada (HMAC) e anti-replay</span></dd></div>
+      </dl>
+      <p class="num-nota">Histórico simulado de 1 ano, avaliação walk-forward (o modelo só vê o passado). Detalhes no relatório de IA do repositório.</p>
     </section>
 
     <section class="como" id="como" aria-labelledby="como-t">
-      <h2 id="como-t">Do sensor ao socorro em quatro passos</h2>
+      <h2 id="como-t"><span class="h-claro">Do sensor ao socorro</span> <span class="h-cinza">em quatro passos</span></h2>
       <ol class="passos-l">
-        <li><span class="pl-n">1</span><div><h3>A estação mede o rio</h3><p>Quatro estações com ESP32 medem a altura da água, a chuva e a umidade do solo a cada 5 minutos. Cada leitura vai assinada, para ninguém forjar um dado.</p></div></li>
-        <li><span class="pl-n">2</span><div><h3>A IA calcula o risco das próximas 2 horas</h3><p>Uma rede neural olha o nível, a velocidade da subida e a chuva acumulada. O risco final é o maior entre a régua e o modelo, no padrão da Defesa Civil.</p></div></li>
-        <li><span class="pl-n">3</span><div><h3>O morador recebe o alerta e responde</h3><p>Pelo app, por SMS ou em voz: o que está acontecendo, o que fazer agora e onde fica o ponto de apoio. Um toque responde “Estou seguro” ou “Preciso de ajuda”.</p></div></li>
-        <li><span class="pl-n">4</span><div><h3>A Defesa Civil vê a fila por prioridade</h3><p>Relatos em texto livre passam por agentes de IA que classificam, buscam o protocolo certo e colocam idosos, PcD e acamados no topo.</p></div></li>
+        <li><img class="obj" src="img/3d/estacao.svg" alt="" width="240" height="240"><div class="cartao-int"><span class="pl-n rotulo">01</span><h3>A estação mede o rio</h3><p>Quatro estações com ESP32 medem a altura da água, a chuva e a umidade do solo a cada 5 minutos. Cada leitura vai assinada, para ninguém forjar um dado.</p></div></li>
+        <li><img class="obj" src="img/3d/chip.svg" alt="" width="240" height="240"><div class="cartao-int"><span class="pl-n rotulo">02</span><h3>A IA calcula o risco das próximas 2 horas</h3><p>Uma rede neural olha o nível, a velocidade da subida e a chuva acumulada. O risco final é o maior entre a régua e o modelo, no padrão da Defesa Civil.</p></div></li>
+        <li><img class="obj" src="img/3d/sino.svg" alt="" width="240" height="240"><div class="cartao-int"><span class="pl-n rotulo">03</span><h3>O morador recebe o alerta e responde</h3><p>Pelo app, por SMS ou em voz: o que está acontecendo, o que fazer agora e onde fica o ponto de apoio. Um toque responde “Estou seguro” ou “Preciso de ajuda”.</p></div></li>
+        <li><img class="obj" src="img/3d/boia.svg" alt="" width="240" height="240"><div class="cartao-int"><span class="pl-n rotulo">04</span><h3>A Defesa Civil vê a fila por prioridade</h3><p>Relatos em texto livre passam por agentes de IA que classificam, buscam o protocolo certo e colocam idosos, PcD e acamados no topo.</p></div></li>
       </ol>
     </section>
 
     <section class="areas" id="areas" aria-labelledby="areas-t">
-      <h2 id="areas-t">O que tem dentro</h2>
+      <h2 id="areas-t"><span class="h-claro">O que tem</span> <span class="h-cinza">dentro</span></h2>
       <dl class="lista-areas">
-        <div><dt>IA e automação</dt><dd>Classificador de relatos, busca de protocolos (RAG), agentes em sequência com rastro visível e uma rede neural de risco para 2 horas.</dd></div>
-        <div><dt>Big Data e visualização</dt><dd>Data lake em três camadas (bruta, confiável, refinada) com quarentena, histórico de 1 ano (365 dias) e seis indicadores com fórmula documentada.</dd></div>
-        <div><dt>MVP, IoT e experiência</dt><dd>Firmware ESP32 no Wokwi com MQTT e HMAC, API em Python, este app para o morador (funciona sem internet) e o console da Defesa Civil.</dd></div>
-        <div><dt>DevOps, segurança e qualidade</dt><dd>Pipeline no Jenkins, Docker, monitoramento com Prometheus e Grafana, plano de testes e LGPD desde o cadastro.</dd></div>
+        <div class="ba ba-ia"><span class="rotulo">Área 1</span><dt>IA e automação</dt><dd>Classificador de relatos, busca de protocolos (RAG), agentes em sequência com rastro visível e uma rede neural de risco para 2 horas.</dd><img class="ba-obj" src="img/3d/chip.svg" alt="" width="240" height="240"></div>
+        <div class="ba ba-dados"><span class="rotulo">Área 2</span><dt>Big Data e visualização</dt><dd>Data lake em três camadas (bruta, confiável, refinada) com quarentena, histórico de 1 ano (365 dias) e seis indicadores com fórmula documentada.</dd><div class="ba-camadas"><img src="img/3d/camadas.svg" alt="" width="220" height="250"><ul aria-label="Camadas do data lake"><li><b>Quarentena</b>o que foi recusado, com o motivo</li><li><b>Refinada</b>por hora e por bairro, pronta para os painéis</li><li><b>Confiável</b>validada: assinatura, faixa e sem repetição</li><li><b>Bruta</b>cada leitura como chegou do sensor</li></ul></div></div>
+        <div class="ba ba-iot"><span class="rotulo">Área 3</span><dt>MVP, IoT e experiência</dt><dd>Firmware ESP32 no Wokwi com MQTT e HMAC, API em Python, este app para o morador (funciona sem internet) e o console da Defesa Civil.</dd><img class="ba-obj" src="img/3d/estacao.svg" alt="" width="240" height="240"></div>
+        <div class="ba ba-devops"><span class="rotulo">Área 4</span><dt>DevOps, segurança e qualidade</dt><dd>Pipeline no Jenkins, Docker, monitoramento com Prometheus e Grafana, plano de testes e LGPD desde o cadastro.</dd><div class="ba-pipe" aria-hidden="true"><i>commit</i><i>testes</i><i>build</i><i>deploy</i></div></div>
       </dl>
     </section>
 
     <section class="ods" id="ods" aria-labelledby="ods-t">
-      <h2 id="ods-t">Objetivos de Desenvolvimento Sustentável</h2>
+      <h2 id="ods-t"><span class="h-claro">Objetivos de</span> <span class="h-cinza">Desenvolvimento Sustentável</span></h2>
       <ul class="lista-ods">
         <li><b>11</b><span><strong>Cidades sustentáveis</strong>Bairros mais resilientes a desastres, com aviso antes da água chegar.</span></li>
         <li><b>13</b><span><strong>Ação climática</strong>Chuvas extremas ficam mais frequentes; prever é adaptar.</span></li>
@@ -87,12 +101,26 @@
         <li><b>3</b><span><strong>Saúde e bem-estar</strong>Menos gente ilhada, menos contato com água contaminada, socorro primeiro para quem é vulnerável.</span></li>
       </ul>
     </section>
+
+    <section class="cta" aria-labelledby="cta-t">
+      <div class="cta-card">
+        <h2 id="cta-t"><span class="h-claro">O aviso antes,</span> <span class="h-cinza">o socorro primeiro.</span></h2>
+        <div class="ab-acoes">
+          <a class="btn lb lb-claro lb-g" href="app.html">Sou morador</a>
+          <a class="btn lb lb-escuro lb-g" href="console.html">Sou Defesa Civil</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="l-rodape">
-    <p>Margem · projeto acadêmico FIAP, Global Solution 2026/2 (CitizenTech).</p>
-    <p>Bairros reais com coordenadas aproximadas. População, cotas, pontos de apoio e cadastros são simulados.</p>
-    <p>Mapa © colaboradores do OpenStreetMap · Fontes Atkinson Hyperlegible Next, Archivo e IBM Plex Mono (OFL) · Ícones Lucide (ISC).</p>
+    <div class="rod-marca">
+      <span class="marca"><span>Margem</span></span>
+      <p>Margem · projeto acadêmico FIAP, Global Solution 2026/2 (CitizenTech).</p>
+    </div>
+    <div><p class="rotulo">Acessar</p><a href="app.html">App do morador</a><a href="console.html">Console da Defesa Civil</a></div>
+    <div><p class="rotulo">Projeto</p><a href="#como">Como funciona</a><a href="#areas">O que tem dentro</a><a href="https://github.com/ryuzeen/margem-citizentech">Código no GitHub</a></div>
+    <div class="rod-notas"><p class="rotulo">Dados e créditos</p><p>Bairros reais com coordenadas aproximadas. População, cotas, pontos de apoio e cadastros são simulados.</p><p>Mapa © colaboradores do OpenStreetMap · Fontes Atkinson Hyperlegible Next, Archivo e IBM Plex Mono (OFL) · Ícones Lucide (ISC).</p></div>
   </footer>
 </body>
 </html>
