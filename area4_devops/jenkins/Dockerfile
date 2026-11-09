@@ -1,5 +1,5 @@
 # Jenkins do Margem: já vem com Python (testes), Docker CLI + Compose (build/deploy) e o job configurado (JCasC).
-FROM jenkins/jenkins:2.479.2-lts-jdk17
+FROM jenkins/jenkins:2.541.3-lts-jdk17
 
 USER root
 RUN apt-get update \

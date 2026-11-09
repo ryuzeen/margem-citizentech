@@ -20,6 +20,7 @@ services:
     container_name: margem-api
     ports: ["8080:8080"]
     environment:
+      MARGEM_HOST: 0.0.0.0  # o .env.example usa 127.0.0.1 (modo local); no container precisa escutar fora
       MARGEM_KAFKA_BOOTSTRAP: kafka:9092
 
   # ---------- IoT + Big Data (perfil completo) ----------
@@ -86,7 +87,8 @@ services:
     <<: *app
     container_name: margem-simulador-mqtt
     profiles: [completo]
-    command: ["python", "-m", "area3_mvp_iot.iot.simulador", "--cenario", "chuva_forte", "--mqtt", "--intervalo", "3"]
+    # estação "física": 1 leitura a cada 3 s com ts no relógio real (0,05 min/passo); o relógio acelerado fica só na API
+    command: ["python", "-m", "area3_mvp_iot.iot.simulador", "--cenario", "chuva_forte", "--mqtt", "--intervalo", "3", "--minutos-por-passo", "0.05"]
     environment:
       MARGEM_MQTT_HOST: mosquitto
     depends_on: [mosquitto, ponte-mqtt]
@@ -97,6 +99,7 @@ services:
     profiles: [completo]
     user: root
     working_dir: /app
+    env_file: [.env.example]  # tokens das estações para conferir o HMAC
     command: ["/opt/spark/bin/spark-submit", "--master", "local[*]", "/app/area2_bigdata/processamento/job_spark.py"]
     environment:
       MARGEM_DIR_DADOS: /app/dados
