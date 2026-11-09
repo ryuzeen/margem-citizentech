@@ -1,0 +1,95 @@
+table fato_alerta
+	lineageTag: af493fcc-62d2-5020-b81f-54b4dd33d7cd
+
+	column id
+		dataType: string
+		lineageTag: a72c6473-d470-573a-8c84-c5b54c27028a
+		summarizeBy: none
+		sourceColumn: id
+
+	column bairro_id
+		dataType: string
+		lineageTag: 92910b17-1047-5df7-867b-20d78ef4210a
+		summarizeBy: none
+		sourceColumn: bairro_id
+
+	column estacao_id
+		dataType: string
+		lineageTag: abf6cb4f-b953-5d95-8196-b64539cfe9c9
+		summarizeBy: none
+		sourceColumn: estacao_id
+
+	column nivel
+		dataType: string
+		lineageTag: b71ff36e-6513-55ec-bd8d-5ccd27c87cf4
+		summarizeBy: none
+		sourceColumn: nivel
+
+	column nivel_cm
+		dataType: double
+		formatString: #,0.0###
+		lineageTag: 487004e5-448b-5773-9c8f-c11020ecb79e
+		summarizeBy: none
+		sourceColumn: nivel_cm
+
+	column motivo
+		dataType: string
+		lineageTag: a9d35d92-6fba-5722-bb51-65ded02326ae
+		summarizeBy: none
+		sourceColumn: motivo
+
+	column titulo
+		dataType: string
+		lineageTag: 4669c157-bb2d-5fcb-9f59-6d6dc56879de
+		summarizeBy: none
+		sourceColumn: titulo
+
+	column emitido_em
+		dataType: dateTime
+		formatString: dd/mm/yyyy hh:nn
+		lineageTag: 7d048aed-5654-5142-aa9a-e9013bf4da94
+		summarizeBy: none
+		sourceColumn: emitido_em
+
+	column encerrado_em
+		dataType: dateTime
+		formatString: dd/mm/yyyy hh:nn
+		lineageTag: 0c65597d-afe8-55eb-abb3-3598e1b392a4
+		summarizeBy: none
+		sourceColumn: encerrado_em
+
+	column simulado
+		dataType: boolean
+		lineageTag: 8723e3d6-54db-55d9-9f6b-99313e6b3374
+		summarizeBy: none
+		sourceColumn: simulado
+
+	column recebido_em
+		dataType: dateTime
+		formatString: dd/mm/yyyy hh:nn
+		lineageTag: cbc98748-d92c-5c94-8c66-8d75e2ec7474
+		summarizeBy: none
+		sourceColumn: recebido_em
+
+	column data
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 8ebc85e1-db3d-5f18-b9e1-77e36f29d7fa
+		summarizeBy: none
+		sourceColumn: data
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition fato_alerta = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaDados & "fato_alerta.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Cabecalho = Table.PromoteHeaders(Fonte, [PromoteAllScalars = true]),
+				    Nulos = Table.TransformColumns(Cabecalho, {}, each if _ = "" then null else _),
+				    Tipos = Table.TransformColumnTypes(Nulos, {{"id", type text}, {"bairro_id", type text}, {"estacao_id", type text}, {"nivel", type text}, {"nivel_cm", type number}, {"motivo", type text}, {"titulo", type text}, {"emitido_em", type datetime}, {"encerrado_em", type datetime}, {"simulado", type logical}, {"recebido_em", type datetime}, {"data", type date}}, [Culture = "en-US"])
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

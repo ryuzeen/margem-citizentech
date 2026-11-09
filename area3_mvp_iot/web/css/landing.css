@@ -1,0 +1,74 @@
+/* Margem — landing pública */
+
+.l-cab { display: flex; align-items: center; gap: var(--e5); padding: var(--e3) clamp(16px, 4vw, 56px); border-bottom: 1px solid var(--linha); background: var(--papel); position: sticky; top: 0; z-index: 20; min-height: 64px; }
+.marca { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--tinta); }
+.marca svg { width: 24px; height: 28px; }
+.marca span { font-family: var(--f-titulo); font-stretch: 125%; font-weight: 800; font-size: 19px; }
+.l-nav { display: flex; gap: var(--e5); }
+.l-nav a { color: var(--tinta-2); text-decoration: none; font-weight: 600; font-size: var(--t-1); }
+.l-nav a:hover { color: var(--tinta); text-decoration: underline; }
+.l-cab-acoes { margin-left: auto; display: flex; gap: var(--e2); }
+@media (max-width: 760px) { .l-nav { display: none; } .l-cab-acoes .btn-fantasma { display: none; } }
+
+.landing main > section { padding: clamp(48px, 8vw, 112px) clamp(16px, 4vw, 56px); max-width: 1320px; margin: 0 auto; }
+.landing h2 { font-size: clamp(28px, 3.4vw, 44px); max-width: 22ch; margin-bottom: clamp(24px, 4vw, 48px); }
+
+/* Abertura */
+.landing main > section.abertura { max-width: none; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr); gap: clamp(32px, 5vw, 80px); align-items: center; border-bottom: 1px solid var(--linha); padding-top: clamp(40px, 6vw, 88px); }
+@media (max-width: 900px) { .landing main > section.abertura { grid-template-columns: 1fr; } }
+.ab-texto { max-width: 760px; justify-self: end; width: 100%; }
+.ab-local { font-weight: 700; color: var(--agua-escura); font-size: var(--t-1); margin-bottom: var(--e4); }
+.abertura h1 { font-size: clamp(38px, 5.6vw, 76px); font-stretch: 116%; font-weight: 800; line-height: 1.02; letter-spacing: -0.025em; }
+.abertura .destaque { color: var(--agua); white-space: nowrap; }
+.fonte-dado { margin-top: var(--e4); font-size: 13.5px; color: var(--tinta-2); max-width: 60ch; }
+.ab-lead { font-size: clamp(18px, 1.6vw, 22px); line-height: 1.5; margin-top: var(--e5); max-width: 46ch; }
+.ab-acoes { display: flex; gap: var(--e3); flex-wrap: wrap; margin-top: var(--e6); }
+
+.ab-agora { justify-self: start; width: min(420px, 100%); background: var(--superficie); border: 1px solid var(--linha); border-radius: var(--raio-g); padding: var(--e4) var(--e5) var(--e5); margin: 0; }
+.ab-agora figcaption { display: flex; justify-content: space-between; align-items: center; gap: var(--e3); font-weight: 700; font-size: var(--t-1); margin-bottom: var(--e3); }
+.ab-medidor { display: grid; grid-template-columns: 152px 1fr; gap: var(--e4); align-items: center; }
+.ab-regua { height: 400px; }
+.ab-nivel { font-family: var(--f-titulo); font-stretch: 110%; font-weight: 750; font-size: 48px; line-height: 1; letter-spacing: -0.02em; }
+.ab-det { color: var(--tinta-2); font-size: var(--t-1); margin: 6px 0 var(--e4); }
+.ab-chance { color: var(--tinta-2); font-size: var(--t-1); margin-top: var(--e3); line-height: 1.45; }
+
+/* Passos */
+.passos-l { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; position: relative; }
+.passos-l::before { content: ""; position: absolute; left: 0; right: 0; top: 22px; height: 2px; background: repeating-linear-gradient(90deg, var(--agua) 0 14px, transparent 14px 22px); opacity: 0.5; }
+.passos-l li { position: relative; display: grid; gap: var(--e4); padding-right: var(--e5); align-content: start; }
+.pl-n { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: var(--papel); border: 2px solid var(--tinta); font-family: var(--f-titulo); font-weight: 800; font-size: 18px; position: relative; }
+.passos-l h3 { font-size: var(--t1); margin-bottom: var(--e2); max-width: 18ch; }
+.passos-l p { color: var(--tinta-2); line-height: 1.55; max-width: 34ch; }
+@media (max-width: 900px) {
+  .passos-l { grid-template-columns: 1fr; gap: var(--e5); }
+  .passos-l::before { left: 22px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; background: repeating-linear-gradient(180deg, var(--agua) 0 14px, transparent 14px 22px); }
+  .passos-l li { grid-template-columns: 46px 1fr; padding-right: 0; }
+}
+
+/* Áreas */
+.areas { border-top: 1px solid var(--linha); }
+.lista-areas { display: grid; }
+.lista-areas > div { display: grid; grid-template-columns: minmax(200px, 320px) 1fr; gap: var(--e5); padding: var(--e5) 0; border-top: 1px solid var(--linha); }
+.lista-areas > div:last-child { border-bottom: 1px solid var(--linha); }
+.lista-areas dt { font-family: var(--f-titulo); font-stretch: 112%; font-weight: 700; font-size: var(--t1); }
+.lista-areas dd { margin: 0; color: var(--tinta-2); line-height: 1.55; max-width: 70ch; font-size: var(--t0); }
+@media (max-width: 700px) { .lista-areas > div { grid-template-columns: 1fr; gap: var(--e2); } }
+
+/* ODS */
+.ods { border-top: 1px solid var(--linha); }
+.lista-ods { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--e5); }
+@media (max-width: 900px) { .lista-ods { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .lista-ods { grid-template-columns: 1fr; } }
+.lista-ods li { display: grid; grid-template-columns: auto 1fr; gap: var(--e4); align-items: start; }
+.lista-ods b { font-family: var(--f-titulo); font-stretch: 125%; font-weight: 800; font-size: 44px; line-height: 0.9; color: var(--agua); font-variant-numeric: tabular-nums; min-width: 1.4em; }
+.lista-ods span { color: var(--tinta-2); line-height: 1.5; }
+.lista-ods strong { display: block; color: var(--tinta); font-size: var(--t0); margin-bottom: 4px; }
+
+.l-rodape { border-top: 1px solid var(--linha); padding: var(--e6) clamp(16px, 4vw, 56px) var(--e7); display: grid; gap: var(--e2); color: var(--tinta-2); font-size: 13.5px; background: #EDE9E0; }
+.l-rodape p:first-child { color: var(--tinta); font-weight: 650; }
+@media (max-width: 480px) {
+  .ab-medidor { grid-template-columns: 128px 1fr; gap: var(--e3); }
+  .ab-regua { height: 340px; }
+  .ab-nivel { font-size: 36px; white-space: nowrap; }
+  .ab-agora { padding: var(--e4); }
+}

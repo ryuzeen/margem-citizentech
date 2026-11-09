@@ -1,0 +1,36 @@
+groups:
+  - name: margem
+    rules:
+      - alert: ApiForaDoAr
+        expr: up{job="margem-api"} == 0
+        for: 30s
+        labels: { severidade: critica }
+        annotations:
+          resumo: "API do Margem não responde há 30 s"
+
+      - alert: EstacaoSemLeitura
+        expr: increase(margem_leituras_total{resultado="aceita"}[5m]) == 0
+        for: 5m
+        labels: { severidade: alta }
+        annotations:
+          resumo: "Estação {{ $labels.estacao }} sem leituras aceitas há 5 min"
+
+      - alert: MuitasLeiturasRecusadas
+        expr: sum(rate(margem_leituras_total{resultado="recusada"}[5m])) > 0.2
+        for: 2m
+        labels: { severidade: media }
+        annotations:
+          resumo: "Taxa alta de leituras recusadas (possível sensor com defeito ou ataque)"
+
+      - alert: RiscoDeTransbordo
+        expr: max(margem_risco_prob) >= 0.85
+        labels: { severidade: critica }
+        annotations:
+          resumo: "Algum bairro com probabilidade de transbordo ≥ 85% nas próximas 2 h"
+
+      - alert: ApiLenta
+        expr: histogram_quantile(0.95, sum(rate(margem_http_duracao_segundos_bucket[5m])) by (le)) > 0.8
+        for: 5m
+        labels: { severidade: media }
+        annotations:
+          resumo: "p95 das requisições acima de 800 ms"

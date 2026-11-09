@@ -1,0 +1,582 @@
+texto,categoria,gravidade,vulneraveis
+"Olá, alagou a avenida perto do ponto de ônibus, meu filho é autista e tá muito agitado, o que eu fao?",via_alagada,2,pcd
+pelo amor de deus tá descendo teerra do barranco em cima das casas perto do córrego por favor venham,risco_estrutural,4,
+"Alô, o transformador do poste estourou e acabou a luz na rua 3, tô grávida, mandem ajjuda",falta_energia,3,gestante
+"Boa noite, a água entrou em casa e já tá no tornozelo na viela, minha vó é cadeirante, obrigado",agua_na_residencia,3,idoso|pcd
+"Defesa Civil,, a rua tá com umas poças grandes mas ainad dá pra passar no fim da rua sem saída, minha vó é cadeirante, alguém ajuda",via_alagada,1,idoso|pcd
+"Urgente, no Jd Helena tem um bueiro sem tampa na rua alagada e não dá pra ver, alguém ajuda",via_alagada,4,
+gnt na rua de tras do campinho a rua de ksa alagou carro baixo n passa to gravida e com uma crianca de 2 anos deus ajude,via_alagada,2,gestante|crianca
+"Urgente, do lado do mercadinho água na cintura aqui dentro, precisamos sair, o que eu façoo?",agua_na_residencia,4,
+alo aqui no jardim pantanal o esgoto voltou pelo ralo e a agua suja ta subindo dentro de ksa meu filho e autista e ta mt agitado por favor venham 😭,agua_na_residencia,3,pcd
+[áudiio transcrito] moço o rio é é tá subindo olha tô preocupado no jd heelna helena tem olha uma olha gestante aqui help,outro,1,gestante
+por favor a agua da rua ta chegando na porta das casas rapido!!,via_alagada,3,
+"Ei, tem um fio caído na água aqui na rua na rua da padaria, tô com duas crianças pequenas",falta_energia,4,crianca
+"Estmos sem luz há mais de doze hoas do lado do mercadinho, pfv",falta_energia,2,
+perto da escola enxurrada forte descendo a rua to grávida e com uma criança de 2 anos!!!,via_alagada,3,gestante|crianca
+"Urgente, a casa encheu de água, tá tudo molhado e estragado no Jd Helena",agua_na_residencia,3,
+"A água já chegou no quintal e tá encostando na porta perto da igreja, obrigado",agua_na_residencia,2,
+"Pelo amor de Deus, na vela apareceu uma rachadura na prede depois da chuva",risco_estrutural,3,
+[áudio transcrito] é é alô perto da linha do trem tá entrando um pouco de água pela porta da cozinha meu avô avô é acamado rápido,agua_na_residencia,2,idoso|acamado
+"UM CARRO FOI ARRASTADO PELA ENXURRADA, SEM NINGUEM DENTRO, MEU IRMAO E CADEIRANTE, O QUE EU FACO?",via_alagada,4,pcd
+"Boa tarde, aqui no Jadim Pantanal uma moça caiu no córrego e sumiu na água, help",pessoa_ilhada,5,
+uma moca caiu no corrego e sumiu na agua minha mae de 82 anos mora comigo o q eu faco?,pessoa_ilhada,5,idoso
+[áudio transcrito] por favor na então rua 3 3 a casa desabou e tem gente lá dentro pfv,risco_estrutural,5,
+socorro subimos no telhado a água não para de é é subir aguardo,pessoa_ilhada,5,
+"Ei, obrigado pelo aviso de ontem na viela",outro,1,
+"Moço, perto da igreja tem mutio rato e lixo depois da enchente, tô grávida e com uma criança de 2 anos, auardo",outro,2,gestante|crianca
+pelo amor de deus a passagem debaixo da linha do trem encheu de agua aqui no jarddim pantanal o q eu faco? 😭,via_alagada,3,
+"Boa noite, tem carro parado no meio da água na avenida na rua de trás do campinho, meu pai tem 77 anos e anda devagar, help",via_alagada,3,idoso
+moco tem uns 20 cm de agua dentro de ksa no jd helena tem um bebe de 3 meses aki pfv socorrooo,agua_na_residencia,3,crianca
+oi a agua da rua ta chegando na porta das casas do lado do mercadinho to gravida por favor venham 🙏,via_alagada,3,gestante
+uma pessoa foi arrastada pela correnteza no córrego no jardim romano meu pai usa oxigênio e não sai da cama,pessoa_ilhada,5,acamado
+boa tarde no jardim romano o rio tá subindo tô preocupado obrigado,outro,1,
+"Gente, no Jd Helena a rua de casa alagou, carro baixo não passa, help",via_alagada,2,
+urgente subiu muito rapido a agua ta batendo na altura da cama perto da linha do trem minha tia fica de cama n levanta deus ajude,agua_na_residencia,4,acamado
+ei posso volar pra ksa ja? a agua baixou na rua da padaria minha vo e cadeirante aguardo 😭,outro,2,idoso|pcd
+ei na tipo rua de trás do campinho deesmoronou o barranco e soterrou um barraco help,risco_estrutural,5,
+deefsa civil na rua 3 a rachadura ta aumentanod e a porta n fecha mais help!!,risco_estrutural,4,
+boa noite noite tomada assim dentro de casa ficou debaixo da então água e tá dando choque do lado do mercadinho,falta_energia,4,
+"Olá, vai chover forte hoje à noit?e no fim da rua sem saída, não tem criança nem idoso aqui, só adulto, rápido",outro,1,
+oi tem gente presa no ônibus parado na agua aki na vila itaim tem várias crianças na ksa por favor venham,pessoa_ilhada,4,crianca
+"Urgente, a água da torneira tá saindo barrenta",outro,2,
+obrigado pelo aviso de ontem ontem perto da olha igreja então help,outro,1,
+"Boa tarde, na rua 3 alagou a avenida perto do ponto de ônibus, tô soziinhha com meus filhos pequenos, help",via_alagada,2,crianca
+"NAO TEM COMO SAIR DAQUI, A AGUA TOMOU TUDO EM VOLTA NA VIELA, POR FAVOR VENHAM",pessoa_ilhada,4,
+"Urgente, aqui na Vila Itaim correnteza forte na rua arrastando lixo e moto, obrigado",via_alagada,4,
+"Olá, aqui na Vila Itaim o ralo do banheiro tá voltando água",agua_na_residencia,2,
+ola o barranco atras de ksa comecou a ceder do lado do mercadinho to gravida deus ajude,risco_estrutural,3,gestante
+urgente tem uma família presa no segundo andar a agua cercu a casa perto do córrego to grávida e com uma criança de 2 anos o q eu faço? socorrooo,pessoa_ilhada,4,gestante|crianca
+urgente a agua ja ta no joelho dentro de ksa e n pra de subir na rua 3 rapido,agua_na_residencia,4,
+[áudio transcrito] urgente tem tem um homem preso dentro do carro na água aqui no jardim moço pantanal rápido,pessoa_ilhada,5,
+uregnte na rua de trás do campinho o poste caiu e o fio tá soltando fasca deus ajude,falta_energia,4,
+no fim da rua sem saída como faço pra me cadastrar pra receber alerta? agluém ajuda,outro,1,
+moço perto né da igreaj água na na cintura aqui dentro precisamos precisamos sair pfv,agua_na_residencia,4,
+"Pelo amor de Deus, tem uns 20 cm de água dentro de casa perto do córrego",agua_na_residencia,3,
+boa tarde enxurrada forte descendo a rua la na baixada to com duas criancas pequenas pfv,via_alagada,3,crianca
+[áudio transcrito] defesa civil perto do córrego córrego o muro é desabou em cima da casa do lado obrigado,risco_estrutural,5,
+boa noite na viela a casa olha ficou cheia né de lama como tipo limpo sem pegar doença mandem é é ajuda,outro,2,
+gente acabou a luz aki na rua desde cedo la na baixada,falta_energia,2,
+ei um rapaz levou choque encostando no portão com a rua alagada perto da igreja 🙏,falta_energia,5,
+"Olá, o poste caiu e o fio tá soltando faísca aqui na Vila Itaim",falta_energia,4,
+socorro o relógio de luz tá dentro da agua tô com medo,falta_energia,4,
+"Boa tarde, começou a molhar o chão da sala, a água tá vindo por baixo da porta aqui no Jardim Pantanal, não tem criança nem idoso aqui, só adulto, tô com medo",agua_na_residencia,2,
+"BOA TARDE, NO JARIDM ROMANO SUBIMOS NO TLHADO, A AGUA NAO PARA DE SUBIR, PFV",pessoa_ilhada,5,
+pelo amor amor de deus a cozinha alagou a água tá no meio da canela na rua de trás do campinho meu marido anda anda de muleta,agua_na_residencia,3,pcd
+gnt no jd helena o teto tá cedendo com o peso da agua tô com medo,risco_estrutural,4,
+"Moço, o poste caiu e o fio tá soltando fíasca na rua de trás do campinho, tem uma gestante aqui, alguém ajuda",falta_energia,4,gestante
+perto da escola quero doar roupa e comida onde eu levo? aguardo,outro,1,
+boa noite a rua ta com agua na altura do joelho ninguém consegue passar do lado do mercadinho pfv,via_alagada,3,
+ei perto do corrego subimos no telhdao a agua n para de sbir pfv,pessoa_ilhada,5,
+bom dia aqui no jardim jardim pantanal o teto tá cedendo com o peso da água meu neném tá dormindo o que eu faço,risco_estrutural,4,crianca
+gente no jardim romano a cozinha alagou a água ta no meio da canela tem um bebê de 3 meses aqui o q eu faço???,agua_na_residencia,3,crianca
+"Perto da igreja o relógio de luz tá dentro da água, alguém ajuda",falta_energia,4,
+posso voltar pra casa já a água olha baixou perto do córrego alguém assim ajuda,outro,2,
+"Defesa Civil,, na rua da padaria a casa deesabou e tem gente lá dnetro, Deus ajude",risco_estrutural,5,
+boa noite a escola vai ter aula amanhã com essa chuva? perto do córrego to com medo!!,outro,1,
+alô quero doar roupa e comida onde eu levo? obrigado??,outro,1,
+boa noite na rua de trás é do campinho a rachadura tá aumentando e a porta não fecha mais o que eu faço,risco_estrutural,4,
+olá aqui tipo na vila itaim uma pessoa foi arrastada pela correnteza no córrego deus ajude,pessoa_ilhada,5,
+"AQUI NA VILA ITAIM A AGUA JA CEGOU NO QUINTAL E TA ENCOSTANDO NA PORTAA, HELP",agua_na_residencia,2,
+alô na rua de trás do campinho o ralo do banherio ta voltando agua tem uma idosa sozinha na casa help,agua_na_residencia,2,idoso
+no fim da rua sem saida o muro desabou em cima da casa do lado meu marido anda de muleta help,risco_estrutural,5,pcd
+"Defesa Civil,, tem cobra e escorpião aparecendo depois da chuva aqui no Jardim Pantanal, help",outro,2,
+"Moço, tá sem energia no bairro todo no Jd Helena, help",falta_energia,2,
+gente um rapaz levou choque encostando né no portão com a rua alagaad alagada perto da linha do trem,falta_energia,5,
+ei o bueiro entupiu e a rua virou um rio to sozinha com meus filhos pequenos deus ajude,via_alagada,2,crianca
+"Moçço, a ponte do córrego tá coberta de água, obriagdo",via_alagada,3,
+oi perto da tipo escola acabou a luz aqui na rua desde é é cedo,falta_energia,2,
+alo aqui no jardim pantanal a luz fica piscando desde que comecou a chuvaa??,falta_energia,1,
+"Bom dia, aqui no Jardim Pantanal a água entrou em casa e já tá no tornozelo, pfv",agua_na_residencia,3,
+Perto da escola a luz fica piscando desde que começou a chuva,falta_energia,1,
+"Olá, no Jd Helena subimos no telhado, a água não para de subir, o que eu faço?",pessoa_ilhada,5,
+"Perto da igreja tem um fio caído na água aqui na rua, ráápido",falta_energia,4,
+boa noite perto da escola a gente subiu os móveis mas a agua ta alta dentro de ksa e continua subindo o que eu faço?,agua_na_residencia,4,
+"EI, O TRANSFORMADDOR DO POSTE ESTOUROU E ACABOU A LUZ AQUI NA VILA ITAIM",falta_energia,3,
+la na baixada o esgoto voltou pelo ralo e a agua suja ta subindo dentro de ksa aguuardo 😭,agua_na_residencia,3,
+pelo amor de deus perto da igeja qual o telfeone da defesa civil? pfv!!,outro,1,
+"Defesa Civil,, correnteza forte na rua arrastando lixo e moto perto da igreja, obrigado",via_alagada,4,
+"Ei, no Jd Helena o muro tá estalando e vai cair a qulquer momento, mandem ajuuda",risco_estrutural,4,
+"Olá, a coleta de lixo não passou e tá tudo acumulado aqui no Jardim Pantanal, por favor venham",outro,1,
+boa noite na rua da paaria tomada dentro de casa ficou debaixo da água e ta dando choque alguém ajuda,falta_energia,4,
+"Bom dia, o muro desabou em cima da casa do lado, por favor venham",risco_estrutural,5,
+ei aqui no jarddim pantanal o transformador do poste estourou e acabou a luz meu marrido anda de muleta pfv,falta_energia,3,pcd
+[áudio transcrito] bom dia do lado do mercadinho a rua tá com água na na altura do joelho ninguém conesgue passar minha vó tá aqui com a gente obrrigado,via_alagada,3,idoso
+urgente perto perto tipo da da linha do trem apareceu né uma é é rachadura na parede depois da da chuva tem uma senhora moço acamada no quarto obrigado,risco_estrutural,3,idoso|acamado
+oi no fim da rua sem saida ta sem energia no bairro todo to com medo??,falta_energia,2,
+pelo amor de deus na viela a calçada afundou na frente de ksa meu irmão é cadeirante alguém ajuda,risco_estrutural,3,pcd
+"Uma pessoa foi arrastada pela correnteza no córrego na rua de trás do campinho, rápido",pessoa_ilhada,5,
+alô na rua da padaria minha minha vizinha vizinha não conseggue sair assim de casa a água tá muito moço alta alta tem uma gestante aqui alguém alguém ajuda,pessoa_ilhada,4,gestante
+"Ei, na rua de trás do campinho a calçada afundou na frente de casa, aguardo",risco_estrutural,3,
+boa noite no jd helena a coleta de lixo nao passou e ta tudo acumulado,outro,1,
+"EI, ALAGOU A AVENIDA PERTO DO PONTO DE ONIBUS PERTO DO CORREGO, TEM UMA GESTANTE AQUI",via_alagada,2,gestante
+ei o o barranco atrás de casa casa começou a ceder perto do córrego por tipo favor venham,risco_estrutural,3,
+vi alguém se segurando num poste no meio da correnteza obrigado,pessoa_ilhada,5,
+"Olá, perto do córrego tá entrando um pouco de água pela porta da cozinha, alguém ajuda",agua_na_residencia,2,
+"Bom dia, invadiu a casa toda, perdemos o sofá e a geladeira perto da igreja, minha esposa tá grávida de 8 meses, help",agua_na_residencia,3,gestante
+oi a água entrou em em casa e é é já tá no tornozelo tornozelo na viela minha esposa tá tá grávida tipo de 8 8 tipo meses rápido,agua_na_residencia,3,gestante
+"A CASA FICOU CHEIA DE LAMA, COMO LIMPO SEM PEGAR DOENCA? PERTO DA IGREJA, O QUE EU FACO?",outro,2,
+"Oi, perto do córrego o muro tá estalando e vai cair a qualquer momento, tem várias crianças na casa, pfv",risco_estrutural,4,crianca
+"Pelo amor de Deus, uma moça caiu no córrego e summiu na água na viela, aguardo",pessoa_ilhada,5,
+"Urgene, perto da linha do trem a casa ficou cheia de lama, como limpo sem pegar doença?, aguarod",outro,2,
+[áudio transcrito] tem gente presa no ônibus parado na água água,pessoa_ilhada,4,
+[áudio transcrtio] ei tem um fio é caído na água aqui na rua meu né pai é é tem 77 né anos e anda devagar,falta_energia,4,idoso
+O BARRANCO ATRAS DE CASA COMECOU A CEDER PERTO DA LINHA DO TREM,risco_estrutural,3,
+ola perto da escola subiu mt rapido a agua ta batendo na altura da cama mandem ajuda,agua_na_residencia,4,
+urgente aqui na vila itaim o muro do vizinho ta inclinando pro nosso lado,risco_estrutural,3,
+uma pessoa foi arrastada pela correnteza no corrego aki na vila itaim!!,pessoa_ilhada,5,
+"Pelo amor de Deus, na rua de trás do campinho a casa desabou e tem gente lá dentro, pfv",risco_estrutural,5,
+defesa civil tem um homem preso dentro do carro na água do do assim lado lado do mercadinho minha mãe de 82 anos mora comigo o que eu faço,pessoa_ilhada,5,idoso
+"Boa tarde, estamos presos no forro, a água tá quase no teto, tem um casal de velhinhos na casa do lado, alguém ajuda",pessoa_ilhada,5,idoso
+oi a cozinha alagou a agua ta no meio da canela aki no jardim pantanal mandem ajuda,agua_na_residencia,3,
+alô perto da escola perdi meus documentos na enchente como tiro de novo? por favor veham,outro,1,
+"Ei, desmoronou o barranco e soterrou um barraco, tô grávida e com uma criança de 2 anos, alguém ajuda",risco_estrutural,5,gestante|crianca
+moco na rua da padaria o ralo do banheiro ta voltando agua meu filho e autista e ta mt agitado pf venham,agua_na_residencia,2,pcd
+por favor a casa encheu olha de água tá tudo molhado molhado e estragado no jd helena não tipo tem moço criança criança nem idoso aqui só adulto assim o que eu é é faço,agua_na_residencia,3,
+"OLA, NA RUA DE TRAS DO CAMPINHO A RUA TA COM AGUA NA ALTURA DO JOELHO, NINGUEM CONSEGUE PASSAR",via_alagada,3,
+"PERTO DA IGREJA A ESCOLA VAI TER AULA AMANHA COM ESSA CHUVA?, TEM VARIAS CRIANCAS NA CASA",outro,1,crianca
+moço lá na baixada estamos presos no forro a agua ta quase no teto deus ajude,pessoa_ilhada,5,
+oi do lado do mercadinho onde fica o abrigo mais perto? rápido,outro,1,
+ei lá na baxada a laje tá estalando e caindo rbeoco pf venham,risco_estrutural,4,
+"O muro desabou em cima da casa do lado perto da linha do trem, tem uma senhora acamada no quarto, tô com medo",risco_estrutural,5,idoso|acamado
+[áudio transcrito] oi o teto tá pingando e moço com uma mancha enorme minha tipo mãe de 82 anos mora comigo né tô com medo,risco_estrutural,2,idoso
+"Por favor, tem um homem preso dentro do carro na água no Jardim Romano, aguardo",pessoa_ilhada,5,
+"Urgent, desmoronou o barranco e soterrou um barraco perto da escola",risco_estrutural,5,
+"Oi, lá na baixada começou a molhar o chão da sala, a água tá vindo por baixo da porrta",agua_na_residencia,2,
+[áudio transcrito] olha boa boa noite a casa ficou cheia de lama como limpo sem pegar então doença no no jd helena tipo meu pai usa oxigênio e não sai da cama tô com medo,outro,2,acamado
+enxurrada frte descendo a rua aqui no jardim pantanal to com duas criancas pequenas rapido,via_alagada,3,crianca
+socorro tem cora e escorpião aparecedo dps da chuva aki no jardim pantanal,outro,2,
+moço no jd helena a viela tá cheia de água e lama tem assim um bebê né de 3 meses aqui mandem né ajuda,via_alagada,2,crianca
+"A coleta de lixo não passou e tá tudo acumulado no fim da rua sem saída, pfv",outro,1,
+[áuddio transcrito] socorro a olha água tá na soleira da porta tipo de casa perto né da linha do trem mandem ajuda,agua_na_residencia,2,
+"Defesa Civil,, um carro foi arrastado pela enxurrada, sem ninguém dentro perto da escola, minha esposa tá grávida de 8 meses, help",via_alagada,4,gestante
+"Bom dia, o muro do vizinho tá inclinando pro nosso laddo, augardo",risco_estrutural,3,
+[áudio transcrito] no jardim romano uma moça caiu no córrego e sumiu na água água meu pai tem 77 anos olha e né anda devagar pfv,pessoa_ilhada,5,idoso
+urgente um rapaz levou choque encostando no portao com a rua alagada minha tia fica de cama n levanta o que eu faco?,falta_energia,5,acamado
+por favor no jardim romano vi alguém se segurando num poste no meio da correnteza,pessoa_ilhada,5,
+olá no jd heelna a água entrou em ksa e já ta no tornozelo tô com medo 🙏,agua_na_residencia,3,
+"Oi, na rua de trás do campinho tem gente presa no ônnibus parado na água, rápdio",pessoa_ilhada,4,
+"Gente, do lado do mercadinho tem uns 20 cm de água dentro de casa",agua_na_residencia,3,
+"Ei, o muro do vizinho tá inclinanndo pro nosso lado no fim da rua sem saía",risco_estrutural,3,
+"BOA NOITE, A AGUA DA RUA TA CHEGANDO NA PORTA DAS CASAS PERTO DO CORREGO, NAO TEM CRIANCA NEM IDOSO AQUI, SO ADULTO, MANDEM AJUDA",via_alagada,3,
+"Boa tarde, alagou a avenida perto do ponto de ônibus, minha mãe de 82 anos mora comigo",via_alagada,2,idoso
+defesa civil tem uma familia presa no segundo andar a agua cercou a casa no jardim romano,pessoa_ilhada,4,
+minha vizinha não consegue sair de ksa a agua tá mt alta na rua da padaria meu filho é autista e tá mt agitado o q eu faço?!!!,pessoa_ilhada,4,pcd
+a gente subiu os móveis mas a água ta alta dentro de ksa e continua subindo aki no jardm pantanal pfv,agua_na_residencia,4,
+gnt vi alguem se seguurando num poste no meio da correnteza aki no jardim pantanal to gravida e com uma crianca de 2 anos deus ajue,pessoa_ilhada,5,gestante|crianca
+"Socorro, perto da escola tem muito rato e lixo depois da enchente, help",outro,2,
+"Não tem como sair daqui, a água tomou tudo em volta aqui na Vila Itaim",pessoa_ilhada,4,
+urgente n tem como sair daqui a agua tomou tudo em volta na viela n tem crianca nem idoso aki so adulto o q eu faco???,pessoa_ilhada,4,
+"Alô, na viela uma moça caiu no córrego e sumiu na água, obrigado",pessoa_ilhada,5,
+"Ei, o teto tá pingando e com uma mancha enorme perto da igreja, pfv",risco_estrutural,2,
+"Alô, na rua 3 apareceu uma rachadura na parede depois da chhua, rápido",risco_estrutural,3,
+"Alô, a rachadura tá aumentando e a porta não fecha mais no fim da rua sem saída, por favor venham",risco_estrutural,4,
+"Aqui no Jardim Pantanal começou a molhar o chão da sala, a água tá vindo por baixo da porta, tem um casal de velhinhos na casa do lado, por favor venham",agua_na_residencia,2,idoso
+ei na rua 3 a gente subiu os moveis mas a agua ta alta dentro de casa e continua subindo rapido,agua_na_residencia,4,
+urgente o ônibus parou de passar porque a a rua tá assim alagada alagada na rua da padaria tem tipo uma olha senhora acamada no quarto rápido,via_alagada,2,idoso|acamado
+"Boa tarde, entrou água no quarto e molhou os colchões lá na baiixada, aguaardo",agua_na_residencia,3,
+"Socorro, lá na baixada tem uma família presa no segundo andar, a água cercou a casa, help",pessoa_ilhada,4,
+"Por favor, aqui na Vila Itaim tem um homem preso dentro do carro na água, help",pessoa_ilhada,5,
+"BOA NOITE, ESTAMOS SEM LUZ HA MAIS DE DOZE HORAS LA NA BAIXADA, MEU PAI USA OXIGENIO E NAO SAI DA CAMA, ALGUEM AJUDA",falta_energia,2,acamado
+"Ei, tem um bueiiro sem tampa na rua alagada e não dá pra ver, minhha vó tá aqui com a gente, pfv",via_alagada,4,idoso
+"Moço, no Jardim Romano tem um fio caído na água aqui na rua, pfv",falta_energia,4,
+"Olá, minha vizinha não consegue sair de casa, a água tá muito alta perto da igreja, tô sozinha com meus filhos pequenos",pessoa_ilhada,4,crianca
+gnt a coleta de lixo não passou e ta tudo acumulado perto da escola,outro,1,
+moco o bueiro entupiu e a rua virou um rio mandem ajuda,via_alagada,2,
+urgente do lado do meercadinho ta descendo terra do barranco em cima das casas mandem ajuuda,risco_estrutural,4,
+boa tarde estamos ilhados em ksa a rua ta toda tomada e n dá pra sair perto do córrego pf venham,pessoa_ilhada,4,
+"Boa noite, na rua da padaria não tem como sair daqui, a água tomou tudo em volta, meu neném tá dormindo, pfv",pessoa_ilhada,4,crianca
+"Gente, na rua da padaria a água tá entrando com força pela janela, não tem criança nem idoso aqui, só adulto, tô com medo",agua_na_residencia,4,
+"Boa tarde, no Jd Helena tô com febre e dor na batata da perna depois de andar na água da enchente, obrigado",outro,3,
+olá o relógio de luz tá dentro da tipo água lá na baixada tô com medo,falta_energia,4,
+la na baixada um rapaz levou choque encostando no portao com a rua alagada minha tia e cega,falta_energia,5,pcd
+"Urgente, no fim da rua sem saída tomada dentro de casa ficou debaixo da água e tá dando choue",falta_energia,4,
+boa tarde o ralo do banheiro tá voltando água deus ajude,agua_na_residencia,2,
+ACABOU A LUZ AQUI NA RUA DESDE CEDO PERTO DA ESCOLA,falta_energia,2,
+"Defesa Civil,, tô com febre e dor na batata da perna depois de andar na água da enchente no fim da rua sem saída, mandem ajuda",outro,3,
+"Bom dia, um carro foi arrastado pela enxurrada, sem ninguém dentro perto da linha do trem, help",via_alagada,4,
+"Pelo amor de Deus, perto da igreja apareceu uma rachadura na parede depois da chuva, meu irmão é cadeirante, por favor venham",risco_estrutural,3,pcd
+boa noite subiu muitot rapido a agua ta batendo na altura da cama aguardo,agua_na_residencia,4,
+"Boa tarde, no Jd Helena perdi meus documentos na enchente, como tiro de novo?, mandem ajuda",outro,1,
+[áudio transcrito] né urgente tem carro parado no meio da água na avenida lá na baixada deus ajude,via_alagada,3,
+"Boa tarde, lá na baixada tá sem energia no bairro todo, Deus ajude",falta_energia,2,
+"Por favor, no fim da rua sem saída apareceu uma rachadura na parede depois da chuva, meu marido anda de muleta, o que eu faço?",risco_estrutural,3,pcd
+pelo amor de deus um então rapaz levou choque encostando no portão com a rua alagada aqui né na vila itaim,falta_energia,5,
+"Moççço, entrou água no quarto e molhou os colchões, obrigado",agua_na_residencia,3,
+moço olha a é laje tá estalando e caindo reboco é deus ajude,risco_estrutural,4,
+[áudio transcrito] por favor perdi meus documentos na enchente como tiro de né novo tem uma idosa sozinha sozinha na casa,outro,1,idoso
+ei aqui na vila itaim agua na cintura aqui dentro precisamos sair alguem ajuda,agua_na_residencia,4,
+"Boa tarde, o barranco atrás de casa começou a ceder aqui no Jardim Pantanal, minha tia fica de cama, não levanta",risco_estrutural,3,acamado
+"Socorro, aqui na Vila Itaim tem uns 20 cm de água dentro de casa, o que eu faço?",agua_na_residencia,3,
+gente a água tá na soleira da porta de casa lá lá na baixada tem um rapaz de cadeira de de rodas aqui o que eu eu faço,agua_na_residencia,2,pcd
+uma moça caiu no córrego e sumiu na água na rua de trás do campinho obrigado,pessoa_ilhada,5,
+boa tarde a a água tá entrando né com força pela pela janela na rua rua da padaria padaria deus ajude,agua_na_residencia,4,
+socorro aki no jardim pantanl correnteza forte na rua arrastando lixo e moto,via_alagada,4,
+a casa desabou e tem gente lá dentro do lado do mercadinho mercadinho,risco_estrutural,5,
+"Moço, o barranco atrás de casa começou a ceder, rápido",risco_estrutural,3,
+"Olá, aqui no Jardim Pantanal tem um bueiro sem tampa na rua alagada e não dá pra ver, por favor venham",via_alagada,4,
+"Na rua de trás do campinho estamos preos no forro, a água tá quase no teto, o que eu façoo?",pessoa_ilhada,5,
+"Socorro, tá entrando um pouco de água pela porta da cozinha no Jd Helena, Deus ajude",agua_na_residencia,2,
+olá enxurrada forte descendo a rua minha vó ta aki com a gnt obrigado,via_alagada,3,idoso
+bom dia no fim da rua sem saida a agua ta na soleira da porta de ksa meu pai tem 77 anos e anda devagar,agua_na_residencia,2,idoso
+[áudio transcrito] o ônibus parou de passar moço porque é é a rua rua tá alagada,via_alagada,2,
+"Perto da escola obrigado pelo aviso de ontem, aguardo",outro,1,
+urgente correnteza forte na rua arrastando lixo e moto pfv!!,via_alagada,4,
+"Gente, o muro do vizinho tá inclinando pro nosso lado no fim da rua sem saída, por favor venham",risco_estrutural,3,
+olá perto da né linha do trem tem muito rato e lixo né depois da enchente obrigado,outro,2,
+"Estamos ilhados em casa, a rua tá toda tomada e não dá pra sair, o que eu faço?",pessoa_ilhada,4,
+bom dia no jd helena a gnt subiu os moveis mas a agua ta alta dntro de casa e continua subindo obrigado,agua_na_residencia,4,
+"Bom dia, começou a molhar o chão da sala, a água tá vindo por baixo da porta, meu irmão é cadeirante, o que eu faço?",agua_na_residencia,2,pcd
+"A água já chegou no qintal e tá encostando na porta perto do córrego, tem um rapaz de cadeira de rodas aqui, aguardo",agua_na_residencia,2,pcd
+estamos presos presos no forro a água é é tá quase no teto,pessoa_ilhada,5,
+"Olá, na rua de trás do campinho a passagem debaixo da linha do trem encheu de águ, tô grávida",via_alagada,3,gestante
+"Oi, estamos ilhaos em casa, a rua tá toda tmoada e não dá pra sair perto da igreja, tô com medo",pessoa_ilhada,4,
+oi perto da linha do trem a rachadura ta aumentando e a porta nao fecha mais,risco_estrutural,4,
+"Olá, perto do córrego como faço pra me cadastrar pra receber alerta?, mandem ajuda",outro,1,
+"Um carro foi arrastado pela enxurrada, sem ninguém dentro peto da escola, minha esposa tá grávida de 8 messes, por favor venham",via_alagada,4,gestante
+"Na rua 3 a passagem debaaixo da linha do trem encheu de água, mandem ajuda",via_alagada,3,
+defesa civil a escola vai ter aula amanhã com essa chuva na rua assim 3 meu irmão tipo é cadeirante aguardo,outro,1,pcd
+"Por favor, o relógio de luz tá dentro da água lá na baixada, tem várias crianças na casa, por favor venham",falta_energia,4,crianca
+ei como faço pra me cadastrar pra recebber alerta? não tem criança nem idoso aki só adullto to com medo 😭,outro,1,
+"Bom dia, a rua de casa alagou, carro baixo não passa, tô com duas crianças pequenas, help",via_alagada,2,crianca
+ei perto da assim igreja qual o telefne da defesa ciivl alguém ajuda,outro,1,
+defesa cviil perto da linha do trem o bueiro entupiu e a rua virou um rio tem uma gestate aki,via_alagada,2,gestante
+moço a calçada afundou na frente de ksa aqui no jardim pantanal pf venham!!,risco_estrutural,3,
+no jardim romano a laje tá estalando e caindo reboco tem uma gestante aki,risco_estrutural,4,gestante
+"Ei, na rua da padaria a água tá entranndo com força pela janela, tem uma seenhora acamada no quarto, obrigado",agua_na_residencia,4,idoso|acamado
+socorro na rua 3 caiu a energia e a gelaeira ta desligada faz horas help,falta_energia,2,
+socoorro na rua 3 o muro tá moço estalando e vai tipo cair a qualquer momento olha tem uma gestante aqui,risco_estrutural,4,gestante
+urgente o muro desabou em cima da casa do lado assim na rua da padaria deus ajude,risco_estrutural,5,
+"Urgente, no Jd Helena tem cobra e escoorpião apareendo depois da chuva",outro,2,
+"Na rua 3 tô com febre e dor na batata da perna depois de andar na água da enchente, tô com medo",outro,3,
+"MOCO, ENXURRADA FORTE DESCENDO A RUA LA NA BAIXADA",via_alagada,3,
+"Olá, no Jardim Romano a viela tá cheia de água e lama, tem uma idosa sozinha na casa, pfv",via_alagada,2,idoso
+"Boa notie, na viela tem cobra e escorpião aparecendo depoiis da chuva, Deus ajude",outro,2,
+pelo amor de deus caiu a energia e a geladeira ta dessligada faz horas no jardim romano mandem ajuda,falta_energia,2,
+"Boa tarde, no Jd Helena a calçada afundou na frente de casa, mandem ajuda",risco_estrutural,3,
+"Defesa Civil,, a rachadura tá aumentando e a porta não fecha mais aqui no Jardim Pantanal, alguém ajuda",risco_estrutural,4,
+"Alô, no Jardim Romano tem um bueiro sem tampa na rua alagada e não dá pra ver, meu avô é acamado, help",via_alagada,4,idoso|acamado
+alô perto da escola a escola vai ter aula moço amanhã com essa chuva,outro,1,
+"Aqui no Jardim Pantanal o esgoto voltou pelo ralo e a água suja tá subindo dentro de casa, tem um bebê de 3 meses aqui, alguém ajuda",agua_na_residencia,3,crianca
+"Oi, posso voltar pra casa já? a água baixou, meu pai usa oxigênio e não sai da cama",outro,2,acamado
+olá a coleta de lixo n passou e ta tudo acumulado tô com medo,outro,1,
+"Defesa Civil,, desmoronou o barranco e soterrou um barraco, tô grávida, obrigado",risco_estrutural,5,gestante
+urgente na rua da padaria o muro tá estalando e vai cair a qualqquer moento meu marido anda de muleta mandem ajuda 🙏,risco_estrutural,4,pcd
+[áudio transcrito] alô o teto tá pingando e com uma mancha enorme na rua de trás do campinho campinho moço tem uma senhora acamada é no quarto deus moço ajude,risco_estrutural,2,idoso|acamado
+"Gente, perdi meus documentos na enchente, como tiro de novo?, tô com medo",outro,1,
+no jardim romano estamos sem luz há mais de doze horas tem várias crianças na ksa deus ajude socorrooo,falta_energia,2,crianca
+vai chover forte hoje a noite? no fim da rua sem saida por favor venham,outro,1,
+"Gente, perto da igreja tem cobra e escorpião aparecendo depois da chuva, por favor venham",outro,2,
+socoro no jd helena tem gente prresa no ônibus parado na água,pessoa_ilhada,4,
+na viela quero doar roupa e comida onde eu levo? rápido,outro,1,
+urgente perto da linha do trem subiu mt rápido a água ta batendo na altura da cama rápido!!!,agua_na_residencia,4,
+olá vai tipo chver forte hoje à noite aqui na vila vila itaim mandem ajuuda,outro,1,
+"BOA NOITE, VI ALGUEM SE SEGURANDO NUM POSTE NO MEIO DA CORRENTEZA PERTO DA ESCOLA, TEM VARIAS CRIANCAS NA CASA, ALGUEM AJUDA",pessoa_ilhada,5,crianca
+ei aqui no jardim pantanal a água da torneira tá saindo barenta mandem ajuda,outro,2,
+oi como faço pra me cadastrar pra receber alerta? na rua da padaria o que eu faço?,outro,1,
+"Socorro, quero doar rouap e comida, onde eu levo? na rua da padaria, tô com duas crianças pequenas, rápido",outro,1,crianca
+"Tô com febre e dor na batata da perna depois de andar na água da enchente, pfv",outro,3,
+minha vizniha nao consegue sair de casa a agua ta mt alta no jd helena pf venham,pessoa_ilhada,4,
+[áudio transcrito] por favor o transformador do olha poste estourou e acabou a luz meu assim pai usa oxigênio e não sai da cama aguardo,falta_energia,3,acamado
+"BOM DIA, A CALCADA AFUNDOU NA FERNTE DE CASAA, PFV",risco_estrutural,3,
+olá a água da rua ta chgeando na porta das casaas perto da linha do trem pfv,via_alagada,3,
+boa boa noite noite alagou a avenida perto do ponto tipo de de ônibus meu é pai usa oxigênio e né não sai da cama mandem olha ajuda,via_alagada,2,acamado
+"A escola vai ter aula amanhã com essa chuva? na rua de trás do campinho, mandem ajuda",outro,1,
+"O ralo do banheiro tá voltando água perto do córrego, tô com duas crianças pequenas, tô com medo",agua_na_residencia,2,crianca
+boa tarde a pnte do corrego ta coberta de agua pfv!!,via_alagada,3,
+"Aqui no Jardim Pantanal caiu a energia e a geladeira tá desligada faz horas, tem um rapaz de cadeira de rodas aqui",falta_energia,2,pcd
+"Olá, apareceu uma rachadura na parede depois da chuva, help",risco_estrutural,3,
+"Perto da igreja o bueiro entupiu e a rua virou um rio, meu pai usa oxigênio e não sai da cama, alguém ajuda",via_alagada,2,acamado
+pelo amor de deus a agua da rua ta chegando na porta das casas minha mãe de 82 anos mora comigo pf venham 🙏,via_alagada,3,idoso
+"BOA NOITE, UM RAPAZ LEVOU CHOQUE ENCOSTANDO NO PORTAO COM A RUA ALAGADA NA VIELA, MEU PAI TEM 77 ANOS E ANDA DEVAGAR",falta_energia,5,idoso
+"Oi, a rua tá com umas poças grandes mas anida dá pra passar na viela, tô sozinha com meus filhos pequenos, help",via_alagada,1,crianca
+[áudio transcrito] bom dia é perto perto da escola né a é é água água moço já tá no joelho dentro de casa e não para de subir obrigado,agua_na_residencia,4,
+"Boa noite, a casa encheu de água, tá tudo molhado e estragado, não tem criança nem idoso aqui, só adulto",agua_na_residencia,3,
+boa olha tarde perto entoã do córrego a cozinha aalgou a água tá moço no tipo meio da é canela help,agua_na_residencia,3,
+moço do lado do mercadinho a agua tá na soleira da porta de ksa meu pai usa oxigênio e n sai da cama to com medo,agua_na_residencia,2,acamado
+"Perto da igreja a rua tá com umas poças grandes mas ainda dá pra passar, tem uma gestante aqui, pfv",via_alagada,1,gestante
+"Alô, água na cintura aqui dentro, preciamos sair perto da linha do trem, tem váárias crianças na casa, aguardo",agua_na_residencia,4,crianca
+pelo amor de deus aqui na vila itaim uma pesoa foi arastada pela correnteza no corrego help,pessoa_ilhada,5,
+"Gente, na rua 3 a rua tá com água na altura do joelho, ninguém consegue passar, tô grávida, rápido",via_alagada,3,gestante
+"Boa noite, na rua 3 o poste caiu e o fio tá solttando faísca, minha vó é cadeirante, alguém ajuda",falta_energia,4,idoso|pcd
+"Bom dia, na rua 3 a luz fica piscando desde que começou a chuva, tem um casal de velhinhso na casa do lado, tô com medo",falta_energia,1,idoso
+pelo amor de deus no jd helena um carro foi arrastado pela enxurrada sem ninguém dentro aguardo,via_alagada,4,
+pf etamos sem luz há mais de doze horas na vila,falta_energia,2,
+"Na rua 3 a água da torneira tá saindo barrenta, alguém ajuda",outro,2,
+gente na rua da padaria padaria a rua então tá olha com água na altura do joelho ninguém consegue passar rápido,via_alagada,3,
+oi correnteza forte na rua arrastando lixo e moto rápido,via_alagada,4,
+boa tarde o poste caiu e o fio ta soltando faísca no jardim romano mandem ajuda,falta_energia,4,
+[áudio transcrito] boa tarde tipo estamos ilhados em casa a rua é é tá tá toda tomada e não dá pra sair deus ajude,pessoa_ilhada,4,
+"Na rua da paadria a viela tá cheia de água e lama, tô com medo",via_alagada,2,
+"Perto da linha do trem subimos no telhado, a água não para de subir, aguardo",pessoa_ilhada,5,
+"Um carro foi arrastado pela enxurrada, sem ninguém dentro perto da igreja",via_alagada,4,
+"Boa noite, no fim da rua sem saída o muro desabuo em cima da casa do lado, por favor venham",risco_estrutural,5,
+moco a viela ta cheia de agua e lama obrigao,via_alagada,2,
+"Socorro, a casa ficou cheia de lama, como limpo sem pegar doença? no Jardim Romano, Deus ajude",outro,2,
+"Perto da igreja quero doar roupa e comida, onde eu levo?, não tem criança nem idoso aqui, só adulto, help",outro,1,
+ola do lado do mercadinho a agua ja chegou no quintal e ta encostando na porta tem um rapaz de cadeira de rodas aki alguem ajuda,agua_na_residencia,2,pcd
+"Perto da igreja a gente subiu os móveis mas a água tá alta dentro de casa e continua subindo, pfv",agua_na_residencia,4,
+por favor entrou agua no quarto e molhou os colchões obirgado,agua_na_residencia,3,
+"Gente, o rio tá subindo? tô preocupado no Jardim Romano",outro,1,
+no fim da rua sem sem saída minha vizinha não consegue sair assim de casa é a água moço tá muito alta tô sozinha com meus filhos filhos pequenos deus ajude,pessoa_ilhada,4,crianca
+"Gente, a laje tá estalanod e canido reboco lá na baixada, pfv",risco_estrutural,4,
+"Ei, perto da esscola uma moça caiu no córrego e sumiu na águ,a Deus ajude",pessoa_ilhada,5,
+o transformador do poste estourou estourou e acabou a luz,falta_energia,3,
+"Aqui no Jardim Pantanal caiu a energia e a geladeira tá desligada faz horas, rápido",falta_energia,2,
+"Boa tarde, na viela a água já tá no joelho dentro de casa e não para de subir, tô com medo",agua_na_residencia,4,
+gente tem muito rato e lixo depois depois é da enchente na rua da padaria o que eu faço,outro,2,
+"Alô, não tem como sair daqui, a água tomou tudo em volta, alguém ajuda",pessoa_ilhada,4,
+boa tarde na rua de trás do campinho estamos presos no forro a água ta quuase no teto minha tia é cega deus ajude,pessoa_ilhada,5,pcd
+ei poso voltar pra ksa já? a agua baixou mandem ajuda socorrooo,outro,2,
+moço tem muito tipo rato né e lixo depois da enchente lá na baixada né tô tô com medo,outro,2,
+"Pelo amor de Deus, na rua 3 a calçada afundou na frente de casa, aguardo",risco_estrutural,3,
+"A água da torneria tá saindo barrenta, por favor venham",outro,2,
+"A rua tá com água na altura do joelho, ninguém conegue passar na rua da padaria, minha tia é cega",via_alagada,3,pcd
+"OLA, A VIELA TA CHEIA DE AGUA E LAMA PERTO DA IGREJA, MINHA TIA FICA DE CAMA, NAO LEVANTA",via_alagada,2,acamado
+qual o telefone da deesa civil? do lado do mercadinho minha vó é cadeirante alguém ajuda 😭,outro,1,idoso|pcd
+bom dia na rua de trás do campinho tá descendo terra do barranco em cima das casas meu filho é é autista e tá muito agitado,risco_estrutural,4,pcd
+"O muro do vizinho tá inclinadnno pro nosso lado perto da igreja, meu avô é acamado, Deus ajude",risco_estrutural,3,idoso|acamado
+"Defesa Civil,, na rua 3 subiu muito rápido, a água tá batendo na altura da cama",agua_na_residencia,4,
+boa tarde tem um homem preso dentro do carro na água lá na baixada!!!,pessoa_ilhada,5,
+ei no jd helena a rachadura ta aumentando e a porta não fecha mais,risco_estrutural,4,
+boa tarde agua na cintura aki dentro precisamos sair lá na baixada tô com medo,agua_na_residencia,4,
+a passagem debaixo da linha do trem encheu de água do lado do mercadinho minha mãe de 82 anos mora comigo rápido,via_alagada,3,idoso
+"O esgoto voltou pelo ralo e a água suja tá subindo dentro de casa, Deus ajude",agua_na_residencia,3,
+"Pelo amor de Deus, a água da rua tá chegando na prta das casas, rápido",via_alagada,3,
+oi água na cintura né aqui dentro dentro precisamos sair na rua 3 tem uma idosa sozinha na casa aguardo,agua_na_residencia,4,idoso
+"Na rua de trás do campinho estamos sem luz há mais de doze horas, rápido",falta_energia,2,
+"Por favor, não tem como sair daqui, a água tomou tudo em volta perto da escola, mandem ajuda",pessoa_ilhada,4,
+"Boa noite, correnteza forte na rua arrastando lixo e moto perto da linha do trem, meu neném tá dormindo, alguém ajuda",via_alagada,4,crianca
+A ponte do córrego tá coberta de água aqui no Jardim Pantanal,via_alagada,3,
+deffesa civil do lado do mercadinho tô com febre e dor na batata da perna depois enntão de andar tipo na água da enchente minha é é mãe de 82 anos mora né comigo pfv,outro,3,idoso
+"Urgente, a rua tá com umas poas grandes mas ainda dá pra passar no Jardim Romano, o que eu faço?",via_alagada,1,
+"Urgente, no Jd Helena a casa desabou e tem gente lá dentro, meu filho é autista e tá muito agitado, rápido",risco_estrutural,5,pcd
+gente tem carro moço parado no meio meio da água na avenida aqui na vila iaim aguardo,via_alagada,3,
+"Por favor, o teto tá pingando e com uma mancha enorme lá na baixada, tô com medo",risco_estrutural,2,
+"A água já chegou no quintal e tá encostando na porta do lado do mercadinho, help",agua_na_residencia,2,
+defesa civil uma pessoa foi arrastada pela correnteza no corrego la na baixada,pessoa_ilhada,5,
+ola na rua da padaria invadiu a ksa toda perdemos o sofa e a geladeira minha tia fica de cama n levanta rapido,agua_na_residencia,3,acamado
+boa tarde na veila a luz fica piscando desde q comecou a chuva alguem ajuda,falta_energia,1,
+"Por favor, a coleta de lixo não passou e tá tudo acumuado aqui no Jardim Pantanal, por favor venam",outro,1,
+"Oi, tomada dentro de casa ficou debaixo da água e tá dando choque perto da escola, meu neném tá dormindo, Deus ajude",falta_energia,4,crianca
+"Oi, aqui na Vila Itaim acabou a luz aqui na rua desde cedo",falta_energia,2,
+"POSSO VOLTAR PRA CASA JA? A AGUA BAIXOU PERTO DA IGREJA, RAPIDO",outro,2,
+a agua ta entrando com força pela jannela perto da igreja obrigado,agua_na_residencia,4,
+[áudio transcrito] correnteza forte na rua arrastando lixo e moto moto perto do córrego,via_alagada,4,
+"Pelo amor de Deus, tô com febre e dor na batata da perna depois de andar na água da enchente, mandem ajuda",outro,3,
+"Defesa Civil,, o muro do vizinho tá inclinando pro nosso lado, meu marido anda de muleta, rápido",risco_estrutural,3,pcd
+"Invadiu a casa toda, perdemos o sofá e a geladeira perto da igreja, meu filho é autista e tá muito agitado",agua_na_residencia,3,pcd
+moço na rua da padaria desmoronou o barranco e soterrou um barraco barraco,risco_estrutural,5,
+"Ei, perto da escola tá descendo terra do barranco em cima das casas, tô com medo",risco_estrutural,4,
+no fim da rua sem saida tem carro parado no meio da agua na aveida,via_alagada,3,
+defesa né civil perto do córrego a rachadura tá aumentando e então a porta não fecha mais tem várias crianças moço na casa mandem ajuda,risco_estrutural,4,crianca
+"Boa noite, do lado do mercadinho enxurrada forte descendo a rua, pfv",via_alagada,3,
+o muro ta estalando e vai cair a qualquer momento no jarm romano mandem ajuda socorrooo,risco_estrutural,4,
+"Oi, a casa encheu de água, tá tudo molhado e estragado perto da igreja, tô com duas crianças pequenas",agua_na_residencia,3,crianca
+Na rua de trás do campinho tem um fio caído na água aqui na rua,falta_energia,4,
+"Defesa Civil,, a escola vai ter aula amanhã com essa chuva? perto da linha do trem, tô com medo",outro,1,
+"Boa noite, qual o telefone da dfesa civvil?, rápido",outro,1,
+na veila o reloogio de luz ta dentro da agua pfv,falta_energia,4,
+"TA SEM ENERGIA NO BAIRRO TODO NA RUA DE TRAS DO CAMPINHO, MINHA TIA E CEGA, POR FAVOR VENHAM",falta_energia,2,pcd
+"Oi, do lado do mercadinho tem um homem preso dentro do carro na água, rápido",pessoa_ilhada,5,
+"Ei, perto do córrego a laje tá estalando e caindo reboco, pfv",risco_estrutural,4,
+olá tem muito rato e lixo depois da enchente lá na é é baixada baixada tô com medo,outro,2,
+"Boa noite, etsamos ilhados em casa, a rua tá toda tomada e não dá pra sair na rua da padaria, o que eu faço?",pessoa_ilhada,4,
+"Olá, perto da escola tem gente presa no ônibus parado na água, tô grávida e com uma criança de 2 anos, rápido",pessoa_ilhada,4,gestante|crianca
+"Socorro, a rua de casa alagou, carro baixo não passa na rua 3, tem um bebê de 3 meses aqui, rápido",via_alagada,2,crianca
+alô a agua da torneira tá saindo barrenta aqui na vila itaim pfv!!,outro,2,
+"Ei, tá entrando um pouco de água pela porta da cozinha lá na baixada, obrigado",agua_na_residencia,2,
+pelo amor de deus vai chover forrte hoje a noite? petro do corrego pf venham!!,outro,1,
+perto da escola a casa desabou e tem gnt la dentro n tem crianca nem idoso aki so adulto rapido,risco_estrutural,5,
+a agua ta entrando com forca pela janela perto da escola pf venham,agua_na_residencia,4,
+"Soorro, a luz fica piscando desde que começou a chuva perto da linha do trem, mandem ajuda",falta_energia,1,
+"Bom dia, começou a mlhar o chão da sala, a água tá vindo por baxio da porta aqui no Jardim Pantanal, minha vó tá aqui com a gente, mandem ajuda",agua_na_residencia,2,idoso
+"Boa noite, lá na baixada a água já chegou no quintal e tá encostando na porta, tô com medo",agua_na_residencia,2,
+o esgoto voltou pelo ralo e a agua suja ta subindo dentro de ksa pfv socorrooo,agua_na_residencia,3,
+"Lá na baixada o relógio de luz tá dentro da água, aguardo",falta_energia,4,
+boa boa tarde aqui moço no assim jardim assim pantanal o bueiro entupiu e a rua virou olha um rio tem uma senhora né acamada no quarto,via_alagada,2,idoso|acamado
+defesa civil enxurrada forte descendo a rua no jardim romano obrigado,via_alagada,3,
+socorro la na baixada o barranco atras de casa comecou a ceder meu irmao e cadeirante to com medo,risco_estrutural,3,pcd
+socorro no jd helena vai chover forte hj à noite? mandem ajuda,outro,1,
+defesa civil a rua de ksa alagou carro baixo n passa aki no jardim pantanal o q eu faço?!!,via_alagada,2,
+ola qual o telefone da defesa civil? obrigado 😭,outro,1,
+boa noite aqui no jardim pantanal o ralo do banheiro ta voltando agua socorrooo,agua_na_residencia,2,
+gnt a agua da torneira tá sainod barrenta lá na baixada to com medo socorrooo,outro,2,
+"Urgente, tem getne presa no ônibus parado na água, aguardo",pessoa_ilhada,4,
+"GENTE, O MURO TA ESTALANDO E VAI CAIR A QUALQUER MOMENTO, TEM UMA GESTANTE AQUI, AGUARDO",risco_estrutural,4,gestante
+boa tarde caiu a energia e a geladeira ta dsligada faz horas minha espposa ta grávida de 8 meses,falta_energia,2,gestante
+"Alô, começou a molhar o chão da sala, a água tá vindo por baixo da porat no Jd Helena, por favvor venham",agua_na_residencia,2,
+"Olá, um rapaz levou choque encostando no portão com a rua alagada perto do córrego, tem uma senhora acamada no quarto, o que eu fçao?",falta_energia,5,idoso|acamado
+[áudio transcrito] defesa civil o ralo do banheiro tá voltando água aqui no é jardim pantanal,agua_na_residencia,2,
+oi na rua de tras do campinho o relogio de luz ta dentro da agua pf venham,falta_energia,4,
+boa tarde perdi meus documentos na enchente como tiro de novo? mandem ajuda,outro,1,
+"PELO AMOR DE DEUS, MINHA VIIZNHA NAO CONSEGUE SAIR DE CAS, A AGUA TA MUITO ALTA, HELP",pessoa_ilhada,4,
+posso voltar pra casa ja? a agua baixoou perto da escola obrigado socorrooo,outro,2,
+"Boa noite, na viela tem um bueiro sem tampa na rua alagada e não dá pra ver, tem um casal de velhinhos na casa do lado, mandem ajuda",via_alagada,4,idoso
+por então favor a passagem debaixo da linha moço do assmi trem encheu encheu é é de água aqui no assim jradim pantanal minha vó tá aqui com tipo a gente,via_alagada,3,idoso
+boa noite a agua ja ta no joelho detnro de casa e n pra de subir perto da linha do trem meu avo e acamado to com medo socrorooo,agua_na_residencia,4,idoso|acamado
+alô tô com febre e dor na é é batata da é perna depois de andar na água da enchente perto é é da linha do trem moço minha minha tia é cega alguém é ajuda,outro,3,pcd
+"Perto do córrego a laje tá estalando e caindo rbeoco, tem um casal de velhinhos na casa do lado, aguardo",risco_estrutural,4,idoso
+O teto tá pingando e com uma mancha enorme aqui no Jardim Pantanal,risco_estrutural,2,
+"Moço, o transformador do poste estourou e acabou a luz na rua 3, meu neném tá dormindo, rápido",falta_energia,3,crianca
+boa noite aki no jrdim pantanal uma pessoa foi arrastada pela correnteza no córrego pfv socorrooo,pessoa_ilhada,5,
+gente como como faço pra me cadastrar pra receber alerta no jardim romano tem uma idosa sozinha na casa rápido,outro,1,idoso
+bom dia perto da linha do trem o rio ta subindo? to preocupado,outro,1,
+oi na rua 3 a ksa ficou cheia de lama como limpo sem pegar doença? obrigado,outro,2,
+"Ei, lá na baixada o ônibus parou de passar porque a rua tá alagada, tem várias crianças na casa, rápido",via_alagada,2,crianca
+o esgoto voltou pelo ralo e a agua suja ta subindo dentro de ksa perrto da linha do trem tem uma gestante aki pfv,agua_na_residencia,3,gestante
+estamos ilhados ilhaods em casa a rua tá toda tomada e não dá pra sair na rua 3 rápido,pessoa_ilhada,4,
+"Ei, a água entrou em casa e já tá no tornozelo",agua_na_residencia,3,
+ola la na baixada ta sem energia no bairro todo tem uma gestante aki help,falta_energia,2,gestante
+"Moço, o poste caiu e o fio tá soltando faísca perto da igreaj, rápido",falta_energia,4,
+pelo amor de deus a cozinha alagou a agua tá no meio da canela obrigado,agua_na_residencia,3,
+"Olá, na viela o muro desabou em cima da casa do lado, tô com medo",risco_estrutural,5,
+"Urgente, do lado do mercadinho a passagem debaixo da linha do trem encheu de água, tem um bebê de 3 meses aqui",via_alagada,3,crianca
+oi alagou a avenida perto do ponto de onibus obrigado 🙏,via_alagada,2,
+"Urgente, estamos presos no forro, a água tá quase no teto perto da linha do trem, minha vó tá aqui com a gente, Deus ajude",pessoa_ilhada,5,idoso
+a agua já ta no joelho dentro de ksa e n pra de subir na viela minha vó ta aki com a gente help,agua_na_residencia,4,idoso
+"Boa tarde, a laje tá estalando e caindo reboco lá na baixada, não tem criança nem idoso aqui, só adulto, por favor venham",risco_estrutural,4,
+"Olá, a água tá na soleira da porta de casa no Jardim Romano, obrigado",agua_na_residencia,2,
+"Defesa Civil,, tem um bueiro sem tampa na rua alagada e não dá pra ver no Jd Helena, mandem ajuda",via_alagada,4,
+"Alô, perto da igreja a rua de casa alagou, carrro baixo não passa, tem várias crianças na casa, o que eu faço?",via_alagada,2,crianca
+urgente onde fica o abrigo mais perto? deus ajude,outro,1,
+"Defesa Civi,l, no fim da rua sem saíída qual o telefone da defesa civil?, aguardo",outro,1,
+socorro entrou água no quarto e molhou os colchões né na viela por favor venham,agua_na_residencia,3,
+"Gente, tomada dentro de casa ficou debaixo da água e tá dando choque do lado do mercadinho, help",falta_energia,4,
+ola onde fica o abrigo mais perto? no fim da rua sem saida help,outro,1,
+"Alô, tem muito rato e lixo depois da enchente na rua de trás do campinho, tem uma idosa sozinha na casa, rápido",outro,2,idoso
+"Estamos sem luz há mais de doze horas aqui na Vila Itaim, mandem ajuda",falta_energia,2,
+"Alagou a avenida perto do ponto de ônibus na viela, mandem ajuda",via_alagada,2,
+invadiu a ksa toda perdemos o sofa e a geladeira aki na vila itaim 😭,agua_na_residencia,3,
+[áudio transcrito] o transformador do poste então estourou e acabou a luz por olha favor venham,falta_energia,3,
+boa noite no fim da rua sem saída começou a molar o chão da sala a agua ta vindo por baixo da porta,agua_na_residencia,2,
+"Perto do córrego a rua tá com umas poças grandes mas ainad dá pra passar, pfv",via_alagada,1,
+socorro a agua entrou em ksa e ja ta no tornozelo aqui no jardim pantanal,agua_na_residencia,3,
+oi na rua 3 tem carro parado no meio da agua na avenida obrigado 😭,via_alagada,3,
+ei no jd helena a agua da rua ta chegando na porta das casas mandem ajuda,via_alagada,3,
+"Boa tarde, tem uma família presa no segundo andar, a água cercou a casa na rua de trás do campinho, pfv",pessoa_ilhada,4,
+perto da escola o o teto tipo tá cedendo com o peso da água tô com medo,risco_estrutural,4,
+"Bom dia, a cozinha alagou, a água tá no meio da canela, aguardo",agua_na_residencia,3,
+"Ei, a casa encheu de água, tá tudo molhado e estragado perto da igreja, o que eu faço?",agua_na_residencia,3,
+"Defesa Civil,, tomada dentro de casa ficou debaixo da água e tá dando choque no Jardim Romano, tô sozinha com meus filhos pequenos, Deus ajude",falta_energia,4,crianca
+"Pelo amor de Deus, no fim da rua sem saída o teto tá cedendo com o peso da água, tem uma senhora acamada no quatrto, por favor venham",risco_estrutural,4,idoso|acamado
+boa noite na rua da padaria a né ponte do córrego tá coberta de água tô com com olha medo,via_alagada,3,
+"OLA, A PONTE DO CORERGO TA COBERTA DE AGUA NO JARDIM ROMANO",via_alagada,3,
+boa noiite na rua 3 a calçada afunou na frente de casa,risco_estrutural,3,
+"Boa tarde, perto do córrego quero doar roupa e comida, onde eu levo?, obrigado",outro,1,
+tem um homem preso dentro do carro na água na rua da padaria meu filho é autista e ta mt agitado o que eu faço? 😭,pessoa_ilhada,5,pcd
+pelo amor de deus entrou água é no quarto olha e é é molhou tipo os né colchões perto perto da escola minha esposa tá grávida de é 8 meses assim mandem mandem ajuda,agua_na_residencia,3,gestante
+"Socorro, o teto tá pingando e com uma mancha enorme do lado do mercadinho, por favor venham",risco_estrutural,2,
+defesa civil desmoronou o barranco e soterrou um barraco na rua 3 to grávida e com uma criança de 2 anos aguardo,risco_estrutural,5,gestante|crianca
+"Defesa Civil,, tá descendo terra do barranco em cima das casas no fim da rua sem saída, aguardo",risco_estrutural,4,
+"Socorro, aqui no Jardim Pantanal a rua de casa alagou, carro baixo não passa, alguém ajuda",via_alagada,2,
+[áudio transcrito] ei perto da assim igreja tem cobra e tipo escorpião aparecendo depois da chuva é pfv,outro,2,
+"Bom dia, a água já tá no joelho dentro de casa e não para de subir, rápido",agua_na_residencia,4,
+[áudio transcrito] tem carro parado no é meio da água na avenida lá lá na na baiada help,via_alagada,3,
+ola tem uma familia presa no segundo andar a agua cercou a ksa no jd helena minha esposa ta gravida de 8 meses obrigado,pessoa_ilhada,4,gestante
+"Boa tarde, na rua 3 tem uma família presa no segunddo andar, a água cercou a casaa, por favor venham",pessoa_ilhada,4,
+defesa civil como faço pra me cadastrar pra receber alerta? perto da linha do trem tem um bebê de 3 meses aki 😭,outro,1,crianca
+bom dia aki na vila itaim o teto tá cedendo com o peso da agua minha tia fica de cama n levanta help,risco_estrutural,4,acamado
+"Oi, na viela a casa encheu de água, tá tudo molhado e estragado",agua_na_residencia,3,
+"OI, VAI CHOVER FORTE HOJE A NOITE?, AGUARDO",outro,1,
+defesa então civil o olha barranco atrás de de casa começou a ceder alguém ajuda,risco_estrutural,3,
+moco a gnt subiu os moveis mas a agua ta alta dentro de ksa e continua subindo alguem ajuda 😭,agua_na_residencia,4,
+"Pelo amor de Deu,s o rio tá subindo? tô preocupado na rua 3, pfv",outro,1,
+"Defesa Civil,, do lado do mercadinho qual o telefone da defesa civil?",outro,1,
+bom dia minha vizinha n consegue sair de ksa a agua ta muito alta no fim da rua sem saida obrigado,pessoa_ilhada,4,
+acaabou a luz luz aqui na rua desde cedo na rua da padaria meu pai usa oxigênio e não sai da cama mandem ajdua,falta_energia,2,acamado
+na viela o rio ta subindo? to preocupado aguardo,outro,1,
+boa noite tipo a passagem olha debaixo da linha olha do moço trem enceu de água meu neném tá dormindo alguém ajuda,via_alagada,3,crianca
+"Boa tarde, na rua da padaria a gente subiu os móveis mas a água tá alta dentro de casa e continua subindo, meu filho é autista e tá muito agitado, tô com medo",agua_na_residencia,4,pcd
+"Oi, na viela o teto tá cedendo com o peso da ággua, obrigado",risco_estrutural,4,
+oi o muro ta estalando e vai cair a qualquer momento perto da linha do trem aguardo,risco_estrutural,4,
+no jd helena vi alguém se segurando num poste no meio da correnteza minha tia fica de cama n levanta aguardo,pessoa_ilhada,5,acamado
+"Pelo amor de Deus, subimos no telhado, a água não para de subir aqui na Vila Itaim, meu neném tá dormindo, Deus ajude",pessoa_ilhada,5,crianca
+socorro estamos ilhados né em né casa a rua tá toda tomada e e não dá pra sair tô com duas crianças pequenas o que eu faço,pessoa_ilhada,4,crianca
+"Por favor, como faço pra me cadastrar pra receber alerta? na rua da padaria, o que eu faç?",outro,1,
+olá olá estamos presos no forro a água é é tá tá quase olha no teto do lado do mercadinho assim tem uma idosa sozinha na moço casa,pessoa_ilhada,5,idoso
+boa tarde na viela tem um buiro sem tmpa na rua alagada e nao da pra ver meu pai usa oxigenio e nao sai da cama mandem ajuda,via_alagada,4,acamado
+bom dia o rio ta subindo? to preocupado o q eu faço? 🙏,outro,1,
+"Olá, do lado do mercadinho estamos sem luz há mais de doze horas",falta_energia,2,
+a casa encheu de agua ta tudo molhado e estragado do lado do mercadinho n tem crianca nem idoso aki so adulto to com medo,agua_na_residencia,3,
+moço na rua da padaria subiu mt rápido a agua ta batendo na atura da cama meu neém ta dormindo mandem ajuda,agua_na_residencia,4,crianca
+"OLA, NA RUA DE TRAS DO CAMPINHO A CASA FICOU CHEIA DE LAMA, COMO LIMPO SEM PEGAR DOENCA?, MANDEM AJUDA",outro,2,
+"Defesa Civil,, o esgoto voltou pelo ralo e a água suja tá subindo dentro de casa lá na baixada, meu pai usa oxigênio e não sai da cama, help",agua_na_residencia,3,acamado
+ola tem uns 20 cm de agua dentro de ksa perto da linha do trem to sozinha com meus filhos pequenos rapido!!!,agua_na_residencia,3,crianca
+obrigado pelo aviso de ontem help,outro,1,
+moco tem um fio caido na agua aki na rua aki na vila itaimi to com medo 😭,falta_energia,4,
+alô lá na baixada vai chover forte hoje à noite???,outro,1,
+tipo urgeente na rua 3 invadiu a é casa é é toda perdemos o sofá sofá e a geladeira,agua_na_residencia,3,
+por favor na rua da padaria a cozinha alagou a agua ta no meio da canela minha mae de 82 anos mora comigo o que eu faco? socorrooo,agua_na_residencia,3,idoso
+"Urgente, tem gente presa no ônibus parado na água no Jd Helena, meu irmão é cadeiarnte, pfv",pessoa_ilhada,4,pcd
+"Socorro, do lado do mercadinho tem uns 20 cm de água dentro de casa, minha mãe de 82 anos mora comigo",agua_na_residencia,3,idoso
+"Moço, obrigado pelo aviso de ontem aqui na Vila Itaim, aguardo",outro,1,
+"Pelo amor de Deus, no Jd Helena tá entrando um pouco de água pela porta da cozinha, obrigado",agua_na_residencia,2,
+ei na rua tipo da padaria vi alguém se segurando num poste no meio da moço correnteza aguardo aguardo,pessoa_ilhada,5,
+"Por favor, tá entrando um pouco de água pela porta da cozinha no fim da rua sem saída, alguém ajuda",agua_na_residencia,2,
+entrou agua no quarto e molhou os colchões aqui na vila itaim meu neném ta dormindo,agua_na_residencia,3,crianca
+bom dia no fim da rua sem saída invadiu a ksa toda perdemos o sofá e a geladeira deus ajude socorrooo,agua_na_residencia,3,
+"Boa tarde, perto do córrego caiu a energia e a geladeira tá desligada faz horas, não tem criança nem idoso aqui, só adulto, obrigado",falta_energia,2,
+moco perto do corrego subiu mt rapido a agua ta batendo na altura da cama to gravida e com uma crianca de 2 anos mandem ajuda,agua_na_residencia,4,gestante|crianca
+moco a viela ta cheia de agua e lama to com medo??,via_alagada,2,
+pelo amor de deus tem cobra e escorpiao aparecendo depois da chuva no jd helena pfv,outro,2,
+gente lá na baixada onde fica o abrigo mais perto help,outro,1,
+"Alô, a luz fica piscando desde que começou a chuva, o que eu faço?",falta_energia,1,
+"PELO AMOR DE DEUS, VI ALGUEM SE SEGURANDO NUM POSTE NO MEIO DA CORRENTEZA NO JD HELENA, MEU IRMAO E CADEIRANTE, MANDEM AJUDA",pessoa_ilhada,5,pcd
+"Na viela perdi meus documentos na enchente, como tiro de novo?, aguardo",outro,1,
+alo onde fica o abriog mais peto? obrigado,outro,1,
+[áudio transcrito] moço o bueiro entupiu e a a então rua rua virou um rio perto petro da linha tipo do trem mandem ajuda,via_alagada,2,
+ei não tem como sair daqui a água tomou tudo em volta na rua de trás do campinho campinho é é alguém ajuda,pessoa_ilhada,4,
+"Socroro, o ônnibus parou de passar porque a rua tá alagada perto do córrego, meu filho é autista e tá muito agitado",via_alagada,2,pcd
+"BOM DIA, O BUEIRO ENTUPIU E A RUA VIROU UM RIO NA RUA DE TRAS DO CAMPINHO",via_alagada,2,
+"Moço, a rua tá com água na altura do joelho, ninguém cosnegue passar aqui no Jardim Pantanal, obrgado",via_alagada,3,
+"Boa tarde, o teto tá cedendo com o peso da água aqui na Vila Itaim, tem uma gestante aqui, Deus ajude",risco_estrutural,4,gestante
+"Boa noite, tem uns 20 cm de água dentro de casa perto da igreja, tem um casal de velhinhos na casa do lado, Deus ajude",agua_na_residencia,3,idoso
+"Olá, tem carro parado no meio da água na avenida",via_alagada,3,
+obrigado pelo aviso de ontem,outro,1,
+pelo assim amor de deus a água já tá no joelho dentro de de olha casa e não olha para de subir no no jd helena helena,agua_na_residencia,4,
+na rua 3 apareceu uma rachadura na parede dps da chuva deus ajude,risco_estrutural,3,
+"Acabou a luz aqui na rua desde cedo preto da igreja, alguém ajuda",falta_energia,2,
+olá a potne assim do do córrgeo tá coberta de água é é na rua é de trás do campinho deus ajude,via_alagada,3,
+"ENTROU AGUA NO QUARTO E MOLHOU OS COLCHOES AQUI NO JAARDIM PATANAL, MINHA VO E CADEIRANTE",agua_na_residencia,3,idoso|pcd
+"No Jardim Romano a escola vai ter aula amanhã com essa chuva?, Deus ajude",outro,1,
+"Na viela a água tá entrando com força pela janela, obrigado",agua_na_residencia,4,
+"Lá na baixada a água já chegou no quintal e tá encostando na porta, meu irmão é cadeirante",agua_na_residencia,2,pcd
+"Ei, tá descendo terra do barranco em cima das casas do lado do mercadinho, meu marido anda de muleta, por favor venham",risco_estrutural,4,pcd
+"Socorro, perto da liha do trem posos voltar pra casa já? a água baixou, obrigado",outro,2,
+"Gente, o ônibus parou de passar porque a rua tá alagada na rua 3, alguém ajuda",via_alagada,2,
+a é rua tá com umas poças grandes mas mas né ainda dá pra passar no jardim romano mandem ajuda,via_alagada,1,
+pf na rua da padaria acabou a luz aqui na rua desde cedo obrigado 😭,falta_energia,2,
+boa noite na rua da padaria obrigado pelo aviso de ontem mandem ajuda,outro,1,
+olá perto do córrego caiu a energia e a geladira ta desligada faz horas mandem ajuda,falta_energia,2,
+"Alô, na rua 3 a coleta de lixo não psasou e tá tudo acumluado, mandem ajuda",outro,1,
+boa noite do lado do mercadinho a agua ta na soleira da porta de ksa o q eu faço?,agua_na_residencia,2,
+"Defesa Civil,, perdi meus documentos na enchente, como tiro de novo?, mandem ajuda",outro,1,
+a agua ta na soleira da porta de casa help socorrooo,agua_na_residencia,2,
+O muro do vizinho tá inclinando pro nosso lado do lado do mercadinho,risco_estrutural,3,
+"Boa noite, no Jardim Romano a casa desabou e tem gente lá dentro",risco_estrutural,5,
+[áudio transcrito] pelo amor de deus é é a é é ponte do córrego tá coberta de água aqui aqui na vila itaim alguém ajuda,via_alagada,3,
+moço na rua 3 subimos no telhado moço a água não para de subir,pessoa_ilhada,5,
+pelo amor de deus invadiu a ksa toda perdemos o sofa e a geladeira no jd helena tem uma gestante aki,agua_na_residencia,3,gestante
+socorro do lado do mercadinho ta sem energia no bairro todo deus ajude,falta_energia,2,
+"Defesa Civil,, o teto tá pingando e com uma mancha enorme aqui no Jardim Pantanal, tem um bebê de 3 meses aqui",risco_estrutural,2,crianca
+"Boa tarde, desmoronou o barranco e soterrou um barraco, tô sozinha com meus filhos pequenos",risco_estrutural,5,crianca
+gente ta entrando um pouco de agua pela porta da cozinha,agua_na_residencia,2,
+"PELO AMOR DE DEUS, UM CARRO FOI ARRASTADO PELA ENXURRADA, SEM NINGUEM DENTRO LA NA BAIXADA, TEM UMA SENHORA ACAMADA NO QUARTO",via_alagada,4,idoso|acamado
+a agua entrou em casa e ja ta no tornozelo do lado do mercadinho meu irmao e cadeirante pfv,agua_na_residencia,3,pcd
+"Bom dia, a água da torneira tá saindo barrenta, tô com medo",outro,2,
+"Por favor, perto da linha do trem tá sem energia no bairro todo, alguém ajuda",falta_energia,2,
+"Mçoo, tomada dentro de casa ficou debaixo da água e tá dando choque perto do córrego, tô grávida",falta_energia,4,gestante
+"Olá, perto da escola onde fica o abrigo mais perto?",outro,1,
+no jd helena onde fica o abrigo mais perto? mandem ajuda 🙏,outro,1,
+"Ei, aqui na Vila Itaim a viela tá cheia de água e lama, meu pai tem 77 anos e anda devagar, obrigado",via_alagada,2,idoso
+defesa civil o poste caiu e o fio ta soltando faisca la na baixada help,falta_energia,4,
+"EI, NA RUA DA PADARIA AGUA NA CINURA AQUI DENTRO, PRECISAMOS SARI, OBRIGADO",agua_na_residencia,4,
+socorro tem uma familia presa no segundo andar a agua cercou a casa perto do corrego help!!,pessoa_ilhada,4,
+"Por favor, o ônibus parou de passar porque a rua tá alagada, meu filho é autista e tá muito agitado, aguardo",via_alagada,2,pcd
+"Socorr, na rua 3 a água tá entrando com força pela janela, alguém ajuda",agua_na_residencia,4,
+Na rua 3 a rua tá com umas poças grandes mas ainda dá pra passar,via_alagada,1,
+oi na viela ta descendo terra do barranco em cima das csas,risco_estrutural,4,
+"Alô, quero doar roupa e comida, onde eu levo? aqui no Jardim Pantanal, pfv",outro,1,
+moco tem um fio caido na agua aqui na rua aqui na vila itaim o q eu faco?,falta_energia,4,
+"EI, O ONIBUS PAROU DE PASSAR PORQUE A RUA TA ALAGADA, MEU NENEM TA DORMINDO, MANDEM AJUDA",via_alagada,2,crianca
+"Boa noite, a luz fica piscando desde que começou a chuva no Jardim Romano, rápido",falta_energia,1,

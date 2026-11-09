@@ -1,0 +1,5 @@
+# Dependências extras do modo completo (docker compose): Kafka e Spark.
+# O modo leve (iniciar.py) NÃO precisa delas; os módulos importam de forma preguiçosa.
+-r ../requirements.txt
+kafka-python>=2.0.3,<3  # 2.0.3+ funciona no Python 3.12
+pyspark==3.5.3

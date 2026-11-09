@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Margem"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "732da28c-1593-4ca3-a4b1-27392c154256"
+  }
+}

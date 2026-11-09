@@ -1,0 +1,10 @@
+.git
+.venv
+dados
+**/__pycache__
+**/.pytest_cache
+.ruff_cache
+.env
+entrega/saida
+area3_mvp_iot/web/_prints
+*.zip

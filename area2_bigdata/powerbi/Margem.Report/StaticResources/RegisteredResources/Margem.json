@@ -1,0 +1,82 @@
+{
+  "name": "Margem",
+  "dataColors": [
+    "#1F6F8B",
+    "#C98F0A",
+    "#E0631C",
+    "#C21F3A",
+    "#3D8B5F",
+    "#0E1A24",
+    "#7FA9B8",
+    "#8C8577"
+  ],
+  "foreground": "#0E1A24",
+  "foregroundNeutralSecondary": "#4A5862",
+  "background": "#FFFFFF",
+  "backgroundLight": "#F4F1EA",
+  "tableAccent": "#1F6F8B",
+  "good": "#3D8B5F",
+  "neutral": "#C98F0A",
+  "bad": "#C21F3A",
+  "maximum": "#C21F3A",
+  "center": "#C98F0A",
+  "minimum": "#3D8B5F",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 11,
+      "color": "#0E1A24"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 10,
+      "color": "#0E1A24"
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 22,
+      "color": "#1F6F8B"
+    },
+    "header": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 12,
+      "color": "#0E1A24"
+    }
+  },
+  "visualStyles": {
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#F4F1EA"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    },
+    "*": {
+      "*": {
+        "border": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#D9D3C7"
+              }
+            },
+            "radius": 6
+          }
+        ],
+        "dropShadow": [
+          {
+            "show": false
+          }
+        ]
+      }
+    }
+  }
+}

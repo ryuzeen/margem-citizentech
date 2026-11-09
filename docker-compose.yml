@@ -1,0 +1,156 @@
+# Margem - modo completo com Docker.
+#   Só a aplicação:            docker compose up -d --build
+#   Big Data + IoT + monit.:   docker compose --profile completo up -d --build
+#   CI/CD (Jenkins):           docker compose --profile cicd up -d --build
+#   Job Spark (sob demanda):   docker compose --profile completo run --rm spark-job
+
+name: margem
+
+x-app: &app
+  build: .
+  image: margem/app:latest
+  env_file: [.env.example]
+  volumes:
+    - dados:/app/dados
+  restart: unless-stopped
+
+services:
+  api:
+    <<: *app
+    container_name: margem-api
+    ports: ["8080:8080"]
+    environment:
+      MARGEM_KAFKA_BOOTSTRAP: kafka:9092
+
+  # ---------- IoT + Big Data (perfil completo) ----------
+  mosquitto:
+    image: eclipse-mosquitto:2.0.20
+    container_name: margem-mosquitto
+    profiles: [completo]
+    ports: ["1883:1883"]
+    volumes:
+      - ./area4_devops/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+    restart: unless-stopped
+
+  kafka:
+    image: apache/kafka:3.9.0
+    container_name: margem-kafka
+    profiles: [completo]
+    ports: ["9092:9092"]
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_NUM_PARTITIONS: 4
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092 >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 10s
+      retries: 12
+    restart: unless-stopped
+
+  ponte-mqtt:
+    <<: *app
+    container_name: margem-ponte-mqtt
+    profiles: [completo]
+    command: ["python", "-m", "area2_bigdata.ingestao.ponte_mqtt"]
+    environment:
+      MARGEM_MQTT_ATIVO: "1"
+      MARGEM_MQTT_HOST: mosquitto
+      MARGEM_KAFKA_ATIVO: "1"
+      MARGEM_KAFKA_BOOTSTRAP: kafka:9092
+    depends_on:
+      mosquitto: { condition: service_started }
+      kafka: { condition: service_healthy }
+
+  consumidor-kafka:
+    <<: *app
+    container_name: margem-consumidor-kafka
+    profiles: [completo]
+    command: ["python", "-m", "area2_bigdata.ingestao.consumidor_kafka"]
+    environment:
+      MARGEM_KAFKA_ATIVO: "1"
+      MARGEM_KAFKA_BOOTSTRAP: kafka:9092
+    depends_on:
+      kafka: { condition: service_healthy }
+
+  simulador-mqtt:
+    <<: *app
+    container_name: margem-simulador-mqtt
+    profiles: [completo]
+    command: ["python", "-m", "area3_mvp_iot.iot.simulador", "--cenario", "chuva_forte", "--mqtt", "--intervalo", "3"]
+    environment:
+      MARGEM_MQTT_HOST: mosquitto
+    depends_on: [mosquitto, ponte-mqtt]
+
+  spark-job:
+    image: apache/spark:3.5.3-python3
+    container_name: margem-spark-job
+    profiles: [completo]
+    user: root
+    working_dir: /app
+    command: ["/opt/spark/bin/spark-submit", "--master", "local[*]", "/app/area2_bigdata/processamento/job_spark.py"]
+    environment:
+      MARGEM_DIR_DADOS: /app/dados
+      PYTHONPATH: /app
+    volumes:
+      - dados:/app/dados
+      - ./area2_bigdata:/app/area2_bigdata:ro
+      - ./comum:/app/comum:ro
+      - ./config:/app/config:ro
+    restart: "no"
+
+  # ---------- Monitoramento (perfil completo) ----------
+  prometheus:
+    image: prom/prometheus:v3.0.1
+    container_name: margem-prometheus
+    profiles: [completo]
+    ports: ["9090:9090"]
+    volumes:
+      - ./area4_devops/monitoramento/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./area4_devops/monitoramento/alertas.yml:/etc/prometheus/alertas.yml:ro
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:11.4.0
+    container_name: margem-grafana
+    profiles: [completo]
+    ports: ["3000:3000"]
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: margem-grafana
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Viewer
+    volumes:
+      - ./area4_devops/monitoramento/grafana:/etc/grafana/provisioning:ro
+    depends_on: [prometheus]
+    restart: unless-stopped
+
+  # ---------- CI/CD (perfil cicd) ----------
+  jenkins:
+    build: ./area4_devops/jenkins
+    image: margem/jenkins:latest
+    container_name: margem-jenkins
+    profiles: [cicd]
+    user: root
+    ports: ["8081:8080"]
+    environment:
+      JAVA_OPTS: -Djenkins.install.runSetupWizard=false
+      CASC_JENKINS_CONFIG: /var/jenkins_home/casc.yaml
+      MARGEM_REPO: https://github.com/ryuzeen/margem-citizentech.git
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+
+volumes:
+  dados:
+  jenkins_home:

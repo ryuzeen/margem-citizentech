@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# Segredos
+.env
+.env.*
+!.env.example
+
+# Dados gerados (o pipeline recria). Amostras versionadas ficam em */amostras/
+dados/
+!dados/.gitkeep
+
+# Power BI (cache local)
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# Entrega gerada
+entrega/saida/
+*.zip
+
+# SO/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

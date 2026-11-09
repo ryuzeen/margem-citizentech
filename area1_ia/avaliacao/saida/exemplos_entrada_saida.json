@@ -1,0 +1,340 @@
+[
+  {
+    "entrada": {
+      "texto": "minha avó acamada tá presa no quarto e a água tá subindo, não consigo carregar ela sozinho",
+      "contexto": {
+        "bairro_id": "jardim-pantanal",
+        "risco_bairro": {
+          "nivel": "alerta_maximo",
+          "prob": 0.91
+        },
+        "espera_min": 5
+      }
+    },
+    "rotulo_humano": {
+      "categoria": "pessoa_ilhada",
+      "gravidade": 5,
+      "vulneraveis": [
+        "idoso",
+        "acamado"
+      ]
+    },
+    "saida": {
+      "categoria": "pessoa_ilhada",
+      "gravidade": 4,
+      "prioridade": 78,
+      "vulneraveis": [
+        "idoso",
+        "acamado"
+      ],
+      "resumo": "Pessoa ilhada / em perigo · gravidade 4/5 · vulneráveis: idoso, acamado — \"minha avó acamada tá presa no quarto e a água tá subindo, não…\"",
+      "orientacao": "Ligue 193. Vá para o ponto mais alto da casa (andar de cima, laje) levando celular, água e remédios. Quem tem dificuldade para andar deve sair já no nível de Atenção ou Alerta, sem esperar a água chegar. Se não der para tirar a pessoa acamada com segurança, ligue 193 e avise. Ajude primeiro a pessoa idosa a sair para um lugar alto.",
+      "fontes": [
+        {
+          "doc": "10_pessoa_ilhada_resgate.md",
+          "titulo": "Pessoa ilhada ou arrastada pela água",
+          "trecho": "Ligue 193. Vá para o ponto mais alto da casa (andar de cima, laje) levando celular, água e remédios. Só suba no telhado se for o único lugar seco. Use roupa clara, lanterna ou pano colorido para ser visto pelo resgate. Não tente nadar até outro lugar."
+        },
+        {
+          "doc": "04_evacuacao_vulneraveis.md",
+          "titulo": "Saída de idosos, pessoas com deficiência, acamados, gestantes e crianças",
+          "trecho": "Quem tem dificuldade para andar deve sair já no nível de Atenção ou Alerta, sem esperar a água chegar. Sair cedo é mais seguro do que ser resgatado depois."
+        },
+        {
+          "doc": "04_evacuacao_vulneraveis.md",
+          "titulo": "Saída de idosos, pessoas com deficiência, acamados, gestantes e crianças",
+          "trecho": "Leve os remédios, as receitas e o cartão do SUS. Quem usa oxigênio ou aparelho elétrico precisa de plano para falta de energia: bateria extra, cilindro reserva ou ir para um lugar com energia. Se não for possível tirar a pessoa acamada da cama com segurança, ligue 193 e avise que há uma pessoa acamada."
+        }
+      ],
+      "confianca": 0.537,
+      "modo": "ml+regras",
+      "rastro": [
+        {
+          "agente": "triagem",
+          "ms": 2,
+          "saida": "pessoa_ilhada g4 conf 0.54 vulneraveis=idoso,acamado"
+        },
+        {
+          "agente": "protocolos",
+          "ms": 1,
+          "saida": "modo regras · fontes: 10_pessoa_ilhada_resgate.md, 04_evacuacao_vulneraveis.md"
+        },
+        {
+          "agente": "prioridade",
+          "ms": 0,
+          "saida": "78 = G37.5 + V20 + R20 (alerta_maximo) + E0.8"
+        }
+      ]
+    }
+  },
+  {
+    "entrada": {
+      "texto": "acabou a energia e meu pai depende do concentrador de oxigênio, a bateria dura pouco",
+      "contexto": {
+        "bairro_id": "vila-itaim",
+        "risco_bairro": {
+          "nivel": "alerta",
+          "prob": 0.66
+        },
+        "espera_min": 20
+      }
+    },
+    "rotulo_humano": {
+      "categoria": "falta_energia",
+      "gravidade": 4,
+      "vulneraveis": [
+        "acamado"
+      ]
+    },
+    "saida": {
+      "categoria": "falta_energia",
+      "gravidade": 2,
+      "prioridade": 41,
+      "vulneraveis": [
+        "acamado"
+      ],
+      "resumo": "Energia elétrica · gravidade 2/5 · vulneráveis: acamado — \"acabou a energia e meu pai depende do concentrador de oxigênio, a…\"",
+      "orientacao": "Fique longe de fio caído, principalmente se estiver na água. A água conduz eletricidade. Use lanterna, não vela, para evitar incêndio. Se não der para tirar a pessoa acamada com segurança, ligue 193 e avise.",
+      "fontes": [
+        {
+          "doc": "05_energia_eletrica.md",
+          "titulo": "Energia elétrica, fios caídos e choque",
+          "trecho": "Fique longe de fio caído, principalmente se estiver na água. A água conduz eletricidade. Não tente tirar o fio do lugar, nem com pedaço de pau. Avise os vizinhos, sinalize o local e ligue para a distribuidora de energia e para o 193."
+        },
+        {
+          "doc": "05_energia_eletrica.md",
+          "titulo": "Energia elétrica, fios caídos e choque",
+          "trecho": "Use lanterna, não vela, para evitar incêndio. Mantenha a geladeira fechada o máximo possível. Quem depende de aparelho de oxigênio deve avisar a distribuidora e a família e ter um plano de reserva."
+        },
+        {
+          "doc": "04_evacuacao_vulneraveis.md",
+          "titulo": "Saída de idosos, pessoas com deficiência, acamados, gestantes e crianças",
+          "trecho": "Leve os remédios, as receitas e o cartão do SUS. Quem usa oxigênio ou aparelho elétrico precisa de plano para falta de energia: bateria extra, cilindro reserva ou ir para um lugar com energia. Se não for possível tirar a pessoa acamada da cama com segurança, ligue 193 e avise que há uma pessoa acamada."
+        }
+      ],
+      "confianca": 0.691,
+      "modo": "ml+regras",
+      "rastro": [
+        {
+          "agente": "triagem",
+          "ms": 2,
+          "saida": "falta_energia g2 conf 0.69 vulneraveis=acamado"
+        },
+        {
+          "agente": "protocolos",
+          "ms": 1,
+          "saida": "modo regras · fontes: 05_energia_eletrica.md, 04_evacuacao_vulneraveis.md"
+        },
+        {
+          "agente": "prioridade",
+          "ms": 0,
+          "saida": "41 = G12.5 + V12 + R13 (alerta) + E3.3"
+        }
+      ]
+    }
+  },
+  {
+    "entrada": {
+      "texto": "o barranco cedeu e a terra encostou na parede de casa",
+      "contexto": {
+        "bairro_id": "jardim-romano",
+        "risco_bairro": {
+          "nivel": "atencao",
+          "prob": 0.4
+        },
+        "espera_min": 45
+      }
+    },
+    "rotulo_humano": {
+      "categoria": "risco_estrutural",
+      "gravidade": 4,
+      "vulneraveis": []
+    },
+    "saida": {
+      "categoria": "risco_estrutural",
+      "gravidade": 3,
+      "prioridade": 38,
+      "vulneraveis": [],
+      "resumo": "Risco estrutural · gravidade 3/5 — \"o barranco cedeu e a terra encostou na parede de casa\"",
+      "orientacao": "Fique atento a rachadura nova ou que aumenta, porta e janela que param de fechar, estalos no teto ou nas paredes, muro inclinando, poste ou árvore tortos e terra descendo do barranco. Não fique embaixo de laje, muro ou barranco durante a chuva forte.",
+      "fontes": [
+        {
+          "doc": "11_risco_estrutural.md",
+          "titulo": "Rachaduras, muros e risco de desabamento",
+          "trecho": "Fique atento a rachadura nova ou que aumenta, porta e janela que param de fechar, estalos no teto ou nas paredes, muro inclinando, poste ou árvore tortos e terra descendo do barranco."
+        },
+        {
+          "doc": "11_risco_estrutural.md",
+          "titulo": "Rachaduras, muros e risco de desabamento",
+          "trecho": "Não fique embaixo de laje, muro ou barranco durante a chuva forte. Não tente escorar parede sozinho. Não volte para buscar objetos."
+        },
+        {
+          "doc": "08_abrigos_pontos_apoio.md",
+          "titulo": "Abrigos e pontos de apoio",
+          "trecho": "Vá para um ponto de apoio quando a Defesa Civil pedir para sair, quando a água começar a entrar em casa ou quando houver rachadura ou risco de desabamento. Se tiver casa de parente em lugar alto e seguro, essa também é uma boa opção."
+        }
+      ],
+      "confianca": 0.974,
+      "modo": "ml+regras",
+      "rastro": [
+        {
+          "agente": "triagem",
+          "ms": 2,
+          "saida": "risco_estrutural g3 conf 0.97 vulneraveis=-"
+        },
+        {
+          "agente": "protocolos",
+          "ms": 1,
+          "saida": "modo regras · fontes: 11_risco_estrutural.md, 08_abrigos_pontos_apoio.md"
+        },
+        {
+          "agente": "prioridade",
+          "ms": 0,
+          "saida": "38 = G25.0 + V0 + R6 (atencao) + E7.5"
+        }
+      ]
+    }
+  },
+  {
+    "entrada": {
+      "texto": "rua inteira virou rio aki, n da nem pra sair de bota",
+      "contexto": {
+        "bairro_id": "jardim-helena",
+        "risco_bairro": {
+          "nivel": "alerta",
+          "prob": 0.7
+        },
+        "espera_min": 10
+      }
+    },
+    "rotulo_humano": {
+      "categoria": "via_alagada",
+      "gravidade": 3,
+      "vulneraveis": []
+    },
+    "saida": {
+      "categoria": "via_alagada",
+      "gravidade": 2,
+      "prioridade": 27,
+      "vulneraveis": [],
+      "resumo": "Via alagada · gravidade 2/5 — \"rua inteira virou rio aki, n da nem pra sair de bota\"",
+      "orientacao": "Não atravesse rua alagada a pé, de moto ou de carro. Poucos palmos de água com correnteza derrubam um adulto e arrastam um carro. Saia do carro assim que a água começar a subir e vá para um lugar alto.",
+      "fontes": [
+        {
+          "doc": "02_durante_a_enchente.md",
+          "titulo": "Durante a enchente: o que fazer agora",
+          "trecho": "Não atravesse rua alagada a pé, de moto ou de carro. Poucos palmos de água com correnteza derrubam um adulto e arrastam um carro. A água pode esconder buraco, bueiro aberto e fio elétrico."
+        },
+        {
+          "doc": "10_pessoa_ilhada_resgate.md",
+          "titulo": "Pessoa ilhada ou arrastada pela água",
+          "trecho": "Saia do carro assim que a água começar a subir e vá para um lugar alto. Não tente atravessar com o carro: a água pode levar o veículo."
+        },
+        {
+          "doc": "10_pessoa_ilhada_resgate.md",
+          "titulo": "Pessoa ilhada ou arrastada pela água",
+          "trecho": "Ligue 193 imediatamente e diga onde viu a pessoa pela última vez. Não entre na água para salvar: jogue algo que flutue (garrafa PET fechada, boia, isopor) ou uma corda, sempre de um lugar firme."
+        }
+      ],
+      "confianca": 0.364,
+      "modo": "ml+regras",
+      "rastro": [
+        {
+          "agente": "triagem",
+          "ms": 2,
+          "saida": "via_alagada g2 conf 0.36 vulneraveis=-"
+        },
+        {
+          "agente": "protocolos",
+          "ms": 1,
+          "saida": "modo regras · fontes: 02_durante_a_enchente.md, 10_pessoa_ilhada_resgate.md"
+        },
+        {
+          "agente": "prioridade",
+          "ms": 0,
+          "saida": "27 = G12.5 + V0 + R13 (alerta) + E1.7"
+        }
+      ]
+    }
+  },
+  {
+    "entrada": {
+      "texto": "onde é o ponto de apoio do jardim romano? tem lugar pra cachorro?",
+      "contexto": {
+        "bairro_id": "jardim-romano",
+        "risco_bairro": {
+          "nivel": "observacao",
+          "prob": 0.08
+        },
+        "espera_min": 0
+      }
+    },
+    "rotulo_humano": {
+      "categoria": "outro",
+      "gravidade": 1,
+      "vulneraveis": []
+    },
+    "saida": {
+      "categoria": "outro",
+      "gravidade": 1,
+      "prioridade": 0,
+      "vulneraveis": [],
+      "resumo": "Outro / informação · gravidade 1/5 — \"onde é o ponto de apoio do jardim romano? tem lugar pra cachorro?\"",
+      "orientacao": "Informe na chegada se há idoso, pessoa com deficiência, acamado, gestante ou criança no grupo, e se alguém usa remédio controlado. Os pontos de apoio do Margem estão no mapa do aplicativo; os endereços deste projeto são simulados. Vá para um ponto de apoio quando a Defesa Civil pedir para sair, quando a água começar a entrar em casa ou quando houver rachadura ou risco de desabamento.",
+      "fontes": [
+        {
+          "doc": "08_abrigos_pontos_apoio.md",
+          "titulo": "Abrigos e pontos de apoio",
+          "trecho": "Informe na chegada se há idoso, pessoa com deficiência, acamado, gestante ou criança no grupo, e se alguém usa remédio controlado. Os pontos de apoio do Margem estão no mapa do aplicativo; os endereços deste projeto são simulados."
+        },
+        {
+          "doc": "08_abrigos_pontos_apoio.md",
+          "titulo": "Abrigos e pontos de apoio",
+          "trecho": "Vá para um ponto de apoio quando a Defesa Civil pedir para sair, quando a água começar a entrar em casa ou quando houver rachadura ou risco de desabamento. Se tiver casa de parente em lugar alto e seguro, essa também é uma boa opção."
+        },
+        {
+          "doc": "12_niveis_de_alerta.md",
+          "titulo": "O que significa cada nível de alerta",
+          "trecho": "Risco alto de enchente nas próximas horas. Saia das áreas baixas e próximas ao rio e ao córrego. Vá para casa de parente em lugar alto ou para o ponto de apoio. Desligue a energia antes de sair."
+        }
+      ],
+      "confianca": 0.614,
+      "modo": "ml+regras",
+      "rastro": [
+        {
+          "agente": "triagem",
+          "ms": 2,
+          "saida": "outro g1 conf 0.61 vulneraveis=-"
+        },
+        {
+          "agente": "protocolos",
+          "ms": 1,
+          "saida": "modo regras · fontes: 08_abrigos_pontos_apoio.md, 12_niveis_de_alerta.md"
+        },
+        {
+          "agente": "prioridade",
+          "ms": 0,
+          "saida": "0 = G0.0 + V0 + R0 (observacao) + E0.0"
+        }
+      ]
+    }
+  },
+  {
+    "entrada": {
+      "redigir_alerta": {
+        "bairro": {
+          "id": "jardim-pantanal"
+        },
+        "risco": {
+          "nivel": "alerta",
+          "prob": 0.72
+        }
+      }
+    },
+    "saida": {
+      "titulo": "Alerta de enchente: Jardim Pantanal",
+      "mensagem_curta": "Margem: ALERTA em Jardim Pantanal. Risco de enchente nas próximas 2h. Saia das áreas baixas e vá ao ponto de apoio. Emergência: 193 ou 199",
+      "mensagem_completa": "Alerta em Jardim Pantanal.\nHá risco alto de enchente nas próximas 2 horas. Chance estimada de transbordo em 2 horas: 72%.\n\nO que fazer agora:\n- Saia das áreas baixas e perto do rio ou do córrego.\n- Vá para a casa de um parente em lugar alto ou para o ponto de apoio.\n- Antes de sair, desligue a chave geral de energia se o chão estiver seco.\n- Leve documentos, remédios e carregador de celular.\n- Não atravesse rua alagada, nem a pé nem de carro.\n\nPonto de apoio: Ponto de apoio - Escola Municipal (simulado), com acessibilidade. Veja o caminho no mapa do aplicativo.\n\nTelefones: Bombeiros 193 · Defesa Civil 199 · SAMU 192."
+    }
+  }
+]

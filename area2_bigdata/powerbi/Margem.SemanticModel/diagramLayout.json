@@ -1,0 +1,126 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1010.914065912061,
+            "y": 507.60021411460434
+          },
+          "nodeIndex": "_Medidas",
+          "nodeLineageTag": "44526edb-2eea-5730-8ac7-cf5680100be6",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 572.78995651154491,
+            "y": 305.13332942045156
+          },
+          "nodeIndex": "dim_bairro",
+          "nodeLineageTag": "e937ff3f-4a9d-5417-926e-42798267e56e",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 412.67770614505321,
+            "y": 961.65983610066485
+          },
+          "nodeIndex": "dim_data",
+          "nodeLineageTag": "1bb0680a-f0bd-56d5-a01a-9f4948374bb7",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 250.31189292332738
+          },
+          "nodeIndex": "dim_estacao",
+          "nodeLineageTag": "3a39ec45-6ab9-562c-90b9-8088cdb4e158",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 439.76706143415345,
+            "y": -50
+          },
+          "nodeIndex": "dim_morador",
+          "nodeLineageTag": "085495c9-5b8d-54d7-bd48-57c7d9968786",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 776.914065912061,
+            "y": 608.01807799814333
+          },
+          "nodeIndex": "fato_alerta",
+          "nodeLineageTag": "af493fcc-62d2-5020-b81f-54b4dd33d7cd",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 292.23330294610696,
+            "y": 605.84493823906655
+          },
+          "nodeIndex": "fato_leitura_hora",
+          "nodeLineageTag": "0c77ee1a-1a29-5e8b-a031-2cb0a458aee2",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 747.47072908033874,
+            "y": 965.20042822920891
+          },
+          "nodeIndex": "fato_ocorrencia",
+          "nodeLineageTag": "5440e362-b42d-5fef-bec8-e888100c17d9",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

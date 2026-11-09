@@ -1,0 +1,68 @@
+table dim_data
+	lineageTag: 1bb0680a-f0bd-56d5-a01a-9f4948374bb7
+	dataCategory: Time
+
+	column data
+		dataType: dateTime
+		isKey
+		formatString: dd/mm/yyyy
+		lineageTag: 7aa52c65-b0fc-5aaf-9edf-19421275846f
+		summarizeBy: none
+		sourceColumn: [data]
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 04459cc1-ef3a-542f-937e-d0c16df0c517
+		summarizeBy: none
+		sourceColumn: [ano]
+
+	column mes_num
+		dataType: int64
+		formatString: 0
+		lineageTag: 49c22b6d-1555-5f18-aaac-c665d8bcb693
+		summarizeBy: none
+		sourceColumn: [mes_num]
+
+	column mes_ordem
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4521bd7d-be24-5c88-9805-cd141992fd4e
+		summarizeBy: none
+		sourceColumn: [mes_ordem]
+
+	column mes
+		dataType: string
+		lineageTag: 194aad25-8b04-5c70-905f-bffb8c92fe07
+		summarizeBy: none
+		sourceColumn: [mes]
+		sortByColumn: mes_ordem
+
+	column dia_semana
+		dataType: string
+		lineageTag: d371d2e4-40a3-57b4-8056-6743ce6d9db3
+		summarizeBy: none
+		sourceColumn: [dia_semana]
+
+	partition dim_data = calculated
+		mode: import
+		source =
+				VAR Inicio =
+				    MIN ( MIN ( fato_leitura_hora[data] ), MIN ( fato_ocorrencia[data] ) )
+				VAR Fim =
+				    MAX ( MAX ( fato_leitura_hora[data] ), MAX ( fato_ocorrencia[data] ) )
+				VAR Meses = { "jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez" }
+				RETURN
+				    ADDCOLUMNS (
+				        SELECTCOLUMNS ( CALENDAR ( Inicio, Fim ), "data", [Date] ),
+				        "ano", YEAR ( [data] ),
+				        "mes_num", MONTH ( [data] ),
+				        "mes_ordem", YEAR ( [data] ) * 100 + MONTH ( [data] ),
+				        "mes", SWITCH ( MONTH ( [data] ), 1, "jan", 2, "fev", 3, "mar", 4, "abr", 5, "mai", 6, "jun",
+				            7, "jul", 8, "ago", 9, "set", 10, "out", 11, "nov", "dez" ) & "/" & RIGHT ( YEAR ( [data] ), 2 ),
+				        "dia_semana", FORMAT ( [data], "ddd" )
+				    )
+

@@ -1,0 +1,231 @@
+{
+  "gerado_em": "2026-11-05T14:31:31-03:00",
+  "fonte_dados": "data_lake/refinada/leituras_hora.parquet (histórico simulado, área 2)",
+  "dados_simulados": true,
+  "linhas_total": 34791,
+  "periodo_dados": [
+    "2025-11-05 00:00:00-03:00",
+    "2026-11-04 23:00:00-03:00"
+  ],
+  "taxa_positivos_treino": 0.0111,
+  "arquitetura": "StandardScaler -> MLPClassifier(32, 16, relu, adam, early stopping)",
+  "balanceamento": "oversampling dos positivos com ruído de 2% até 25% do treino",
+  "features": [
+    "nivel_cm",
+    "nivel_var_1h",
+    "nivel_var_3h",
+    "chuva_1h",
+    "chuva_3h",
+    "chuva_6h",
+    "chuva_24h",
+    "umidade_solo_pct",
+    "pct_cota_alerta",
+    "hora_do_dia"
+  ],
+  "limiar": 0.31,
+  "limiar_motivo": "maior F2 na validação cruzada temporal (0.866, precisão 0.805, mínimo exigido 0.3); F2 pesa o recall 2x porque deixar de avisar um transbordo custa mais que um alarme a mais",
+  "holdout": {
+    "linhas": 5216,
+    "periodo": [
+      "2026-09-11 06:00:00-03:00",
+      "2026-11-04 23:00:00-03:00"
+    ],
+    "taxa_positivos": 0.0075,
+    "por_hora": {
+      "regra_cota": {
+        "acuracia": 0.9927,
+        "precisao": 0.5085,
+        "recall": 0.7692,
+        "f1": 0.6122
+      },
+      "mlp_sozinho": {
+        "acuracia": 0.9975,
+        "precisao": 0.7708,
+        "recall": 0.9487,
+        "f1": 0.8506,
+        "roc_auc": 0.9932
+      },
+      "margem_mlp_mais_cota": {
+        "acuracia": 0.9929,
+        "precisao": 0.5139,
+        "recall": 0.9487,
+        "f1": 0.6667
+      }
+    },
+    "eventos": {
+      "regra_cota": {
+        "eventos": 6,
+        "antecedencia_media_min": 30.0,
+        "antecedencia_mediana_min": 30.0,
+        "recall_eventos_1h": 0.5,
+        "recall_eventos_2h": 0.0,
+        "falsos_alarmes": 3,
+        "falsos_alarmes_por_mes": 1.65,
+        "dias_avaliados": 54.7,
+        "antecedencias_min": [
+          0,
+          60,
+          60,
+          0,
+          0,
+          60
+        ]
+      },
+      "mlp_sozinho": {
+        "eventos": 6,
+        "antecedencia_media_min": 110.0,
+        "antecedencia_mediana_min": 120.0,
+        "recall_eventos_1h": 1.0,
+        "recall_eventos_2h": 0.667,
+        "falsos_alarmes": 3,
+        "falsos_alarmes_por_mes": 1.65,
+        "dias_avaliados": 54.7,
+        "antecedencias_min": [
+          120,
+          180,
+          120,
+          60,
+          120,
+          60
+        ]
+      },
+      "margem_mlp_mais_cota": {
+        "eventos": 6,
+        "antecedencia_media_min": 110.0,
+        "antecedencia_mediana_min": 120.0,
+        "recall_eventos_1h": 1.0,
+        "recall_eventos_2h": 0.667,
+        "falsos_alarmes": 5,
+        "falsos_alarmes_por_mes": 2.74,
+        "dias_avaliados": 54.7,
+        "antecedencias_min": [
+          120,
+          180,
+          120,
+          60,
+          120,
+          60
+        ]
+      }
+    }
+  },
+  "walk_forward": {
+    "linhas": 23199,
+    "periodo": [
+      "2026-03-06 16:00:00-03:00",
+      "2026-11-04 23:00:00-03:00"
+    ],
+    "taxa_positivos": 0.0056,
+    "por_hora": {
+      "regra_cota": {
+        "acuracia": 0.9911,
+        "precisao": 0.3742,
+        "recall": 0.8626,
+        "f1": 0.5219
+      },
+      "mlp_sozinho": {
+        "acuracia": 0.9966,
+        "precisao": 0.6809,
+        "recall": 0.7328,
+        "f1": 0.7059,
+        "roc_auc": 0.9942
+      },
+      "margem_mlp_mais_cota": {
+        "acuracia": 0.9905,
+        "precisao": 0.3699,
+        "recall": 0.9771,
+        "f1": 0.5367
+      }
+    },
+    "eventos": {
+      "regra_cota": {
+        "eventos": 17,
+        "antecedencia_media_min": 162.4,
+        "antecedencia_mediana_min": 60.0,
+        "recall_eventos_1h": 0.706,
+        "recall_eventos_2h": 0.235,
+        "falsos_alarmes": 18,
+        "falsos_alarmes_por_mes": 2.22,
+        "dias_avaliados": 243.3,
+        "antecedencias_min": [
+          720,
+          0,
+          120,
+          60,
+          0,
+          60,
+          60,
+          60,
+          720,
+          0,
+          0,
+          720,
+          60,
+          60,
+          60,
+          0,
+          60
+        ]
+      },
+      "mlp_sozinho": {
+        "eventos": 17,
+        "antecedencia_media_min": 95.3,
+        "antecedencia_mediana_min": 120.0,
+        "recall_eventos_1h": 0.824,
+        "recall_eventos_2h": 0.647,
+        "falsos_alarmes": 10,
+        "falsos_alarmes_por_mes": 1.23,
+        "dias_avaliados": 243.3,
+        "antecedencias_min": [
+          0,
+          60,
+          180,
+          120,
+          120,
+          120,
+          180,
+          120,
+          0,
+          120,
+          60,
+          0,
+          120,
+          120,
+          120,
+          120,
+          60
+        ]
+      },
+      "margem_mlp_mais_cota": {
+        "eventos": 17,
+        "antecedencia_media_min": 222.4,
+        "antecedencia_mediana_min": 120.0,
+        "recall_eventos_1h": 1.0,
+        "recall_eventos_2h": 0.824,
+        "falsos_alarmes": 23,
+        "falsos_alarmes_por_mes": 2.84,
+        "dias_avaliados": 243.3,
+        "antecedencias_min": [
+          720,
+          60,
+          180,
+          120,
+          120,
+          120,
+          180,
+          120,
+          720,
+          120,
+          60,
+          720,
+          120,
+          120,
+          120,
+          120,
+          60
+        ]
+      }
+    },
+    "dobras": 4
+  }
+}

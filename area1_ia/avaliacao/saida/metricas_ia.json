@@ -1,0 +1,591 @@
+{
+  "triagem": {
+    "n_treino_templates": 581,
+    "n_teste_manual": 94,
+    "sistemas": {
+      "baseline_palavra_chave": {
+        "categoria": {
+          "acuracia": 0.617,
+          "f1_macro": 0.6419
+        },
+        "gravidade": {
+          "acuracia": 0.3191,
+          "f1_macro": 0.2488,
+          "erro_medio_abs": 1.085,
+          "dentro_de_1_ponto": 0.7128
+        },
+        "vulneraveis": {
+          "precisao": 0.9375,
+          "recall": 0.4839,
+          "f1": 0.6383,
+          "acerto_exato": 0.8191
+        },
+        "matriz_categoria": [
+          [
+            8,
+            1,
+            0,
+            0,
+            1,
+            10
+          ],
+          [
+            0,
+            8,
+            0,
+            1,
+            0,
+            6
+          ],
+          [
+            0,
+            2,
+            9,
+            0,
+            0,
+            6
+          ],
+          [
+            0,
+            0,
+            0,
+            5,
+            0,
+            7
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            11,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            17
+          ]
+        ],
+        "recall_graves_4_5": 0.2432
+      },
+      "ml_sem_regras": {
+        "categoria": {
+          "acuracia": 0.8511,
+          "f1_macro": 0.8492
+        },
+        "gravidade": {
+          "acuracia": 0.5213,
+          "f1_macro": 0.5467,
+          "erro_medio_abs": 0.66,
+          "dentro_de_1_ponto": 0.8723
+        },
+        "vulneraveis": {
+          "precisao": 1.0,
+          "recall": 0.9355,
+          "f1": 0.9667,
+          "acerto_exato": 0.9787
+        },
+        "matriz_categoria": [
+          [
+            20,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            13,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            3,
+            13,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1,
+            8,
+            0,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            12,
+            0
+          ],
+          [
+            2,
+            1,
+            1,
+            0,
+            0,
+            14
+          ]
+        ],
+        "recall_graves_4_5": 0.6486
+      },
+      "ml_mais_regras": {
+        "categoria": {
+          "acuracia": 0.8723,
+          "f1_macro": 0.8697
+        },
+        "gravidade": {
+          "acuracia": 0.5532,
+          "f1_macro": 0.5825,
+          "erro_medio_abs": 0.596,
+          "dentro_de_1_ponto": 0.8936
+        },
+        "vulneraveis": {
+          "precisao": 1.0,
+          "recall": 0.9355,
+          "f1": 0.9667,
+          "acerto_exato": 0.9787
+        },
+        "matriz_categoria": [
+          [
+            20,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            13,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            15,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1,
+            8,
+            0,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            12,
+            0
+          ],
+          [
+            2,
+            1,
+            1,
+            0,
+            0,
+            14
+          ]
+        ],
+        "recall_graves_4_5": 0.7027
+      }
+    },
+    "n_graves_teste": 37
+  },
+  "rag": {
+    "consultas": 20,
+    "acerto_top1": 0.8,
+    "acerto_top3": 1.0,
+    "mrr": 0.9
+  },
+  "risco": {
+    "principal": {
+      "gerado_em": "2026-11-05T14:18:02-03:00",
+      "fonte_dados": "data_lake/refinada/leituras_hora.parquet (histórico simulado, área 2)",
+      "dados_simulados": true,
+      "linhas_total": 8587,
+      "periodo_dados": [
+        "2026-08-07 00:00:00-03:00",
+        "2026-11-04 23:00:00-03:00"
+      ],
+      "taxa_positivos_treino": 0.006,
+      "arquitetura": "StandardScaler -> MLPClassifier(32, 16, relu, adam, early stopping)",
+      "balanceamento": "oversampling dos positivos com ruído de 2% até 25% do treino",
+      "features": [
+        "nivel_cm",
+        "nivel_var_1h",
+        "nivel_var_3h",
+        "chuva_1h",
+        "chuva_3h",
+        "chuva_6h",
+        "chuva_24h",
+        "umidade_solo_pct",
+        "pct_cota_alerta",
+        "hora_do_dia"
+      ],
+      "limiar": 0.73,
+      "limiar_motivo": "maior F2 na validação cruzada temporal (1.000, precisão 1.000, mínimo exigido 0.3); F2 pesa o recall 2x porque deixar de avisar um transbordo custa mais que um alarme a mais",
+      "holdout": {
+        "linhas": 1285,
+        "periodo": [
+          "2026-10-22 12:00:00-03:00",
+          "2026-11-04 23:00:00-03:00"
+        ],
+        "taxa_positivos": 0.0272,
+        "por_hora": {
+          "regra_cota": {
+            "acuracia": 0.9813,
+            "precisao": 0.6122,
+            "recall": 0.8571,
+            "f1": 0.7143
+          },
+          "mlp_sozinho": {
+            "acuracia": 0.9946,
+            "precisao": 0.9667,
+            "recall": 0.8286,
+            "f1": 0.8923,
+            "roc_auc": 0.971
+          },
+          "margem_mlp_mais_cota": {
+            "acuracia": 0.9829,
+            "precisao": 0.6275,
+            "recall": 0.9143,
+            "f1": 0.7442
+          }
+        },
+        "eventos": {
+          "regra_cota": {
+            "eventos": 4,
+            "antecedencia_media_min": 45.0,
+            "antecedencia_mediana_min": 60.0,
+            "recall_eventos_1h": 0.75,
+            "recall_eventos_2h": 0.0,
+            "falsos_alarmes": 0,
+            "falsos_alarmes_por_mes": 0.0,
+            "dias_avaliados": 13.5,
+            "antecedencias_min": [
+              60,
+              60,
+              0,
+              60
+            ]
+          },
+          "mlp_sozinho": {
+            "eventos": 4,
+            "antecedencia_media_min": 75.0,
+            "antecedencia_mediana_min": 60.0,
+            "recall_eventos_1h": 1.0,
+            "recall_eventos_2h": 0.25,
+            "falsos_alarmes": 0,
+            "falsos_alarmes_por_mes": 0.0,
+            "dias_avaliados": 13.5,
+            "antecedencias_min": [
+              60,
+              60,
+              60,
+              120
+            ]
+          },
+          "margem_mlp_mais_cota": {
+            "eventos": 4,
+            "antecedencia_media_min": 75.0,
+            "antecedencia_mediana_min": 60.0,
+            "recall_eventos_1h": 1.0,
+            "recall_eventos_2h": 0.25,
+            "falsos_alarmes": 0,
+            "falsos_alarmes_por_mes": 0.0,
+            "dias_avaliados": 13.5,
+            "antecedencias_min": [
+              60,
+              60,
+              60,
+              120
+            ]
+          }
+        }
+      },
+      "walk_forward": {
+        "linhas": 5723,
+        "periodo": [
+          "2026-09-06 00:00:00-03:00",
+          "2026-11-04 23:00:00-03:00"
+        ],
+        "taxa_positivos": 0.0061,
+        "por_hora": {
+          "regra_cota": {
+            "acuracia": 0.9958,
+            "precisao": 0.6122,
+            "recall": 0.8571,
+            "f1": 0.7143
+          },
+          "mlp_sozinho": {
+            "acuracia": 0.9981,
+            "precisao": 0.9286,
+            "recall": 0.7429,
+            "f1": 0.8254,
+            "roc_auc": 0.9712
+          },
+          "margem_mlp_mais_cota": {
+            "acuracia": 0.9958,
+            "precisao": 0.6078,
+            "recall": 0.8857,
+            "f1": 0.7209
+          }
+        },
+        "eventos": {
+          "regra_cota": {
+            "eventos": 4,
+            "antecedencia_media_min": 45.0,
+            "antecedencia_mediana_min": 60.0,
+            "recall_eventos_1h": 0.75,
+            "recall_eventos_2h": 0.0,
+            "falsos_alarmes": 0,
+            "falsos_alarmes_por_mes": 0.0,
+            "dias_avaliados": 60.0,
+            "antecedencias_min": [
+              60,
+              60,
+              0,
+              60
+            ]
+          },
+          "mlp_sozinho": {
+            "eventos": 4,
+            "antecedencia_media_min": 60.0,
+            "antecedencia_mediana_min": 60.0,
+            "recall_eventos_1h": 1.0,
+            "recall_eventos_2h": 0.0,
+            "falsos_alarmes": 1,
+            "falsos_alarmes_por_mes": 0.5,
+            "dias_avaliados": 60.0,
+            "antecedencias_min": [
+              60,
+              60,
+              60,
+              60
+            ]
+          },
+          "margem_mlp_mais_cota": {
+            "eventos": 4,
+            "antecedencia_media_min": 60.0,
+            "antecedencia_mediana_min": 60.0,
+            "recall_eventos_1h": 1.0,
+            "recall_eventos_2h": 0.0,
+            "falsos_alarmes": 1,
+            "falsos_alarmes_por_mes": 0.5,
+            "dias_avaliados": 60.0,
+            "antecedencias_min": [
+              60,
+              60,
+              60,
+              60
+            ]
+          }
+        },
+        "dobras": 4
+      },
+      "origem_metricas": "modelo salvo (area1_ia/modelo_risco/metricas.json)"
+    },
+    "fixture": {
+      "gerado_em": "2026-11-05T14:22:53-03:00",
+      "fonte_dados": "fixture sintética própria (2 anos)",
+      "dados_simulados": true,
+      "linhas_total": 70072,
+      "periodo_dados": [
+        "2026-01-01 00:00:00-03:00",
+        "2027-12-31 21:00:00-03:00"
+      ],
+      "taxa_positivos_treino": 0.0126,
+      "arquitetura": "StandardScaler -> MLPClassifier(32, 16, relu, adam, early stopping)",
+      "balanceamento": "oversampling dos positivos com ruído de 2% até 25% do treino",
+      "features": [
+        "nivel_cm",
+        "nivel_var_1h",
+        "nivel_var_3h",
+        "chuva_1h",
+        "chuva_3h",
+        "chuva_6h",
+        "chuva_24h",
+        "umidade_solo_pct",
+        "pct_cota_alerta",
+        "hora_do_dia"
+      ],
+      "limiar": 0.56,
+      "limiar_motivo": "maior F2 na validação cruzada temporal (0.952, precisão 0.826, mínimo exigido 0.3); F2 pesa o recall 2x porque deixar de avisar um transbordo custa mais que um alarme a mais",
+      "holdout": {
+        "linhas": 10512,
+        "periodo": [
+          "2027-09-13 10:00:00-03:00",
+          "2027-12-31 21:00:00-03:00"
+        ],
+        "taxa_positivos": 0.0115,
+        "por_hora": {
+          "regra_cota": {
+            "acuracia": 0.9731,
+            "precisao": 0.2912,
+            "recall": 0.9339,
+            "f1": 0.444
+          },
+          "mlp_sozinho": {
+            "acuracia": 0.9972,
+            "precisao": 0.8194,
+            "recall": 0.9752,
+            "f1": 0.8906,
+            "roc_auc": 0.9997
+          },
+          "margem_mlp_mais_cota": {
+            "acuracia": 0.9732,
+            "precisao": 0.2993,
+            "recall": 0.9917,
+            "f1": 0.4598
+          }
+        },
+        "eventos": {
+          "regra_cota": {
+            "eventos": 16,
+            "antecedencia_media_min": 112.5,
+            "antecedencia_mediana_min": 90.0,
+            "recall_eventos_1h": 1.0,
+            "recall_eventos_2h": 0.5,
+            "falsos_alarmes": 18,
+            "falsos_alarmes_por_mes": 4.93,
+            "dias_avaliados": 109.5,
+            "antecedencias_min": [
+              120,
+              240,
+              60,
+              120,
+              60,
+              120,
+              60,
+              360,
+              60,
+              60,
+              60,
+              120,
+              60,
+              120,
+              60,
+              120
+            ]
+          },
+          "mlp_sozinho": {
+            "eventos": 16,
+            "antecedencia_media_min": 135.0,
+            "antecedencia_mediana_min": 120.0,
+            "recall_eventos_1h": 1.0,
+            "recall_eventos_2h": 0.938,
+            "falsos_alarmes": 5,
+            "falsos_alarmes_por_mes": 1.37,
+            "dias_avaliados": 109.5,
+            "antecedencias_min": [
+              180,
+              120,
+              120,
+              180,
+              120,
+              120,
+              180,
+              120,
+              120,
+              180,
+              120,
+              180,
+              120,
+              120,
+              60,
+              120
+            ]
+          },
+          "margem_mlp_mais_cota": {
+            "eventos": 16,
+            "antecedencia_media_min": 157.5,
+            "antecedencia_mediana_min": 120.0,
+            "recall_eventos_1h": 1.0,
+            "recall_eventos_2h": 0.938,
+            "falsos_alarmes": 18,
+            "falsos_alarmes_por_mes": 4.93,
+            "dias_avaliados": 109.5,
+            "antecedencias_min": [
+              180,
+              240,
+              120,
+              180,
+              120,
+              120,
+              180,
+              360,
+              120,
+              180,
+              120,
+              180,
+              120,
+              120,
+              60,
+              120
+            ]
+          }
+        }
+      },
+      "walk_forward": {},
+      "origem_metricas": "treino em memória, não salvo"
+    }
+  },
+  "fila": {
+    "rodadas": 30,
+    "relatos_por_lote": 40,
+    "casos_criticos_avaliados": 233,
+    "posicao_media_fifo": 20.6,
+    "posicao_media_priorizada": 11.0,
+    "pct_top10_fifo": 22.7,
+    "pct_top10_priorizada": 54.9
+  },
+  "tempo": {
+    "relatos": 94,
+    "ms_medio": 2.6,
+    "ms_p95": 2.9,
+    "manual_min_premissa": [
+      2,
+      4
+    ],
+    "reducao_vezes": [
+      46306,
+      92613
+    ],
+    "lote_100_relatos_min": {
+      "manual": [
+        200,
+        400
+      ]
+    },
+    "lote_100_relatos_s": 0.26
+  },
+  "tipos_vulneraveis": [
+    "idoso",
+    "pcd",
+    "crianca",
+    "gestante",
+    "acamado"
+  ]
+}

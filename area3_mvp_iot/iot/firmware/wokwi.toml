@@ -1,0 +1,6 @@
+# Uso com a extensão Wokwi do VS Code (opcional; no wokwi.com basta colar os arquivos).
+# Compile antes:  arduino-cli compile --fqbn esp32:esp32:esp32 --output-dir build .
+[wokwi]
+version = 1
+firmware = "build/sketch.ino.bin"
+elf = "build/sketch.ino.elf"

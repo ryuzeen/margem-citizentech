@@ -1,0 +1,6 @@
+/// Pasta com os CSVs do modelo (termina com \). Troque em Transformar dados > Gerenciar parâmetros.
+expression PastaDados = "C:\Users\Rafael\Desktop\Tudo\Facul Feitos\GS-2026-2-CitizenTech\area2_bigdata\powerbi\dados\" meta [IsParameterQuery = true, Type = "Text", IsParameterQueryRequired = true]
+	lineageTag: ccb0a591-9559-5427-9de2-2af27a4ae035
+
+	annotation PBI_ResultType = Text
+

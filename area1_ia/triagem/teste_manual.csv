@@ -1,0 +1,95 @@
+texto,categoria,gravidade,vulneraveis
+"gente do ceu a agua ta entrando aqui em casa pelo ralo e pela porta, ja ta cobrindo o pe",agua_na_residencia,3,
+"Boa noite, moro na rua Capachós e a água invadiu a sala, molhou tudo, a TV, o rack, os colchões estão boiando",agua_na_residencia,3,
+"ta subindo dentro de casa ja passou do joelho e minha mae tem 79 anos e nao consegue subir na cadeira",agua_na_residencia,4,idoso
+"entrou um dedo de água na cozinha, por enquanto tá tranquilo mas tá chovendo muito",agua_na_residencia,2,
+"[áudio transcrito] moço é que a água tá entrando assim por debaixo da porta sabe e eu tô com meu neném de seis meses aqui no colo",agua_na_residencia,2,crianca
+"invadiu minha casa toda de novo, perdi geladeira fogão tudo, ja é a terceira vez esse ano",agua_na_residencia,3,
+"A AGUA TA NA ALTURA DA MESA AQUI DENTRO E SUBINDO RAPIDO",agua_na_residencia,4,
+"socorro agua no peito dentro da casa, meu marido é cadeirante",agua_na_residencia,4,pcd
+"vazou água pela parede do fundo e alagou o quarto do meu filho pequeno",agua_na_residencia,3,crianca
+"a água do córrego subiu e tá dentro de casa, uns 30 cm, tenho uma bebê recém nascida",agua_na_residencia,3,crianca
+"aqui ta começando a entrar agua no quintal, devo tirar as coisas do chão?",agua_na_residencia,2,
+"água de esgoto subindo pelo vaso e pelo ralo do tanque, fedendo muito, casa toda molhada",agua_na_residencia,3,
+"oi tá entrando água na casa da minha vizinha, ela é idosa e mora sozinha, não atende o telefone",agua_na_residencia,3,idoso
+"nossa casa tá com água pela cintura, to gravida de 7 meses e com medo de ficar aqui",agua_na_residencia,4,gestante
+"tem lama e água dentro do barraco, uns dois palmos",agua_na_residencia,3,
+"a rua Pedro Félix alagou de ponta a ponta, carro não passa",via_alagada,2,
+"avenida marechal tiete parada, agua cobrindo a roda dos carros",via_alagada,3,
+"tem uma poça enorme na frente do posto mas a pé dá pra passar pela calçada",via_alagada,1,
+"o ônibus 2002 não entrou no bairro, motorista disse que a rua tá alagada",via_alagada,2,
+"enxurrada descendo a ladeira com força, levou as lixeiras e um monte de entulho",via_alagada,3,
+"a passarela do córrego sumiu debaixo da água, as crianças não conseguem ir pra escola",via_alagada,3,crianca
+"cuidado quem passar na rua da feira, a correnteza tá forte e levou uma moto estacionada",via_alagada,4,
+"rua inteira virou rio aki, n da nem pra sair de bota",via_alagada,3,
+"tá alagado o acesso pela linha do trem, o túnel encheu",via_alagada,3,
+"boca de lobo entupida e a esquina alagou, tá juntando água",via_alagada,2,
+"a tampa do bueiro saiu e tem um buraco no meio da rua alagada, alguém pode cair",via_alagada,4,
+"a viela do 14 tá com lama até a canela",via_alagada,2,
+"carros boiando na avenida, um deles foi arrastado ate o muro",via_alagada,4,
+"rua alagada perto da creche, as mães não conseguem buscar as crianças",via_alagada,3,crianca
+"o asfalto ta coberto de agua mas os carros altos ainda passam devagar",via_alagada,2,
+"Socorro estamos em cima do telhado eu meu marido e duas crianças a água tá subindo",pessoa_ilhada,5,crianca
+"minha avó acamada tá presa no quarto e a água tá subindo, não consigo carregar ela sozinho",pessoa_ilhada,5,idoso|acamado
+"tem um senhor ilhado na casa da esquina, ele acenou da janela, a água tá muito alta em volta",pessoa_ilhada,4,idoso
+"um menino foi levado pela água no córrego do itaim, vi agora",pessoa_ilhada,5,crianca
+"[áudio transcrito] a gente tá preso aqui no sobrado não tem como descer a escada tá toda debaixo da água",pessoa_ilhada,4,
+"homem preso no carro na alça da marginal, a água já tá na janela do carro",pessoa_ilhada,5,
+"estamos isolados, a rua toda virou um lago e meu pai é cadeirante, não tem como tirar ele",pessoa_ilhada,4,pcd
+"uma família inteira tá ilhada na laje, tem um bebê, precisam de barco",pessoa_ilhada,5,crianca
+"minha irmã grávida tá presa em casa e começou a sentir contração, a rua tá alagada e não passa carro",pessoa_ilhada,5,gestante
+"o pessoal da casa 12 não consegue sair, a água cercou tudo",pessoa_ilhada,4,
+"alguem caiu no rio perto da ponte, tão gritando",pessoa_ilhada,5,
+"SOCORRO TO PRESA NO FORRO COM MEUS 3 FILHOS PEQUENOS",pessoa_ilhada,5,crianca
+"tem um idoso de cadeira de rodas sozinho na casa alagada, não consegue sair",pessoa_ilhada,5,idoso|pcd
+"a moradora do fundo tá ilhada, ela é surda e não ouviu ninguém chamando",pessoa_ilhada,4,pcd
+"rapaz agarrado na grade do viaduto com a correnteza puxando",pessoa_ilhada,5,
+"a parede do quarto rachou de cima a baixo depois da enchente",risco_estrutural,3,
+"o muro da escola tá torto e cheio de água atrás, parece que vai cair na calçada",risco_estrutural,4,
+"desabou a casa do seu Zé, acho que tinha gente dentro",risco_estrutural,5,
+"o barranco cedeu e a terra encostou na parede de casa",risco_estrutural,4,
+"tá estalando o teto, caindo pedaço de reboco no berço do meu bebê",risco_estrutural,4,crianca
+"apareceu uma fenda no chão da cozinha, o piso afundou um pouco",risco_estrutural,3,
+"a casa ao lado tá inclinada depois da chuva, os moradores saíram mas a vizinha idosa não quis sair",risco_estrutural,4,idoso
+"desmoronou parte do muro de arrimo e caiu em cima de um carro",risco_estrutural,4,
+"o teto da sala caiu agora, minha mãe tava deitada no sofá, tá machucada",risco_estrutural,5,
+"rachadura nova na viga da garagem, ta abrindo mais a cada dia",risco_estrutural,3,
+"ta pingando do teto em varios lugares e a laje ta molhada por dentro",risco_estrutural,2,
+"o barraco do lado caiu no córrego, ainda bem que tava vazio",risco_estrutural,4,
+"sem luz desde ontem às 19h aqui na rua toda",falta_energia,2,
+"acabou a energia e meu pai depende do concentrador de oxigênio, a bateria dura pouco",falta_energia,4,acamado
+"o fio do poste arrebentou e tá dentro da água na frente de casa, ninguém passa",falta_energia,4,
+"tá saindo faísca do poste da esquina com a chuva",falta_energia,4,
+"a luz caiu de novo, alguém sabe quando volta?",falta_energia,1,
+"meu vizinho tomou choque mexendo no padrão de luz com água no chão, ele tá desacordado",falta_energia,5,
+"o quadro de luz da casa ficou debaixo d'água, posso ligar o disjuntor?",falta_energia,3,
+"bairro todo no escuro, a enel não atende",falta_energia,2,
+"a luz tá oscilando e queimou a geladeira",falta_energia,2,
+"transformador explodiu com estrondo e acabou a luz em 3 quarteirões",falta_energia,3,
+"sem energia faz 2 dias, o leite das crianças estragou",falta_energia,2,crianca
+"cabo de energia caído na calçada alagada perto da escola",falta_energia,4,
+"onde é o ponto de apoio do jardim romano? tem lugar pra cachorro?",outro,1,
+"como eu faço pra receber o aviso por sms?",outro,1,
+"to com dor no corpo e febre alta, andei na enchente semana passada",outro,3,
+"minha filha de 4 anos bebeu água da enchente sem querer, o que faço?",outro,3,crianca
+"quero ajudar como voluntário, onde me inscrevo?",outro,1,
+"a água baixou, já posso limpar a casa? com o que eu lavo?",outro,2,
+"tem doação de colchão? perdemos tudo",outro,2,
+"vai ter alerta essa noite? o céu tá muito escuro",outro,1,
+"a água da caixa d'água ficou suja depois da enchente, dá pra beber fervendo?",outro,2,
+"obrigada pelo aviso, deu tempo de tirar as coisas",outro,1,
+"tá aparecendo muito rato morto na rua depois que a água baixou",outro,2,
+"preciso do remédio de pressão da minha mãe idosa e a farmácia fechou",outro,2,idoso
+"qual número eu ligo se alguém se machucar?",outro,1,
+"o caminhão do lixo pode passar pra tirar os móveis estragados?",outro,1,
+"meu cachorro sumiu na enchente, alguém viu um vira-lata caramelo?",outro,1,
+"teste teste",outro,1,
+"acabou a luz e tá entrando água em casa, já tá na canela",agua_na_residencia,3,
+"a rua alagou e agora a água tá entrando nas casas, a minha já tem uns 10 cm",agua_na_residencia,3,
+"ta tudo alagado aqui, nao sei oq fazer, tenho dois idosos em casa",agua_na_residencia,3,idoso
+"aqui tá feio",outro,2,
+"agua subindo rapido no jd pantanal, ja ta na porta, minha mãe é deficiente visual",agua_na_residencia,2,pcd
+"vo sair de casa agora com as crianças, onde é o abrigo?",outro,2,crianca
+"não tem nenhuma criança aqui não, só eu e meu marido, mas a água entrou no quarto",agua_na_residencia,3,
+"o rio transbordou e a correnteza levou um homem que tentava atravessar",pessoa_ilhada,5,
+"minha sogra tem alzheimer e acamada, a casa encheu de água até a cama",pessoa_ilhada,5,acamado

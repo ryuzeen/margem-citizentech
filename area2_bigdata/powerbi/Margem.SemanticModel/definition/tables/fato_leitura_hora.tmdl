@@ -1,0 +1,289 @@
+table fato_leitura_hora
+	lineageTag: 0c77ee1a-1a29-5e8b-a031-2cb0a458aee2
+
+	column estacao_id
+		dataType: string
+		lineageTag: 5dca45ac-ecb2-5e53-bc03-9f3d633652b1
+		summarizeBy: none
+		sourceColumn: estacao_id
+
+	column bairro_id
+		dataType: string
+		lineageTag: 0d45aa12-5129-5959-8a5e-746f5f115142
+		summarizeBy: none
+		sourceColumn: bairro_id
+
+	column hora
+		dataType: dateTime
+		formatString: dd/mm/yyyy hh:nn
+		lineageTag: 59f13e93-110f-535a-b1d9-4f15a840ff1a
+		summarizeBy: none
+		sourceColumn: hora
+
+	column data
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 57d3e022-990b-5fa3-8094-b57785fd5d9a
+		summarizeBy: none
+		sourceColumn: data
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column nivel_cm
+		dataType: double
+		formatString: #,0.0###
+		lineageTag: 83eda516-337f-5ca3-88c6-3579b7602051
+		summarizeBy: none
+		sourceColumn: nivel_cm
+
+	column nivel_var_1h
+		dataType: double
+		formatString: #,0.0###
+		lineageTag: 603925b6-af51-52d4-8c4f-a0fe5c35659e
+		summarizeBy: none
+		sourceColumn: nivel_var_1h
+
+	column nivel_var_3h
+		dataType: double
+		formatString: #,0.0###
+		lineageTag: a05ef631-dce4-55a4-bd36-83277186472f
+		summarizeBy: none
+		sourceColumn: nivel_var_3h
+
+	column chuva_1h
+		dataType: double
+		formatString: #,0.0###
+		lineageTag: 71634ac4-0adb-5aa9-a192-4161838355fc
+		summarizeBy: sum
+		sourceColumn: chuva_1h
+
+	column chuva_3h
+		dataType: double
+		formatString: #,0.0###
+		lineageTag: 46a0195c-43ad-59f3-ae44-06a055eb24f2
+		summarizeBy: sum
+		sourceColumn: chuva_3h
+
+	column chuva_6h
+		dataType: double
+		formatString: #,0.0###
+		lineageTag: aff5fe06-38ef-5f3a-b3f7-66591a0b0a35
+		summarizeBy: sum
+		sourceColumn: chuva_6h
+
+	column chuva_24h
+		dataType: double
+		formatString: #,0.0###
+		lineageTag: d5cad99a-8fe3-5bef-a463-046241ef8776
+		summarizeBy: sum
+		sourceColumn: chuva_24h
+
+	column umidade_solo_pct
+		dataType: double
+		formatString: #,0.0###
+		lineageTag: afae7899-d90e-5af5-9baa-c80eaccd59f2
+		summarizeBy: none
+		sourceColumn: umidade_solo_pct
+
+	column pct_cota_alerta
+		dataType: double
+		formatString: #,0.0###
+		lineageTag: bd9636e2-f8a2-5268-a238-b21169f0ae56
+		summarizeBy: none
+		sourceColumn: pct_cota_alerta
+
+	column hora_do_dia
+		dataType: int64
+		formatString: 0
+		lineageTag: 17b42414-8fd7-5ea0-a892-2431f506556f
+		summarizeBy: none
+		sourceColumn: hora_do_dia
+
+	column transbordo_2h
+		dataType: int64
+		formatString: 0
+		lineageTag: 5383135e-b2b4-589d-8ffb-6fc337301e86
+		summarizeBy: none
+		sourceColumn: transbordo_2h
+
+	column prob_2h
+		dataType: double
+		formatString: #,0.0###
+		lineageTag: 18bcf944-74e7-5e81-bcaf-ecb40b5228e0
+		summarizeBy: none
+		sourceColumn: prob_2h
+
+	column nivel_cota
+		dataType: string
+		lineageTag: c284e199-ea72-5e18-b846-7c5b8d599516
+		summarizeBy: none
+		sourceColumn: nivel_cota
+
+	column nivel_risco
+		dataType: string
+		lineageTag: 18d100ce-79ea-5297-a7bf-f6495740e15a
+		summarizeBy: none
+		sourceColumn: nivel_risco
+
+	column hora_idx
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 1878a92c-e8f1-53d8-ba8b-eadf1f7cdb72
+		summarizeBy: none
+		sourceColumn: hora_idx
+
+	column seq
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 5cb6a351-f9cd-5e04-8684-91125e968875
+		summarizeBy: none
+		sourceColumn: seq
+
+	column lacuna_antes =
+			-- 1 quando a leitura anterior da estação não é a hora imediatamente anterior (lacuna ou 1ª leitura)
+			VAR IdxAnterior =
+			    LOOKUPVALUE (
+			        fato_leitura_hora[hora_idx],
+			        fato_leitura_hora[estacao_id], fato_leitura_hora[estacao_id],
+			        fato_leitura_hora[seq], fato_leitura_hora[seq] - 1
+			    )
+			RETURN
+			    IF ( ISBLANK ( IdxAnterior ) || fato_leitura_hora[hora_idx] - IdxAnterior > 1, 1, 0 )
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 1e3ba69f-bd54-5694-86a8-18682bb43690
+		summarizeBy: none
+
+	column nivel_ordem =
+			SWITCH (
+			    fato_leitura_hora[nivel_risco],
+			    "observacao", 0,
+			    "atencao", 1,
+			    "alerta", 2,
+			    "alerta_maximo", 3,
+			    BLANK ()
+			)
+		dataType: int64
+		formatString: 0
+		lineageTag: 0461c044-10dc-5284-aced-06d33824c9c7
+		summarizeBy: none
+
+	column inicio_transbordo =
+			-- 1 na primeira hora de cada sequência com nível >= cota de transbordo (compara com a leitura anterior)
+			VAR Cota = RELATED ( dim_estacao[cota_transbordo_cm] )
+			VAR NivelAnterior =
+			    LOOKUPVALUE (
+			        fato_leitura_hora[nivel_cm],
+			        fato_leitura_hora[estacao_id], fato_leitura_hora[estacao_id],
+			        fato_leitura_hora[seq], fato_leitura_hora[seq] - 1
+			    )
+			RETURN
+			    IF (
+			        fato_leitura_hora[nivel_cm] >= Cota
+			            && ( ISBLANK ( NivelAnterior ) || NivelAnterior < Cota ),
+			        1,
+			        0
+			    )
+		dataType: int64
+		formatString: 0
+		lineageTag: 99fdf58f-b638-510f-8150-b23412ea73fd
+		summarizeBy: none
+
+	column antecedencia_cota_min =
+			-- minutos entre o início da sequência contínua em alerta (nivel_cota) e o transbordo (máx. 24 h);
+			-- a sequência quebra numa hora fora do alerta ou numa lacuna de leituras
+			VAR Est = fato_leitura_hora[estacao_id]
+			VAR Idx = fato_leitura_hora[hora_idx]
+			RETURN
+			    IF (
+			        fato_leitura_hora[inicio_transbordo] = 1,
+			        VAR InicioAlerta =
+			            MAXX (
+			                FILTER (
+			                    ALL (
+			                        fato_leitura_hora[estacao_id],
+			                        fato_leitura_hora[hora_idx],
+			                        fato_leitura_hora[nivel_cota],
+			                        fato_leitura_hora[lacuna_antes]
+			                    ),
+			                    fato_leitura_hora[estacao_id] = Est
+			                        && fato_leitura_hora[hora_idx] <= Idx
+			                        && fato_leitura_hora[hora_idx] >= Idx - 24
+			                        && (
+			                            NOT ( fato_leitura_hora[nivel_cota] IN { "alerta", "alerta_maximo" } )
+			                                || fato_leitura_hora[lacuna_antes] = 1
+			                        )
+			                ),
+			                IF (
+			                    fato_leitura_hora[nivel_cota] IN { "alerta", "alerta_maximo" },
+			                    fato_leitura_hora[hora_idx],
+			                    fato_leitura_hora[hora_idx] + 1
+			                )
+			            )
+			        RETURN ( Idx - IF ( ISBLANK ( InicioAlerta ), Idx - 24, InicioAlerta ) ) * 60
+			    )
+		dataType: double
+		formatString: #,0
+		lineageTag: 989507d1-e8bc-514e-a185-e7201a078f56
+		summarizeBy: none
+
+	column antecedencia_modelo_min =
+			-- minutos entre o início da sequência contínua em alerta (nivel_risco) e o transbordo (máx. 24 h);
+			-- a sequência quebra numa hora fora do alerta ou numa lacuna de leituras
+			VAR Est = fato_leitura_hora[estacao_id]
+			VAR Idx = fato_leitura_hora[hora_idx]
+			RETURN
+			    IF (
+			        fato_leitura_hora[inicio_transbordo] = 1,
+			        VAR InicioAlerta =
+			            MAXX (
+			                FILTER (
+			                    ALL (
+			                        fato_leitura_hora[estacao_id],
+			                        fato_leitura_hora[hora_idx],
+			                        fato_leitura_hora[nivel_risco],
+			                        fato_leitura_hora[lacuna_antes]
+			                    ),
+			                    fato_leitura_hora[estacao_id] = Est
+			                        && fato_leitura_hora[hora_idx] <= Idx
+			                        && fato_leitura_hora[hora_idx] >= Idx - 24
+			                        && (
+			                            NOT ( fato_leitura_hora[nivel_risco] IN { "alerta", "alerta_maximo" } )
+			                                || fato_leitura_hora[lacuna_antes] = 1
+			                        )
+			                ),
+			                IF (
+			                    fato_leitura_hora[nivel_risco] IN { "alerta", "alerta_maximo" },
+			                    fato_leitura_hora[hora_idx],
+			                    fato_leitura_hora[hora_idx] + 1
+			                )
+			            )
+			        RETURN ( Idx - IF ( ISBLANK ( InicioAlerta ), Idx - 24, InicioAlerta ) ) * 60
+			    )
+		dataType: double
+		formatString: #,0
+		lineageTag: c03c82f4-6543-5ad2-82f0-d741080ede85
+		summarizeBy: none
+
+	partition fato_leitura_hora = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaDados & "fato_leitura_hora.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Cabecalho = Table.PromoteHeaders(Fonte, [PromoteAllScalars = true]),
+				    Nulos = Table.TransformColumns(Cabecalho, {}, each if _ = "" then null else _),
+				    Tipos = Table.TransformColumnTypes(Nulos, {{"estacao_id", type text}, {"bairro_id", type text}, {"hora", type datetime}, {"data", type date}, {"nivel_cm", type number}, {"nivel_var_1h", type number}, {"nivel_var_3h", type number}, {"chuva_1h", type number}, {"chuva_3h", type number}, {"chuva_6h", type number}, {"chuva_24h", type number}, {"umidade_solo_pct", type number}, {"pct_cota_alerta", type number}, {"hora_do_dia", Int64.Type}, {"transbordo_2h", Int64.Type}, {"prob_2h", type number}, {"nivel_cota", type text}, {"nivel_risco", type text}}, [Culture = "en-US"]),
+				    HoraIdx = Table.AddColumn(Tipos, "hora_idx", each Number.Round(Duration.TotalHours([hora] - #datetime(2020, 1, 1, 0, 0, 0))), Int64.Type),
+				    // seq = ordem da leitura dentro da estação (para achar a leitura anterior mesmo com lacunas)
+				    Ordenado = Table.Sort(HoraIdx, {{"estacao_id", Order.Ascending}, {"hora", Order.Ascending}}),
+				    PorEstacao = Table.Group(Ordenado, {"estacao_id"}, {{"t", each Table.AddIndexColumn(_, "seq", 1, 1, Int64.Type)}}),
+				    Seq = Table.Combine(PorEstacao[t]),
+				    Final = Table.TransformColumnTypes(Seq, {{"seq", Int64.Type}, {"hora_idx", Int64.Type}})
+				in
+				    Final
+
+	annotation PBI_ResultType = Table
+

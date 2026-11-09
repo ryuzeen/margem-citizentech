@@ -1,0 +1,105 @@
+table dim_morador
+	lineageTag: 085495c9-5b8d-54d7-bd48-57c7d9968786
+
+	column id
+		dataType: string
+		lineageTag: ce1d930f-cabc-52e8-95a0-0fffb384c9af
+		summarizeBy: none
+		sourceColumn: id
+
+	column bairro_id
+		dataType: string
+		lineageTag: 53a56bd2-67ce-5605-965f-27aea8ed6e25
+		summarizeBy: none
+		sourceColumn: bairro_id
+
+	column telefone_mascarado
+		dataType: string
+		lineageTag: d6da06b2-0c8b-5d91-a247-d7da7336ee84
+		summarizeBy: none
+		sourceColumn: telefone_mascarado
+
+	column vulnerabilidades
+		dataType: string
+		lineageTag: 83022c0d-6a0f-56f4-bee3-d06bfee7b632
+		summarizeBy: none
+		sourceColumn: vulnerabilidades
+
+	column em_area_risco
+		dataType: boolean
+		lineageTag: d0d2d89d-3bbf-510c-87e2-f6de922c902f
+		summarizeBy: none
+		sourceColumn: em_area_risco
+
+	column canal_preferido
+		dataType: string
+		lineageTag: 2464f26b-48e0-5aea-a69e-54b20239e965
+		summarizeBy: none
+		sourceColumn: canal_preferido
+
+	column cadastrado_em
+		dataType: dateTime
+		formatString: dd/mm/yyyy hh:nn
+		lineageTag: c5625839-29ef-5195-bc7e-500013369c0e
+		summarizeBy: none
+		sourceColumn: cadastrado_em
+
+	column simulado
+		dataType: boolean
+		lineageTag: 8eb46466-1f0a-5099-b19a-e680318e82cb
+		summarizeBy: none
+		sourceColumn: simulado
+
+	column idoso
+		dataType: int64
+		formatString: 0
+		lineageTag: d0271588-f055-5ae0-9474-a15f87951e10
+		summarizeBy: none
+		sourceColumn: idoso
+
+	column pcd
+		dataType: int64
+		formatString: 0
+		lineageTag: eac9194d-04a4-5fca-9b60-d7e6e5351f24
+		summarizeBy: none
+		sourceColumn: pcd
+
+	column crianca
+		dataType: int64
+		formatString: 0
+		lineageTag: cc26034d-8dac-5f26-a9a0-964e1409c120
+		summarizeBy: none
+		sourceColumn: crianca
+
+	column gestante
+		dataType: int64
+		formatString: 0
+		lineageTag: 872fae6d-67af-5ddd-93ba-f911b6738a98
+		summarizeBy: none
+		sourceColumn: gestante
+
+	column acamado
+		dataType: int64
+		formatString: 0
+		lineageTag: 5cf235bc-0b91-5643-94ab-cbc79203d08b
+		summarizeBy: none
+		sourceColumn: acamado
+
+	column vulneravel = NOT ISBLANK ( dim_morador[vulnerabilidades] ) && dim_morador[vulnerabilidades] <> ""
+		dataType: boolean
+		lineageTag: 431f2a2a-43c8-5d5a-b302-57036eaa5766
+		summarizeBy: none
+
+	partition dim_morador = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaDados & "dim_morador.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Cabecalho = Table.PromoteHeaders(Fonte, [PromoteAllScalars = true]),
+				    Nulos = Table.TransformColumns(Cabecalho, {}, each if _ = "" then null else _),
+				    Tipos = Table.TransformColumnTypes(Nulos, {{"id", type text}, {"bairro_id", type text}, {"telefone_mascarado", type text}, {"vulnerabilidades", type text}, {"em_area_risco", type logical}, {"canal_preferido", type text}, {"cadastrado_em", type datetime}, {"simulado", type logical}, {"idoso", Int64.Type}, {"pcd", Int64.Type}, {"crianca", Int64.Type}, {"gestante", Int64.Type}, {"acamado", Int64.Type}}, [Culture = "en-US"])
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

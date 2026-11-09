@@ -1,0 +1,32 @@
+relationship e8d34d7f-6d1d-5b3c-8154-d29485b81077
+	fromColumn: fato_leitura_hora.bairro_id
+	toColumn: dim_bairro.bairro_id
+
+relationship 269c3fc0-4747-51f7-94dc-4271d3646e78
+	fromColumn: fato_ocorrencia.bairro_id
+	toColumn: dim_bairro.bairro_id
+
+relationship 48f448e7-ea1d-5c86-88e6-be398b50c8b4
+	fromColumn: fato_alerta.bairro_id
+	toColumn: dim_bairro.bairro_id
+
+relationship 6f92e862-728d-5de6-b028-204639c79051
+	fromColumn: dim_morador.bairro_id
+	toColumn: dim_bairro.bairro_id
+
+relationship 02454cdd-80b4-5c38-b2ea-cc65939acd05
+	fromColumn: fato_leitura_hora.estacao_id
+	toColumn: dim_estacao.estacao_id
+
+relationship 8e2af26b-905a-5116-a2c3-9fe8158118dd
+	fromColumn: fato_leitura_hora.data
+	toColumn: dim_data.data
+
+relationship 46675adb-dd8b-5dfa-ad4e-97cac6ca67e3
+	fromColumn: fato_ocorrencia.data
+	toColumn: dim_data.data
+
+relationship 41d2e7bd-a8b7-5ff4-ad7d-9a5c08440bd6
+	fromColumn: fato_alerta.data
+	toColumn: dim_data.data
+

@@ -1,0 +1,42 @@
+# Jenkins Configuration as Code: usuário admin + job "margem" que observa o repositório.
+jenkins:
+  systemMessage: "Margem — CI/CD da Global Solution 2026/2. Cada commit na main dispara lint, testes, build e deploy."
+  numExecutors: 2
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: admin
+          password: ${JENKINS_ADMIN_SENHA:-margem-jenkins}
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+
+unclassified:
+  location:
+    url: http://localhost:8081/
+
+jobs:
+  - script: >
+      pipelineJob('margem') {
+        description('Pipeline do Margem: checkout → lint → testes → build → deploy → smoke test')
+        properties {
+          pipelineTriggers {
+            triggers {
+              pollSCM { scmpoll_spec('H/2 * * * *') }
+            }
+          }
+        }
+        definition {
+          cpsScm {
+            scm {
+              git {
+                remote { url(System.getenv('MARGEM_REPO') ?: 'https://github.com/ryuzeen/margem-citizentech.git') }
+                branch('*/main')
+              }
+            }
+            scriptPath('Jenkinsfile')
+            lightweight(true)
+          }
+        }
+      }

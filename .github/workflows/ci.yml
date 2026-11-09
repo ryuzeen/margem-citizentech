@@ -1,0 +1,64 @@
+# Espelho do pipeline do Jenkins no GitHub: lint + testes + build da imagem a cada push,
+# e publica o front (modo demonstração) no GitHub Pages quando a main muda.
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    env:
+      MARGEM_TAREFAS_FUNDO: "0"
+      MARGEM_SIMULACAO: "0"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - name: Lint
+        run: ruff check . --output-format=github
+      - name: Testes
+        run: python -m pytest -m "not e2e" --junitxml=junit.xml --cov=. --cov-report=term
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: relatorio-testes
+          path: junit.xml
+
+  imagem:
+    needs: testes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build da imagem Docker
+        run: docker build -t margem/app:${{ github.sha }} .
+
+  pages:
+    needs: testes
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: area3_mvp_iot/web
+      - id: deploy
+        uses: actions/deploy-pages@v4

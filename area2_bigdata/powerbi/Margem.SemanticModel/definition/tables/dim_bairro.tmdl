@@ -1,0 +1,62 @@
+table dim_bairro
+	lineageTag: e937ff3f-4a9d-5417-926e-42798267e56e
+
+	column bairro_id
+		dataType: string
+		lineageTag: 41bfeaf5-1e21-5c4e-b409-67203ba9a4fd
+		summarizeBy: none
+		sourceColumn: bairro_id
+
+	column nome
+		dataType: string
+		lineageTag: ead623b4-cd32-5947-98e3-7d706a51ce15
+		summarizeBy: none
+		sourceColumn: nome
+
+	column lat
+		dataType: double
+		formatString: #,0.0###
+		lineageTag: 14f77a4b-5497-5bb1-a086-a32ec893506d
+		summarizeBy: none
+		sourceColumn: lat
+
+	column lng
+		dataType: double
+		formatString: #,0.0###
+		lineageTag: 20b7ea6d-c843-5187-a7ce-b3b819234c0d
+		summarizeBy: none
+		sourceColumn: lng
+
+	column populacao_estimada
+		dataType: int64
+		formatString: 0
+		lineageTag: fbe83d23-217e-5464-87d0-34edb82cb709
+		summarizeBy: sum
+		sourceColumn: populacao_estimada
+
+	column domicilios_area_risco
+		dataType: int64
+		formatString: 0
+		lineageTag: e77f29fe-1de9-55eb-a6cc-2fed97b8f08f
+		summarizeBy: sum
+		sourceColumn: domicilios_area_risco
+
+	column estacao_id
+		dataType: string
+		lineageTag: 3b669035-067f-525d-87f0-9bf84a524ce4
+		summarizeBy: none
+		sourceColumn: estacao_id
+
+	partition dim_bairro = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaDados & "dim_bairro.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Cabecalho = Table.PromoteHeaders(Fonte, [PromoteAllScalars = true]),
+				    Nulos = Table.TransformColumns(Cabecalho, {}, each if _ = "" then null else _),
+				    Tipos = Table.TransformColumnTypes(Nulos, {{"bairro_id", type text}, {"nome", type text}, {"lat", type number}, {"lng", type number}, {"populacao_estimada", Int64.Type}, {"domicilios_area_risco", Int64.Type}, {"estacao_id", type text}}, [Culture = "en-US"])
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

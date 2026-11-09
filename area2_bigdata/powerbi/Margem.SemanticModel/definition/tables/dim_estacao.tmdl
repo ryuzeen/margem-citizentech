@@ -1,0 +1,76 @@
+table dim_estacao
+	lineageTag: 3a39ec45-6ab9-562c-90b9-8088cdb4e158
+
+	column estacao_id
+		dataType: string
+		lineageTag: c980a453-6b0b-568e-a1c8-eab7ed32b589
+		summarizeBy: none
+		sourceColumn: estacao_id
+
+	column bairro_id
+		dataType: string
+		lineageTag: 8c8dc665-44c8-5b36-82cb-50c4ed64ebc4
+		summarizeBy: none
+		sourceColumn: bairro_id
+
+	column nome
+		dataType: string
+		lineageTag: 92732389-a133-581b-bac4-1eedc196a32b
+		summarizeBy: none
+		sourceColumn: nome
+
+	column lat
+		dataType: double
+		formatString: #,0.0###
+		lineageTag: f3511f78-f350-5f8b-812e-b59284d61a00
+		summarizeBy: none
+		sourceColumn: lat
+
+	column lng
+		dataType: double
+		formatString: #,0.0###
+		lineageTag: c5fec5a1-263a-5d97-aa6e-b91cdcaaa640
+		summarizeBy: none
+		sourceColumn: lng
+
+	column altura_instalacao_cm
+		dataType: int64
+		formatString: 0
+		lineageTag: 7302e890-33b1-5eb2-949c-e7a5f799f135
+		summarizeBy: none
+		sourceColumn: altura_instalacao_cm
+
+	column cota_alerta_cm
+		dataType: int64
+		formatString: 0
+		lineageTag: 1573758c-eb1a-5479-871b-c0cc122afe91
+		summarizeBy: none
+		sourceColumn: cota_alerta_cm
+
+	column cota_transbordo_cm
+		dataType: int64
+		formatString: 0
+		lineageTag: caf2c108-e2dd-5b95-9174-55cd63f94334
+		summarizeBy: none
+		sourceColumn: cota_transbordo_cm
+
+	column nivel_base_cm
+		dataType: int64
+		formatString: 0
+		lineageTag: ed1a266b-54f2-53e4-b602-6361baf1cbf9
+		summarizeBy: none
+		sourceColumn: nivel_base_cm
+
+	partition dim_estacao = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaDados & "dim_estacao.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Cabecalho = Table.PromoteHeaders(Fonte, [PromoteAllScalars = true]),
+				    Nulos = Table.TransformColumns(Cabecalho, {}, each if _ = "" then null else _),
+				    Tipos = Table.TransformColumnTypes(Nulos, {{"estacao_id", type text}, {"bairro_id", type text}, {"nome", type text}, {"lat", type number}, {"lng", type number}, {"altura_instalacao_cm", Int64.Type}, {"cota_alerta_cm", Int64.Type}, {"cota_transbordo_cm", Int64.Type}, {"nivel_base_cm", Int64.Type}}, [Culture = "en-US"])
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

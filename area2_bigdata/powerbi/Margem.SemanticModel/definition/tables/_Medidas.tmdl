@@ -1,0 +1,284 @@
+table _Medidas
+	lineageTag: 44526edb-2eea-5730-8ac7-cf5680100be6
+
+	/// Média das leituras no contexto (usada na linha do tempo).
+	measure 'Nivel Medio (cm)' = AVERAGE ( fato_leitura_hora[nivel_cm] )
+		formatString: #,0.0
+		displayFolder: 1. Nível vs cota
+		lineageTag: 955e9b4c-59f0-5141-9915-d98be3e42cbd
+
+	/// Cota de alerta das estações no contexto, para a linha de referência.
+	measure 'Cota de Alerta (cm)' =
+			-- média da cota de alerta das estações presentes no contexto (1 estação = a própria cota)
+			-- ignora o filtro da hora (eixo do gráfico) para a linha não oscilar quando falta leitura
+			CALCULATE (
+			    AVERAGEX (
+			        SUMMARIZE ( fato_leitura_hora, dim_estacao[estacao_id], dim_estacao[cota_alerta_cm] ),
+			        dim_estacao[cota_alerta_cm]
+			    ),
+			    REMOVEFILTERS ( fato_leitura_hora[hora] )
+			)
+		formatString: #,0
+		displayFolder: 1. Nível vs cota
+		lineageTag: 46fd3045-cc03-5718-baa8-53e8707b709d
+
+	/// Média das leituras da última hora do período filtrado.
+	measure 'Nivel Atual (cm)' =
+			VAR UltimaHora = MAX ( fato_leitura_hora[hora] )
+			RETURN
+			    CALCULATE ( AVERAGE ( fato_leitura_hora[nivel_cm] ), fato_leitura_hora[hora] = UltimaHora )
+		formatString: #,0.0
+		displayFolder: 1. Nível vs cota
+		lineageTag: 313fc28b-7389-54a9-82d2-e117aeff39c9
+
+	/// Nível atual ÷ cota de alerta × 100 (média entre estações).
+	measure '% da Cota de Alerta' =
+			AVERAGEX (
+			    VALUES ( dim_estacao[estacao_id] ),
+			    VAR Cota = CALCULATE ( MAX ( dim_estacao[cota_alerta_cm] ) )
+			    RETURN DIVIDE ( [Nivel Atual (cm)], Cota ) * 100
+			)
+		formatString: 0.0
+		displayFolder: 1. Nível vs cota
+		lineageTag: 7ba47665-5759-55ec-b024-7f2a5b502f8c
+
+	/// Texto do cartão: nível atual / cota de alerta (e % da cota).
+	measure 'Nivel vs Cota' =
+			VAR Nivel = [Nivel Atual (cm)]
+			VAR Cota = [Cota de Alerta (cm)]
+			RETURN
+			    IF (
+			        ISBLANK ( Nivel ),
+			        "Sem dados",
+			        FORMAT ( Nivel, "0" ) & "/" & FORMAT ( Cota, "0" ) & " cm · "
+			            & FORMAT ( [% da Cota de Alerta], "0" ) & "%"
+			    )
+		displayFolder: 1. Nível vs cota
+		lineageTag: c3f836f7-a9cb-59dd-b5c4-02f55f578f56
+
+	/// Nº de horas (estação × hora) com nível ≥ cota de alerta.
+	measure 'Horas Acima do Alerta' =
+			SUMX (
+			    VALUES ( dim_estacao[estacao_id] ),
+			    VAR Cota = CALCULATE ( MAX ( dim_estacao[cota_alerta_cm] ) )
+			    RETURN CALCULATE ( COUNTROWS ( fato_leitura_hora ), fato_leitura_hora[nivel_cm] >= Cota )
+			)
+		formatString: #,0
+		displayFolder: 1. Nível vs cota
+		lineageTag: a208acde-0e01-5fb8-8dd5-730a952cd367
+
+	/// Nº de inícios de sequência com nível ≥ cota de transbordo.
+	measure Transbordos = CALCULATE ( COUNTROWS ( fato_leitura_hora ), fato_leitura_hora[inicio_transbordo] = 1 ) + 0
+		formatString: #,0
+		displayFolder: 1. Nível vs cota
+		lineageTag: 2d576592-f265-5681-8a39-f4d304484fd9
+
+	/// Probabilidade de transbordo em 2 h dada pelo modelo na última hora.
+	measure 'Prob Transbordo 2h' =
+			VAR UltimaHora = MAX ( fato_leitura_hora[hora] )
+			RETURN
+			    CALCULATE ( MAX ( fato_leitura_hora[prob_2h] ), fato_leitura_hora[hora] = UltimaHora )
+		formatString: 0.0%
+		displayFolder: 2. Risco previsto
+		lineageTag: bb9a58d3-b763-5363-929b-1649f1cd5000
+
+	/// 0 observação, 1 atenção, 2 alerta, 3 alerta máximo (pior estação do contexto).
+	measure 'Ordem Risco Atual' =
+			-- maior nível entre a regra por cota e a regra por probabilidade, na estação mais crítica
+			MAXX (
+			    VALUES ( dim_estacao[estacao_id] ),
+			    VAR Nivel = [Nivel Atual (cm)]
+			    VAR CotaAlerta = CALCULATE ( MAX ( dim_estacao[cota_alerta_cm] ) )
+			    VAR CotaTransbordo = CALCULATE ( MAX ( dim_estacao[cota_transbordo_cm] ) )
+			    VAR Prob = [Prob Transbordo 2h]
+			    VAR PorCota =
+			        SWITCH (
+			            TRUE (),
+			            Nivel >= CotaTransbordo, 3,
+			            Nivel >= CotaAlerta, 2,
+			            Nivel >= 0.6 * CotaAlerta, 1,
+			            0
+			        )
+			    VAR PorProb =
+			        SWITCH ( TRUE (), ISBLANK ( Prob ), 0, Prob >= 0.85, 3, Prob >= 0.60, 2, Prob >= 0.35, 1, 0 )
+			    RETURN
+			        IF ( ISBLANK ( Nivel ), BLANK (), MAX ( PorCota, PorProb ) )
+			)
+		formatString: 0
+		displayFolder: 2. Risco previsto
+		lineageTag: a03b31e4-cd6d-5da0-91d8-043e601115f7
+
+	/// Rótulo do nível de risco previsto (próximas 2 h).
+	measure 'Nivel de Risco Atual' =
+			SWITCH (
+			    [Ordem Risco Atual],
+			    0, "Observação",
+			    1, "Atenção",
+			    2, "Alerta",
+			    3, "Alerta máximo",
+			    "Sem dados"
+			)
+		displayFolder: 2. Risco previsto
+		lineageTag: 31f73ab6-2afb-5d87-9d87-f1904e0684ff
+
+	/// Cor do nível (usada na formatação condicional).
+	measure 'Cor Risco Atual' =
+			SWITCH (
+			    [Ordem Risco Atual],
+			    0, "#3D8B5F",
+			    1, "#C98F0A",
+			    2, "#E0631C",
+			    3, "#C21F3A",
+			    "#0E1A24"
+			)
+		displayFolder: 2. Risco previsto
+		lineageTag: def161e5-f443-57f2-ae4e-236aeaa4df14
+
+	/// Horas com nível final (cota + modelo) em alerta ou alerta máximo.
+	measure 'Horas em Alerta' =
+			CALCULATE (
+			    COUNTROWS ( fato_leitura_hora ),
+			    fato_leitura_hora[nivel_risco] IN { "alerta", "alerta_maximo" }
+			) + 0
+		formatString: #,0
+		displayFolder: 2. Risco previsto
+		lineageTag: 8b9a0d60-cb5d-56f3-9172-76d6e9b593fd
+
+	/// Ocorrências distintas.
+	measure Ocorrencias = DISTINCTCOUNT ( fato_ocorrencia[id] )
+		formatString: #,0
+		displayFolder: 3. Ocorrências
+		lineageTag: d64fdf27-d151-5604-a363-b5810d8372e3
+
+	/// Ocorrências com gravidade ≥ 4.
+	measure 'Ocorrencias Graves (4-5)' = CALCULATE ( [Ocorrencias], fato_ocorrencia[gravidade] >= 4 ) + 0
+		formatString: #,0
+		displayFolder: 3. Ocorrências
+		lineageTag: bc5973f4-de9a-5ea2-984e-75e7d4a20dcf
+
+	/// Ocorrências com status diferente de resolvida.
+	measure 'Ocorrencias Abertas' = CALCULATE ( [Ocorrencias], fato_ocorrencia[status] <> "resolvida" ) + 0
+		formatString: #,0
+		displayFolder: 3. Ocorrências
+		lineageTag: b750734e-fdf2-5f23-b9ce-091055c4e1bf
+
+	/// Média de (atendido_em − criado_em) em minutos, só nas atendidas.
+	measure 'Tempo Medio Atendimento (min)' =
+			AVERAGEX (
+			    FILTER ( fato_ocorrencia, NOT ISBLANK ( fato_ocorrencia[atendido_em] ) ),
+			    ( fato_ocorrencia[atendido_em] - fato_ocorrencia[criado_em] ) * 1440
+			)
+		formatString: #,0.0
+		displayFolder: 4. Atendimento
+		lineageTag: f560bb16-490c-54f7-892d-869aee5925a9
+
+	/// Atendidas em até 30 min ÷ atendidas × 100.
+	measure '% Atendidas em 30 min' =
+			VAR Atendidas =
+			    CALCULATE ( COUNTROWS ( fato_ocorrencia ), NOT ISBLANK ( fato_ocorrencia[atendido_em] ) )
+			VAR Rapidas =
+			    COUNTROWS (
+			        FILTER (
+			            fato_ocorrencia,
+			            NOT ISBLANK ( fato_ocorrencia[atendido_em] )
+			                && ( fato_ocorrencia[atendido_em] - fato_ocorrencia[criado_em] ) * 1440 <= 30
+			        )
+			    )
+			RETURN
+			    IF ( Atendidas = 0, BLANK (), DIVIDE ( Rapidas, Atendidas ) * 100 )
+		formatString: 0.0
+		displayFolder: 4. Atendimento
+		lineageTag: 8c7bca6c-f8af-58ab-b38d-43bdf2957361
+
+	/// Moradores com ≥ 1 vulnerabilidade marcados em área de risco.
+	measure 'Vulneraveis em Area de Risco' =
+			CALCULATE (
+			    COUNTROWS ( dim_morador ),
+			    dim_morador[vulneravel] = TRUE (),
+			    dim_morador[em_area_risco] = TRUE ()
+			) + 0
+		formatString: #,0
+		displayFolder: 5. Vulneráveis
+		lineageTag: 53d6543f-2944-5612-8533-b9e156d68595
+
+	/// Vulneráveis em área de risco de bairros cujo risco atual é ≥ alerta.
+	measure 'Vulneraveis em Risco' =
+			VAR BairrosEmAlerta =
+			    FILTER ( VALUES ( dim_bairro[bairro_id] ), [Ordem Risco Atual] >= 2 )
+			RETURN
+			    CALCULATE (
+			        COUNTROWS ( dim_morador ),
+			        dim_morador[vulneravel] = TRUE (),
+			        dim_morador[em_area_risco] = TRUE (),
+			        KEEPFILTERS ( TREATAS ( BairrosEmAlerta, dim_morador[bairro_id] ) )
+			    ) + 0
+		formatString: #,0
+		displayFolder: 5. Vulneráveis
+		lineageTag: 426efafa-128b-5f5b-b9f8-825675ce2237
+
+	/// Vulneráveis em área de risco de bairros que chegaram a ≥ alerta no período.
+	measure 'Vulneraveis Expostos no Periodo' =
+			VAR BairrosQueChegaramAoAlerta =
+			    FILTER ( VALUES ( dim_bairro[bairro_id] ), [Horas em Alerta] > 0 )
+			RETURN
+			    CALCULATE (
+			        COUNTROWS ( dim_morador ),
+			        dim_morador[vulneravel] = TRUE (),
+			        dim_morador[em_area_risco] = TRUE (),
+			        KEEPFILTERS ( TREATAS ( BairrosQueChegaramAoAlerta, dim_morador[bairro_id] ) )
+			    ) + 0
+		formatString: #,0
+		displayFolder: 5. Vulneráveis
+		lineageTag: ab9a7c89-0e65-550d-b5c9-2e00df032cf7
+
+	/// Antecedência média do alerta só pela regra de cota.
+	measure 'Antecedencia Media Cota (min)' = AVERAGE ( fato_leitura_hora[antecedencia_cota_min] )
+		formatString: #,0
+		displayFolder: 6. Antecedência
+		lineageTag: 07a8d965-e07c-54fd-ae4b-3bb1cd969361
+
+	/// Antecedência média com o nível final (cota + modelo).
+	measure 'Antecedencia Media Modelo (min)' = AVERAGE ( fato_leitura_hora[antecedencia_modelo_min] )
+		formatString: #,0
+		displayFolder: 6. Antecedência
+		lineageTag: aa7432e7-eda9-5e8d-987f-28b341009f79
+
+	/// Antecedência do modelo − antecedência da regra por cota.
+	measure 'Ganho de Antecedencia (min)' =
+			VAR Cota = [Antecedencia Media Cota (min)]
+			VAR Modelo = [Antecedencia Media Modelo (min)]
+			RETURN
+			    IF ( ISBLANK ( Cota ), BLANK (), Modelo - Cota )
+		formatString: +#,0;-#,0;0
+		displayFolder: 6. Antecedência
+		lineageTag: c4462b82-6f07-5130-a84e-76a1db0640ca
+
+	/// Alertas emitidos.
+	measure Alertas = COUNTROWS ( fato_alerta ) + 0
+		formatString: #,0
+		displayFolder: 7. Alertas
+		lineageTag: 87f48600-d3fe-5b31-bc03-fa738cd963c7
+
+	/// Alertas de nível alerta máximo.
+	measure 'Alertas Maximos' = CALCULATE ( COUNTROWS ( fato_alerta ), fato_alerta[nivel] = "alerta_maximo" ) + 0
+		formatString: #,0
+		displayFolder: 7. Alertas
+		lineageTag: 6f7f8a38-8d7e-576d-8f3d-6e082e5ce682
+
+	column Coluna
+		dataType: string
+		isHidden
+		lineageTag: 7848f851-743b-5544-855e-c5985e55d4ea
+		summarizeBy: none
+		sourceColumn: Coluna
+
+	partition _Medidas = m
+		mode: import
+		source =
+				let
+				    Fonte = #table(type table [Coluna = text], {})
+				in
+				    Fonte
+
+	annotation PBI_ResultType = Table
+

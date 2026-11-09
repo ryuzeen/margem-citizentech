@@ -1,0 +1,63 @@
+{
+  "uid": "margem-operacao",
+  "title": "Margem — Operação",
+  "timezone": "browser",
+  "refresh": "10s",
+  "time": { "from": "now-30m", "to": "now" },
+  "schemaVersion": 39,
+  "panels": [
+    {
+      "id": 1, "type": "timeseries", "title": "Nível do rio por estação (cm)",
+      "gridPos": { "x": 0, "y": 0, "w": 16, "h": 9 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [{ "expr": "margem_nivel_rio_cm", "legendFormat": "{{estacao}}" }]
+    },
+    {
+      "id": 2, "type": "bargauge", "title": "Probabilidade de transbordo em 2 h",
+      "gridPos": { "x": 16, "y": 0, "w": 8, "h": 9 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": { "unit": "percentunit", "min": 0, "max": 1,
+        "thresholds": { "mode": "absolute", "steps": [
+          { "color": "green", "value": null }, { "color": "yellow", "value": 0.35 },
+          { "color": "orange", "value": 0.6 }, { "color": "red", "value": 0.85 } ] } } },
+      "targets": [{ "expr": "margem_risco_prob", "legendFormat": "{{bairro}}" }]
+    },
+    {
+      "id": 3, "type": "timeseries", "title": "Leituras IoT por minuto (aceitas x recusadas)",
+      "gridPos": { "x": 0, "y": 9, "w": 12, "h": 8 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [{ "expr": "sum by (resultado) (rate(margem_leituras_total[1m]) * 60)", "legendFormat": "{{resultado}}" }]
+    },
+    {
+      "id": 4, "type": "stat", "title": "Alertas emitidos",
+      "gridPos": { "x": 12, "y": 9, "w": 6, "h": 8 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [{ "expr": "sum by (origem) (margem_alertas_total)", "legendFormat": "{{origem}}" }]
+    },
+    {
+      "id": 5, "type": "stat", "title": "Relatos triados pela IA",
+      "gridPos": { "x": 18, "y": 9, "w": 6, "h": 8 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [{ "expr": "sum(margem_ocorrencias_total)" }]
+    },
+    {
+      "id": 6, "type": "timeseries", "title": "Latência p95 da API (s)",
+      "gridPos": { "x": 0, "y": 17, "w": 12, "h": 8 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": { "unit": "s" } },
+      "targets": [{ "expr": "histogram_quantile(0.95, sum by (le) (rate(margem_http_duracao_segundos_bucket[5m])))", "legendFormat": "p95" }]
+    },
+    {
+      "id": 7, "type": "timeseries", "title": "Requisições por status HTTP",
+      "gridPos": { "x": 12, "y": 17, "w": 8, "h": 8 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [{ "expr": "sum by (status) (rate(margem_http_duracao_segundos_count[1m]) * 60)", "legendFormat": "{{status}}" }]
+    },
+    {
+      "id": 8, "type": "stat", "title": "Clientes em tempo real",
+      "gridPos": { "x": 20, "y": 17, "w": 4, "h": 8 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [{ "expr": "margem_clientes_tempo_real" }]
+    }
+  ]
+}

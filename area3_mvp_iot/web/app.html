@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Margem — Meu alerta</title>
+  <meta name="description" content="Alerta de enchente para moradores da várzea do Rio Tietê: nível do rio, risco nas próximas 2 horas e o que fazer agora.">
+  <meta name="theme-color" content="#F4F1EA">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="img/icone.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/icone-192.png">
+  <link rel="preload" href="vendor/fonts/atkinson-next-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="vendor/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="js/pref.js"></script>
+  <script src="vendor/leaflet/leaflet.js" defer></script>
+  <script type="module" src="js/app.js"></script>
+</head>
+<body class="app topo">
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="cab">
+    <a class="marca" href="index.html" aria-label="Margem — página inicial">
+      <svg viewBox="0 0 26 30" aria-hidden="true"><rect x="5" y="1" width="12" height="28" fill="#fff" stroke="currentColor" stroke-width="1.6"/><path d="M5 4h7M5 8h7M5 12h7M17 16h-7M17 20h-7" stroke="currentColor" stroke-width="2"/><path d="M1 23c3 0 3-2 6-2s3 2 6 2 3-2 6-2 3 2 6 2v6H1z" fill="#1F6F8B" opacity=".85"/></svg>
+      <span>Margem</span>
+    </a>
+    <nav class="nav-app" id="nav" aria-label="Seções do app" hidden>
+      <a href="#/alerta" data-rota="alerta"><svg class="ico" aria-hidden="true"><use href="#i-bell-ring"/></svg><span>Meu alerta</span></a>
+      <a href="#/mapa" data-rota="mapa"><svg class="ico" aria-hidden="true"><use href="#i-map"/></svg><span>Mapa</span></a>
+      <a href="#/relatar" data-rota="relatar"><svg class="ico" aria-hidden="true"><use href="#i-square-pen"/></svg><span>Relatar</span></a>
+      <a href="#/relatos" data-rota="relatos"><svg class="ico" aria-hidden="true"><use href="#i-list-checks"/></svg><span>Meus relatos</span></a>
+    </nav>
+    <span class="espaco"></span>
+    <div class="cab-acoes">
+      <button class="icone-btn" id="bt-fonte" type="button" aria-pressed="false" title="Letra grande"><svg class="ico" aria-hidden="true"><use href="#i-a-large-small"/></svg><span class="sr-only">Letra grande</span></button>
+      <button class="icone-btn" id="bt-contraste" type="button" aria-pressed="false" title="Alto contraste"><svg class="ico" aria-hidden="true"><use href="#i-contrast"/></svg><span class="sr-only">Alto contraste</span></button>
+      <button class="icone-btn" id="bt-sair" type="button" title="Sair da conta" hidden><svg class="ico" aria-hidden="true"><use href="#i-log-out"/></svg><span class="sr-only">Sair da conta</span></button>
+    </div>
+  </header>
+
+  <div class="faixa-offline" id="faixa-offline" role="status" hidden></div>
+  <div class="faixa-sistema" id="faixa-sistema"></div>
+
+  <main id="conteudo" tabindex="-1"></main>
+
+  <!-- Anúncios para leitor de tela -->
+  <div class="sr-only" aria-live="assertive" id="anuncio-urgente"></div>
+  <div class="sr-only" aria-live="polite" id="anuncio"></div>
+
+  <dialog class="folha" id="dlg-ajuda" aria-labelledby="dlg-ajuda-t">
+    <form class="folha-corpo" method="dialog" id="form-ajuda">
+      <h2 id="dlg-ajuda-t">Pedir ajuda à Defesa Civil</h2>
+      <p>Seu nome, telefone e endereço do cadastro vão junto. A equipe vê seu pedido na hora.</p>
+      <div class="campo">
+        <label for="ajuda-obs">O que está acontecendo? <span class="dica">(opcional)</span></label>
+        <textarea class="entrada" id="ajuda-obs" maxlength="280" rows="3" placeholder="Ex.: a água está na altura do joelho e minha mãe não consegue andar"></textarea>
+      </div>
+      <div class="linha-acoes">
+        <button class="btn btn-ajuda btn-g btn-bloco" value="enviar" id="ajuda-enviar"><svg class="ico" aria-hidden="true"><use href="#i-life-buoy"/></svg>Enviar pedido de ajuda</button>
+        <button class="btn btn-fantasma btn-bloco" value="cancelar" formnovalidate>Cancelar</button>
+      </div>
+      <p class="dica">Em perigo imediato, ligue <a href="tel:193"><b>193</b></a> (Bombeiros) ou <a href="tel:199"><b>199</b></a> (Defesa Civil).</p>
+    </form>
+  </dialog>
+</body>
+</html>

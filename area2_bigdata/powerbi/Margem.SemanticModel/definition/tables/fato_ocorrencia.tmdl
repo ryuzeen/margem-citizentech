@@ -1,0 +1,128 @@
+table fato_ocorrencia
+	lineageTag: 5440e362-b42d-5fef-bec8-e888100c17d9
+
+	column id
+		dataType: string
+		lineageTag: 91a25106-2ebe-5f63-8d3b-05964e900de3
+		summarizeBy: none
+		sourceColumn: id
+
+	column bairro_id
+		dataType: string
+		lineageTag: e14f2313-642d-5744-871f-e373e33d8625
+		summarizeBy: none
+		sourceColumn: bairro_id
+
+	column categoria
+		dataType: string
+		lineageTag: 266cf976-9adc-56c8-bb15-e573b4fb5d78
+		summarizeBy: none
+		sourceColumn: categoria
+
+	column gravidade
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c7001aa-bb70-5a8b-9946-5b301f75ac5d
+		summarizeBy: none
+		sourceColumn: gravidade
+
+	column prioridade
+		dataType: int64
+		formatString: 0
+		lineageTag: b5706ab0-63ba-59ae-b45f-82a456494fb7
+		summarizeBy: none
+		sourceColumn: prioridade
+
+	column vulneraveis
+		dataType: string
+		lineageTag: bd068884-bc06-5603-a8ca-2d48ad4d8746
+		summarizeBy: none
+		sourceColumn: vulneraveis
+
+	column status
+		dataType: string
+		lineageTag: a7cda980-da7d-5b34-b1c7-71734d5bad43
+		summarizeBy: none
+		sourceColumn: status
+
+	column criado_em
+		dataType: dateTime
+		formatString: dd/mm/yyyy hh:nn
+		lineageTag: ed6e40e5-754d-5426-a01f-7037ad2e9ccd
+		summarizeBy: none
+		sourceColumn: criado_em
+
+	column atendido_em
+		dataType: dateTime
+		formatString: dd/mm/yyyy hh:nn
+		lineageTag: ca4d3b79-b178-54d8-96ee-50f53bb9fb37
+		summarizeBy: none
+		sourceColumn: atendido_em
+
+	column resolvido_em
+		dataType: dateTime
+		formatString: dd/mm/yyyy hh:nn
+		lineageTag: 0f89b78d-50bc-5891-8d33-149074959074
+		summarizeBy: none
+		sourceColumn: resolvido_em
+
+	column origem
+		dataType: string
+		lineageTag: ab38fd0e-fe06-5476-a70a-3e59c1ddbf01
+		summarizeBy: none
+		sourceColumn: origem
+
+	column simulado
+		dataType: boolean
+		lineageTag: 9bb3cb6f-018c-58c0-8f86-d0aa7451df8a
+		summarizeBy: none
+		sourceColumn: simulado
+
+	column recebido_em
+		dataType: dateTime
+		formatString: dd/mm/yyyy hh:nn
+		lineageTag: 8e72eec3-0786-512f-ad78-c2e3cbaecc64
+		summarizeBy: none
+		sourceColumn: recebido_em
+
+	column data
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 02da85cc-5301-563e-b94b-f5d5053f2841
+		summarizeBy: none
+		sourceColumn: data
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column tempo_atendimento_min
+		dataType: double
+		formatString: #,0.0###
+		lineageTag: e2b3f4bf-d058-50bb-af3b-2a9386905fa5
+		summarizeBy: none
+		sourceColumn: tempo_atendimento_min
+
+	column atendida_ate_30min
+		dataType: int64
+		formatString: 0
+		lineageTag: 19b26eea-5f40-5ba1-b209-dce9fdd955d5
+		summarizeBy: none
+		sourceColumn: atendida_ate_30min
+
+	column gravidade_faixa = IF ( fato_ocorrencia[gravidade] >= 4, "Grave (4-5)", "Leve/moderada (1-3)" )
+		dataType: string
+		lineageTag: 1fe3df1c-37fb-519e-bd9f-2b12e904fd20
+		summarizeBy: none
+
+	partition fato_ocorrencia = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaDados & "fato_ocorrencia.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Cabecalho = Table.PromoteHeaders(Fonte, [PromoteAllScalars = true]),
+				    Nulos = Table.TransformColumns(Cabecalho, {}, each if _ = "" then null else _),
+				    Tipos = Table.TransformColumnTypes(Nulos, {{"id", type text}, {"bairro_id", type text}, {"categoria", type text}, {"gravidade", Int64.Type}, {"prioridade", Int64.Type}, {"vulneraveis", type text}, {"status", type text}, {"criado_em", type datetime}, {"atendido_em", type datetime}, {"resolvido_em", type datetime}, {"origem", type text}, {"simulado", type logical}, {"recebido_em", type datetime}, {"data", type date}, {"tempo_atendimento_min", type number}, {"atendida_ate_30min", Int64.Type}}, [Culture = "en-US"])
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,144 @@
+/* Margem — tokens de design (fonte: docs/DESIGN.md). Todas as cores, tipos e medidas vivem aqui. */
+
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("../vendor/fonts/atkinson-next-var.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Archivo";
+  src: url("../vendor/fonts/archivo-var.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../vendor/fonts/plex-mono-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../vendor/fonts/plex-mono-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../vendor/fonts/plex-mono-600.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+
+:root {
+  /* Paleta base */
+  --tinta: #0E1A24;
+  --papel: #F4F1EA;
+  --superficie: #FFFFFF;
+  --linha: #D9D3C7;
+  --linha-forte: #B9B1A2;
+  --agua: #1F6F8B;
+  --agua-escura: #16566C;
+  --agua-clara: #CFE6EC;
+  --agua-media: #8FC3D1;
+
+  /* Texto secundário (contraste ≥ 6.7:1 sobre papel) */
+  --tinta-2: #4A5560;
+  --tinta-3: #5B6670;
+
+  /* Risco (padrão Defesa Civil, §3) */
+  --risco-0: #3D8B5F;
+  --risco-1: #C98F0A;
+  --risco-2: #E0631C;
+  --risco-3: #C21F3A;
+  /* Cor do texto SOBRE a placa de risco (texto grande, AA/AAA) */
+  --risco-0-sobre: #FFFFFF;
+  --risco-1-sobre: #0E1A24;
+  --risco-2-sobre: #0E1A24;
+  --risco-3-sobre: #FFFFFF;
+  /* Risco como texto sobre papel/branco (≥ 4.6:1) */
+  --risco-0-texto: #2E7A52;
+  --risco-1-texto: #7A5800;
+  --risco-2-texto: #A0471A;
+  --risco-3-texto: #B01B34;
+  /* Fundos suaves por nível */
+  --risco-0-fundo: #E3F0E7;
+  --risco-1-fundo: #F7ECCF;
+  --risco-2-fundo: #FBE3D4;
+  --risco-3-fundo: #F8DDE2;
+
+  /* Console Defesa Civil (escuro) */
+  --c-fundo: #0B141B;
+  --c-painel: #121E27;
+  --c-painel-2: #172631;
+  --c-linha: #22343F;
+  --c-linha-forte: #2F4552;
+  --c-texto: #E8E4DA;
+  --c-texto-2: #9AA3A9;
+  --c-agua: #4FA3BF;
+  --c-risco-0: #5DB585;
+  --c-risco-1: #E0A92B;
+  --c-risco-2: #F07B3A;
+  --c-risco-3: #FF6B82;
+
+  /* Tipografia */
+  --f-texto: "Atkinson Hyperlegible Next", "Segoe UI", system-ui, sans-serif;
+  --f-titulo: "Archivo", "Atkinson Hyperlegible Next", "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  /* Escala 1.25 a partir da base (17px no app, 15px no console) */
+  --base: 17px;
+  --t-2: calc(var(--base) * 0.64);
+  --t-1: calc(var(--base) * 0.8);
+  --t0: var(--base);
+  --t1: calc(var(--base) * 1.25);
+  --t2: calc(var(--base) * 1.5625);
+  --t3: calc(var(--base) * 1.953);
+  --t4: calc(var(--base) * 2.441);
+  --t5: calc(var(--base) * 3.052);
+  --t6: calc(var(--base) * 3.815);
+
+  /* Espaço (grade de 4px) */
+  --e1: 4px;
+  --e2: 8px;
+  --e3: 12px;
+  --e4: 16px;
+  --e5: 24px;
+  --e6: 32px;
+  --e7: 48px;
+  --e8: 64px;
+  --e9: 96px;
+
+  /* Forma */
+  --raio-p: 6px;
+  --raio: 8px;
+  --raio-g: 10px;
+  --borda: 1px solid var(--linha);
+  --sombra: 0 1px 2px rgb(14 26 36 / 0.06);
+  --sombra-flutuante: 0 8px 24px -8px rgb(14 26 36 / 0.22), 0 1px 3px rgb(14 26 36 / 0.08);
+
+  /* Toque */
+  --alvo: 48px;
+
+  /* Movimento */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-agua: cubic-bezier(0.33, 0.9, 0.3, 1);
+  --d-rapido: 140ms;
+  --d-medio: 220ms;
+  --d-agua: 1400ms;
+
+  --foco: 0 0 0 3px var(--papel), 0 0 0 5px var(--agua);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --d-rapido: 0ms;
+    --d-medio: 0ms;
+    --d-agua: 0ms;
+  }
+}
