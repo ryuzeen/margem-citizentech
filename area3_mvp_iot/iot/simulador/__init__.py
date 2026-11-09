@@ -32,9 +32,11 @@ class SimuladorEstacoes:
         self.modelo = ModeloRegional((inicio or agora()).replace(microsecond=0), seed=seed)
         self.modelo.aquecer(aquecimento_h)
         self.modelo.definir_cenario(cenario)
-        # seq parte do relógio real: um novo processo nunca reutiliza seq de uma execução anterior
-        # (desde que o intervalo entre passos seja >= 1 s).
-        self.seq = int(time.time()) if seq_inicial is None else int(seq_inicial)
+        # Sem seq_inicial, o seq acompanha o relógio real em milissegundos: nunca reutiliza seq de uma execução
+        # anterior e dois simuladores das mesmas estações rodando juntos (o da API e o MQTT do Docker) não
+        # colidem — colisão faria o anti-replay descartar leituras legítimas como `seq_repetido`.
+        self._seq_relogio = seq_inicial is None
+        self.seq = int(time.time() * 1000) if seq_inicial is None else int(seq_inicial)
         self._recentes = {est.estacao["id"]: deque(maxlen=historico_max) for est in self.modelo.estacoes}
 
     @property
@@ -54,7 +56,7 @@ class SimuladorEstacoes:
         """Avança um tick e devolve uma leitura assinada (payload do contrato §4) por estação."""
         with self._trava:
             pontos = self.modelo.passo(self.minutos_por_passo / 60)
-            self.seq += 1
+            self.seq = max(self.seq + 1, int(time.time() * 1000)) if self._seq_relogio else self.seq + 1
             leituras = []
             for ponto in pontos:
                 leitura = {

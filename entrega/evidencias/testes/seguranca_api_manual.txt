@@ -1,0 +1,26 @@
+# Verificação de segurança e integração da API (09/11/2026 03:03), API temporária na porta 56984
+
+[OK] Healthcheck + cabeçalhos de segurança
+      esperado: 200 + DENY/nosniff/CSP
+      obtido:   200 {'X-Frame-Options': 'DENY', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Content-Security-Policy': "default-src 'self'; img-src 'self' data: https://tile.openstreetmap.org https://*.tile.openstreetmap.org; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; font-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"}
+[OK] Login morador e operador
+      esperado: 200 e 200 com token JWT
+      obtido:   200 e 200; papéis cidadao/defesa_civil
+[OK] RBAC: /checkins e /simulacao/cenario
+      esperado: sem token 401; morador 403; operador 200
+      obtido:   sem token 401 (nao_autenticado); morador 403 (sem_permissao); operador 200; morador muda cenário 403
+[OK] JWT adulterado
+      esperado: 401 token_invalido
+      obtido:   401 token_invalido
+[OK] Login sem vazar se o e-mail existe
+      esperado: mesma resposta para e-mail inexistente e senha errada
+      obtido:   401 {'codigo': 'credenciais_invalidas', 'mensagem': 'E-mail ou senha incorretos.'} | 401 {'codigo': 'credenciais_invalidas', 'mensagem': 'E-mail ou senha incorretos.'}
+[OK] Mass assignment no cadastro (campo papel)
+      esperado: 422 entrada_invalida
+      obtido:   422 entrada_invalida
+[OK] IoT: HMAC + anti-replay + token da estação
+      esperado: válida aceita; replay, HMAC adulterado e token errado recusados
+      obtido:   válida 202; replay 422 {'codigo': 'leitura_recusada', 'mensagem': 'seq_repetido'}; adulterada 422 {'codigo': 'leitura_recusada', 'mensagem': 'assinatura_invalida'}; token errado 401 estacao_nao_autorizada
+[OK] Rate limit de login (10/min por IP)
+      esperado: 429 depois do limite
+      obtido:   códigos: [401, 401, 401, 401, 401, 401, 429, 429, 429, 429, 429, 429]

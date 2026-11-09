@@ -1,0 +1,67 @@
+# Evidência: estação simulada -> MQTT (mosquitto) -> ponte MQTT (valida token+HMAC+anti-replay) -> Kafka -> consumidor -> data lake (bruta)
+# Coletado em 09/11/2026 02:56 com docker logs (projeto compose margem)
+
+## Resumo da ponte MQTT (docker logs margem-ponte-mqtt)
+total de linhas 'aceita': 2532
+linhas 'rejeitada' antes do teste manual de segurança, por motivo:
+     76  (ts_no_futuro)
+(todas as ts_no_futuro ocorreram no primeiro minuto após a ponte subir, 05:24:00–05:24:54 UTC; depois disso, só leituras aceitas. Horários dos logs em UTC.)
+
+## Primeiras 12 linhas da ponte
+2026-11-09 05:23:57,595 kafka.conn <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('172.18.0.2', 9092)]>: connecting to kafka:9092 [('172.18.0.2', 9092) IPv4]
+2026-11-09 05:23:57,595 kafka.conn Probing node bootstrap-0 broker version
+2026-11-09 05:23:57,596 kafka.conn <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('172.18.0.2', 9092)]>: Connection complete.
+2026-11-09 05:23:57,698 kafka.conn Broker version identified as 2.6.0
+2026-11-09 05:23:57,698 kafka.conn Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+2026-11-09 05:23:57,700 margem.ponte_mqtt conectado em mosquitto:1883 (Success); assinando margem/v1/estacoes/+/leituras
+2026-11-09 05:23:57,802 kafka.conn <BrokerConnection client_id=kafka-python-producer-1, node_id=1 host=kafka:9092 <connecting> [IPv4 ('172.18.0.2', 9092)]>: connecting to kafka:9092 [('172.18.0.2', 9092) IPv4]
+2026-11-09 05:23:57,802 kafka.conn <BrokerConnection client_id=kafka-python-producer-1, node_id=1 host=kafka:9092 <connecting> [IPv4 ('172.18.0.2', 9092)]>: Connection complete.
+2026-11-09 05:23:57,802 kafka.conn <BrokerConnection client_id=kafka-python-producer-1, node_id=bootstrap-0 host=kafka:9092 <connected> [IPv4 ('172.18.0.2', 9092)]>: Closing connection. 
+2026-11-09 05:23:57,911 margem.ponte_mqtt margem/v1/estacoes/EST-PANTANAL-01/leituras -> aceita (ok)
+2026-11-09 05:23:57,913 margem.ponte_mqtt margem/v1/estacoes/EST-ITAIM-01/leituras -> aceita (ok)
+2026-11-09 05:23:57,914 margem.ponte_mqtt margem/v1/estacoes/EST-ROMANO-01/leituras -> aceita (ok)
+
+## Últimas 12 linhas da ponte
+2026-11-09 05:56:26,120 margem.ponte_mqtt margem/v1/estacoes/EST-PANTANAL-01/leituras -> aceita (ok)
+2026-11-09 05:56:26,121 margem.ponte_mqtt margem/v1/estacoes/EST-ITAIM-01/leituras -> aceita (ok)
+2026-11-09 05:56:26,121 margem.ponte_mqtt margem/v1/estacoes/EST-ROMANO-01/leituras -> aceita (ok)
+2026-11-09 05:56:26,122 margem.ponte_mqtt margem/v1/estacoes/EST-HELENA-01/leituras -> aceita (ok)
+2026-11-09 05:56:29,124 margem.ponte_mqtt margem/v1/estacoes/EST-PANTANAL-01/leituras -> aceita (ok)
+2026-11-09 05:56:29,125 margem.ponte_mqtt margem/v1/estacoes/EST-ITAIM-01/leituras -> aceita (ok)
+2026-11-09 05:56:29,125 margem.ponte_mqtt margem/v1/estacoes/EST-ROMANO-01/leituras -> aceita (ok)
+2026-11-09 05:56:29,126 margem.ponte_mqtt margem/v1/estacoes/EST-HELENA-01/leituras -> aceita (ok)
+2026-11-09 05:56:32,125 margem.ponte_mqtt margem/v1/estacoes/EST-PANTANAL-01/leituras -> aceita (ok)
+2026-11-09 05:56:32,126 margem.ponte_mqtt margem/v1/estacoes/EST-ITAIM-01/leituras -> aceita (ok)
+2026-11-09 05:56:32,126 margem.ponte_mqtt margem/v1/estacoes/EST-ROMANO-01/leituras -> aceita (ok)
+2026-11-09 05:56:32,127 margem.ponte_mqtt margem/v1/estacoes/EST-HELENA-01/leituras -> aceita (ok)
+
+## Consumidor Kafka (docker logs margem-consumidor-kafka)
+2026-11-09 05:23:58,313 kafka.cluster Group coordinator for margem-data-lake is BrokerMetadata(nodeId='coordinator-1', host='kafka', port=9092, rack=None)
+2026-11-09 05:23:58,313 kafka.coordinator Discovered coordinator coordinator-1 for group margem-data-lake
+2026-11-09 05:23:58,313 kafka.coordinator (Re-)joining group margem-data-lake
+2026-11-09 05:23:58,314 kafka.coordinator Marking the coordinator dead (node coordinator-1) for group margem-data-lake: [Error 16] NotCoordinatorForGroupError.
+2026-11-09 05:23:58,415 kafka.cluster Group coordinator for margem-data-lake is BrokerMetadata(nodeId='coordinator-1', host='kafka', port=9092, rack=None)
+2026-11-09 05:23:58,415 kafka.coordinator Discovered coordinator coordinator-1 for group margem-data-lake
+2026-11-09 05:23:58,415 kafka.coordinator (Re-)joining group margem-data-lake
+2026-11-09 05:23:58,416 kafka.coordinator Marking the coordinator dead (node coordinator-1) for group margem-data-lake: [Error 16] NotCoordinatorForGroupError.
+2026-11-09 05:23:58,518 kafka.cluster Group coordinator for margem-data-lake is BrokerMetadata(nodeId='coordinator-1', host='kafka', port=9092, rack=None)
+2026-11-09 05:23:58,518 kafka.coordinator Discovered coordinator coordinator-1 for group margem-data-lake
+2026-11-09 05:23:58,518 kafka.coordinator (Re-)joining group margem-data-lake
+2026-11-09 05:24:01,527 kafka.coordinator Elected group leader -- performing partition assignments using range
+2026-11-09 05:24:01,534 kafka.coordinator Successfully joined group margem-data-lake with generation 1
+2026-11-09 05:24:01,535 kafka.consumer.subscription_state Updated partition assignment: [TopicPartition(topic='margem.leituras', partition=0), TopicPartition(topic='margem.leituras', partition=1), TopicPartition(topic='margem.leituras', partition=2), TopicPartition(topic='margem.leituras', partition=3)]
+2026-11-09 05:24:01,535 kafka.coordinator.consumer Setting newly assigned partitions {TopicPartition(topic='margem.leituras', partition=0), TopicPartition(topic='margem.leituras', partition=1), TopicPartition(topic='margem.leituras', partition=2), TopicPartition(topic='margem.leituras', partition=3)} for group margem-data-lake
+
+## Camada bruta gravada pelo consumidor (linhas de mqtt.jsonl, medido duas vezes com 15 s de intervalo)
+t0: 2536 linhas
+t0+15s: 2556 linhas (+20)
+
+## Última leitura gravada (origem mqtt)
+{"estacao_id": "EST-HELENA-01", "ts": "2026-11-09T02:56:50-03:00", "seq": 1794202534, "nivel_cm": 154.4, "chuva_mm_h": 11.7, "umidade_solo_pct": 43.3, "bateria_pct": 95, "firmware": "sim-1.0.0", "sig": "ce8e2f7d84779dbfcb38d20628c214d9b12fb2a39892845902b0390b55f726e9", "origem": "mqtt", "recebido_em": "2026-11-09T02:56:50-03:00"}
+
+## Simulador MQTT (últimas 5 linhas)
+2026-11-09 05:56:38,131 09/11 02:56 PANTANAL=149cm(observacao) ITAIM=87cm(observacao) ROMANO=126cm(observacao) HELENA=155cm(atencao)
+2026-11-09 05:56:41,135 09/11 02:56 PANTANAL=148cm(observacao) ITAIM=88cm(observacao) ROMANO=128cm(observacao) HELENA=156cm(atencao)
+2026-11-09 05:56:44,138 09/11 02:56 PANTANAL=147cm(observacao) ITAIM=88cm(observacao) ROMANO=127cm(observacao) HELENA=156cm(atencao)
+2026-11-09 05:56:47,141 09/11 02:56 PANTANAL=148cm(observacao) ITAIM=89cm(observacao) ROMANO=128cm(observacao) HELENA=156cm(atencao)
+2026-11-09 05:56:50,145 09/11 02:56 PANTANAL=150cm(observacao) ITAIM=87cm(observacao) ROMANO=127cm(observacao) HELENA=154cm(atencao)

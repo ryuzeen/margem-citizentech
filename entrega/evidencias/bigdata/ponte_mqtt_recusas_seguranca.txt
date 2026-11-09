@@ -1,0 +1,18 @@
+# Teste manual de segurança da ponte MQTT (09/11/2026 02:57)
+# 3 mensagens publicadas com mosquitto_pub no tópico margem/v1/estacoes/EST-PANTANAL-01/leituras:
+#  1) leitura válida já recebida antes (replay, mesmo seq)
+#  2) mesma leitura com nivel_cm=390 e seq novo, sem refazer a assinatura (HMAC adulterado)
+#  3) payload que não é JSON
+
+## Leitura reenviada (1)
+{"estacao_id": "EST-PANTANAL-01", "ts": "2026-11-09T02:57:05-03:00", "seq": 1794202539, "nivel_cm": 148.8, "chuva_mm_h": 9.4, "umidade_solo_pct": 41.7, "bateria_pct": 95, "firmware": "sim-1.0.0", "sig": "78a825a6a5fd7ec749dce26724d73938b769295e5f03e286e0029eda5a347d16"}
+
+## Leitura adulterada (2)
+{"estacao_id": "EST-PANTANAL-01", "ts": "2026-11-09T02:57:05-03:00", "seq": 1794203538, "nivel_cm": 390.0, "chuva_mm_h": 9.4, "umidade_solo_pct": 41.7, "bateria_pct": 95, "firmware": "sim-1.0.0", "sig": "78a825a6a5fd7ec749dce26724d73938b769295e5f03e286e0029eda5a347d16"}
+
+## docker logs margem-ponte-mqtt (linhas das 3 mensagens)
+2026-11-09 05:57:06,466 margem.ponte_mqtt margem/v1/estacoes/EST-PANTANAL-01/leituras -> rejeitada (seq_repetido)
+2026-11-09 05:57:06,716 margem.ponte_mqtt margem/v1/estacoes/EST-PANTANAL-01/leituras -> rejeitada (assinatura_invalida)
+2026-11-09 05:57:06,967 margem.ponte_mqtt margem/v1/estacoes/EST-PANTANAL-01/leituras -> rejeitada (json_invalido)
+
+Resultado: replay -> seq_repetido; HMAC adulterado -> assinatura_invalida; lixo -> json_invalido. Nenhuma chegou ao Kafka.

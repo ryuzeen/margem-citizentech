@@ -1,0 +1,126 @@
+# .venv/Scripts/python -m pytest -m "not e2e" -v --cov=. --cov-report=term  (09/11/2026 02:55)
+============================= test session starts =============================
+platform win32 -- Python 3.10.9, pytest-8.3.4, pluggy-1.7.0
+rootdir: C:\Users\Rafael\Desktop\Tudo\Facul Feitos\GS-2026-2-CitizenTech
+configfile: pyproject.toml
+testpaths: area1_ia/tests, area2_bigdata/tests, area3_mvp_iot/tests, area4_devops/tests, area4_devops/testes
+plugins: anyio-4.16.0, cov-6.0.0
+collected 131 items / 8 deselected / 123 selected
+
+area1_ia\tests\test_agentes.py ......................................... [ 33%]
+...........                                                              [ 42%]
+area1_ia\tests\test_modelo_risco.py .......                              [ 47%]
+area2_bigdata\tests\test_hidrologia.py ....                              [ 51%]
+area2_bigdata\tests\test_historico_analytics.py ....                     [ 54%]
+area2_bigdata\tests\test_ingestao.py ..............                      [ 65%]
+area2_bigdata\tests\test_processamento.py ........                       [ 72%]
+area3_mvp_iot\tests\test_api.py .......................                  [ 91%]
+area3_mvp_iot\tests\test_iot_firmware.py .....                           [ 95%]
+area3_mvp_iot\tests\test_iot_simulador.py ......                         [100%]
+
+============================== warnings summary ===============================
+.venv\lib\site-packages\starlette\testclient.py:40
+  C:\Users\Rafael\Desktop\Tudo\Facul Feitos\GS-2026-2-CitizenTech\.venv\lib\site-packages\starlette\testclient.py:40: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+
+---------- coverage: platform win32, python 3.10.9-final-0 -----------
+Name                                              Stmts   Miss  Cover
+---------------------------------------------------------------------
+area1_ia\__init__.py                                  0      0   100%
+area1_ia\agentes\__init__.py                          3      0   100%
+area1_ia\agentes\comunicador.py                      87     12    86%
+area1_ia\agentes\llm.py                              45      6    87%
+area1_ia\agentes\orquestrador.py                     23      0   100%
+area1_ia\agentes\prioridade.py                       24      0   100%
+area1_ia\agentes\protocolos.py                       71      2    97%
+area1_ia\agentes\triagem.py                          11      0   100%
+area1_ia\avaliacao\__init__.py                        0      0   100%
+area1_ia\avaliacao\__main__.py                      183    183     0%
+area1_ia\avaliacao\graficos.py                       90     90     0%
+area1_ia\modelo_risco\__init__.py                     2      0   100%
+area1_ia\modelo_risco\avaliar.py                     49      2    96%
+area1_ia\modelo_risco\fixture.py                     55      0   100%
+area1_ia\modelo_risco\prever.py                      89     10    89%
+area1_ia\modelo_risco\treinar.py                    169     43    75%
+area1_ia\rag\__init__.py                              2      0   100%
+area1_ia\rag\buscador.py                             78      2    97%
+area1_ia\tests\__init__.py                            0      0   100%
+area1_ia\tests\test_agentes.py                      124      0   100%
+area1_ia\tests\test_modelo_risco.py                  57      0   100%
+area1_ia\texto.py                                    18      0   100%
+area1_ia\triagem\__init__.py                          4      0   100%
+area1_ia\triagem\baseline.py                          9      0   100%
+area1_ia\triagem\gerar_dataset.py                   111    111     0%
+area1_ia\triagem\modelo.py                           74     24    68%
+area1_ia\triagem\treinar.py                          11     11     0%
+area1_ia\triagem\vulneraveis.py                      33      3    91%
+area2_bigdata\__init__.py                             0      0   100%
+area2_bigdata\analytics\__init__.py                   2      0   100%
+area2_bigdata\analytics\medidas.py                  167      4    98%
+area2_bigdata\caminhos.py                            24      0   100%
+area2_bigdata\features.py                            49      2    96%
+area2_bigdata\historico\__init__.py                   0      0   100%
+area2_bigdata\historico\gerar.py                    167     13    92%
+area2_bigdata\historico\hidrologia.py               188      0   100%
+area2_bigdata\ingestao\__init__.py                    4      0   100%
+area2_bigdata\ingestao\bruta.py                      42      3    93%
+area2_bigdata\ingestao\consumidor_kafka.py           20     20     0%
+area2_bigdata\ingestao\ponte_mqtt.py                 76     33    57%
+area2_bigdata\ingestao\validacao.py                  67      0   100%
+area2_bigdata\processamento\__init__.py               2      0   100%
+area2_bigdata\processamento\__main__.py              11     11     0%
+area2_bigdata\processamento\job_spark.py             92     92     0%
+area2_bigdata\processamento\pipeline.py             307     24    92%
+area2_bigdata\tempo.py                               25      1    96%
+area2_bigdata\tests\__init__.py                       0      0   100%
+area2_bigdata\tests\conftest.py                      20      0   100%
+area2_bigdata\tests\test_hidrologia.py               49      0   100%
+area2_bigdata\tests\test_historico_analytics.py      48      0   100%
+area2_bigdata\tests\test_ingestao.py                 58      0   100%
+area2_bigdata\tests\test_processamento.py            83      0   100%
+area3_mvp_iot\__init__.py                             0      0   100%
+area3_mvp_iot\api\__init__.py                         0      0   100%
+area3_mvp_iot\api\__main__.py                         6      6     0%
+area3_mvp_iot\api\app.py                             56      2    96%
+area3_mvp_iot\api\db.py                              46      2    96%
+area3_mvp_iot\api\metricas.py                         9      0   100%
+area3_mvp_iot\api\modelos.py                         90      6    93%
+area3_mvp_iot\api\rotas\__init__.py                   5      0   100%
+area3_mvp_iot\api\rotas\auth.py                      33      4    88%
+area3_mvp_iot\api\rotas\console.py                   80      4    95%
+area3_mvp_iot\api\rotas\iot.py                       38      8    79%
+area3_mvp_iot\api\rotas\morador.py                   33      5    85%
+area3_mvp_iot\api\rotas\publico.py                   27      2    93%
+area3_mvp_iot\api\rotas\stream.py                    30     15    50%
+area3_mvp_iot\api\seed.py                            20      1    95%
+area3_mvp_iot\api\seguranca.py                       94     12    87%
+area3_mvp_iot\api\servicos\__init__.py                0      0   100%
+area3_mvp_iot\api\servicos\estado.py                 89     24    73%
+area3_mvp_iot\api\servicos\fluxo.py                 128      2    98%
+area3_mvp_iot\api\servicos\formatos.py               49      2    96%
+area3_mvp_iot\api\servicos\indicadores.py           124     14    89%
+area3_mvp_iot\api\servicos\tarefas.py               109     31    72%
+area3_mvp_iot\iot\__init__.py                         0      0   100%
+area3_mvp_iot\iot\simulador\__init__.py              44      0   100%
+area3_mvp_iot\iot\simulador\__main__.py              62     15    76%
+area3_mvp_iot\tests\__init__.py                       0      0   100%
+area3_mvp_iot\tests\test_api.py                     206      0   100%
+area3_mvp_iot\tests\test_iot_firmware.py             38      0   100%
+area3_mvp_iot\tests\test_iot_simulador.py            74      0   100%
+area4_devops\testes\__init__.py                       0      0   100%
+area4_devops\testes\e2e\__init__.py                   0      0   100%
+area4_devops\testes\e2e\conftest.py                 122     87    29%
+area4_devops\testes\e2e\test_fluxos.py              204    186     9%
+comum\__init__.py                                     0      0   100%
+comum\config.py                                      28      1    96%
+comum\niveis.py                                      23      0   100%
+comum\seguranca_iot.py                               11      1    91%
+comum\territorio.py                                  20      1    95%
+conftest.py                                          13      0   100%
+iniciar.py                                           96     96     0%
+---------------------------------------------------------------------
+TOTAL                                              4930   1229    75%
+
+================ 123 passed, 8 deselected, 1 warning in 27.79s ================

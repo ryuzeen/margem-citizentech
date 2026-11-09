@@ -1,0 +1,14 @@
+Global Solution 2026/2 - CitizenTech - FIAP - Turma 4ESOA
+Grupo: Margem
+
+Integrantes (nome - RM):
+Italo de Souza - RM 551500
+Victor Montenegro Borges - RM 98708
+Matheus Morete Espinoso - RM 552428
+Octávio Hernandez (Chiste Cordeiro) - RM 97894
+Rafael Perussi Caczan - RM 93092
+
+Link do vídeo pitch: PREENCHER_LINK_DO_PITCH
+
+Site (demonstração): https://ryuzeen.github.io/margem-citizentech/
+Repositório: https://github.com/ryuzeen/margem-citizentech

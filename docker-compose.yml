@@ -63,6 +63,7 @@ services:
     container_name: margem-ponte-mqtt
     profiles: [completo]
     command: ["python", "-m", "area2_bigdata.ingestao.ponte_mqtt"]
+    healthcheck: { disable: true }  # worker sem HTTP: o HEALTHCHECK da imagem (health da API) não se aplica
     environment:
       MARGEM_MQTT_ATIVO: "1"
       MARGEM_MQTT_HOST: mosquitto
@@ -77,6 +78,7 @@ services:
     container_name: margem-consumidor-kafka
     profiles: [completo]
     command: ["python", "-m", "area2_bigdata.ingestao.consumidor_kafka"]
+    healthcheck: { disable: true }  # worker sem HTTP: o HEALTHCHECK da imagem (health da API) não se aplica
     environment:
       MARGEM_KAFKA_ATIVO: "1"
       MARGEM_KAFKA_BOOTSTRAP: kafka:9092
@@ -89,6 +91,7 @@ services:
     profiles: [completo]
     # estação "física": 1 leitura a cada 3 s com ts no relógio real (0,05 min/passo); o relógio acelerado fica só na API
     command: ["python", "-m", "area3_mvp_iot.iot.simulador", "--cenario", "chuva_forte", "--mqtt", "--intervalo", "3", "--minutos-por-passo", "0.05"]
+    healthcheck: { disable: true }  # worker sem HTTP: o HEALTHCHECK da imagem (health da API) não se aplica
     environment:
       MARGEM_MQTT_HOST: mosquitto
     depends_on: [mosquitto, ponte-mqtt]

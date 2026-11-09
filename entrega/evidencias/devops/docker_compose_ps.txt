@@ -1,0 +1,12 @@
+# docker compose -p margem ps   (09/11/2026 02:55)
+NAME                      IMAGE                                                                     COMMAND                  SERVICE            CREATED          STATUS                      PORTS
+margem-api                margem/app:latest                                                         "python -m area3_mvp…"   api                16 minutes ago   Up 16 minutes (healthy)     0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+margem-consumidor-kafka   sha256:f40b8d68a52404004d07e8db4884f034351fb5c81f284bf54dbbc5e7b28847e4   "python -m area2_big…"   consumidor-kafka   32 minutes ago   Up 31 minutes (unhealthy)   8080/tcp
+margem-grafana            grafana/grafana:11.4.0                                                    "/run.sh"                grafana            32 minutes ago   Up 32 minutes               0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp
+margem-jenkins            margem/jenkins:latest                                                     "/usr/bin/tini -- /u…"   jenkins            22 minutes ago   Up 22 minutes               0.0.0.0:8081->8080/tcp, [::]:8081->8080/tcp
+margem-kafka              apache/kafka:3.9.0                                                        "/__cacert_entrypoin…"   kafka              32 minutes ago   Up 32 minutes (healthy)     0.0.0.0:9092->9092/tcp, [::]:9092->9092/tcp
+margem-mosquitto          eclipse-mosquitto:2.0.20                                                  "/docker-entrypoint.…"   mosquitto          32 minutes ago   Up 32 minutes               0.0.0.0:1883->1883/tcp, [::]:1883->1883/tcp
+margem-ponte-mqtt         sha256:f40b8d68a52404004d07e8db4884f034351fb5c81f284bf54dbbc5e7b28847e4   "python -m area2_big…"   ponte-mqtt         32 minutes ago   Up 31 minutes (unhealthy)   8080/tcp
+margem-prometheus         prom/prometheus:v3.0.1                                                    "/bin/prometheus --c…"   prometheus         32 minutes ago   Up 32 minutes               0.0.0.0:9090->9090/tcp, [::]:9090->9090/tcp
+margem-simulador-mqtt     sha256:f40b8d68a52404004d07e8db4884f034351fb5c81f284bf54dbbc5e7b28847e4   "python -m area3_mvp…"   simulador-mqtt     30 minutes ago   Up 30 minutes (unhealthy)   8080/tcp
+margem-spark-job          apache/spark:3.5.3-python3                                                "/opt/entrypoint.sh …"   spark-job          32 minutes ago   Exited (0) 31 minutes ago   

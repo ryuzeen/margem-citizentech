@@ -1,0 +1,5 @@
+# Carga leve contra a API no container margem-api (09/11/2026 03:04): 10 clientes em paralelo
+GET /health        n=500 ok=500 erros=0   733.8 req/s  p50= 10.6 ms  p95=  30.0 ms  max=  38.3 ms
+GET /risco/atual   n=500 ok=500 erros=0   953.7 req/s  p50=  8.1 ms  p95=  26.2 ms  max=  34.3 ms
+GET /territorio    n=300 ok=300 erros=0   890.8 req/s  p50=  8.2 ms  p95=  26.7 ms  max=  40.7 ms
+GET /alertas       n=300 ok=300 erros=0   516.8 req/s  p50= 12.5 ms  p95=  59.5 ms  max= 104.1 ms

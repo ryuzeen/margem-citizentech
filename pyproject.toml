@@ -5,7 +5,7 @@ description = "Margem - alerta comunitário de enchentes (FIAP Global Solution 2
 requires-python = ">=3.10"
 
 [tool.pytest.ini_options]
-testpaths = ["area1_ia/tests", "area2_bigdata/tests", "area3_mvp_iot/tests", "area4_devops/tests"]
+testpaths = ["area1_ia/tests", "area2_bigdata/tests", "area3_mvp_iot/tests", "area4_devops/tests", "area4_devops/testes"]
 addopts = "-q"
 markers = ["e2e: testes ponta a ponta no navegador (Playwright)"]
 

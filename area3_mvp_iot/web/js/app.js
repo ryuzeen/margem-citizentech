@@ -498,7 +498,7 @@ function telaRelatar() {
       </form>
       <section id="r-result" aria-live="polite">
         <div class="cartao estado">${ico("bot")}<strong>Como a IA trata o seu relato</strong>
-          <p>Quatro agentes trabalham em sequência: triagem, protocolos, prioridade e resposta. Você vê cada passo aqui depois de enviar.</p></div>
+          <p>Três agentes trabalham em sequência: triagem, protocolos e prioridade. Você vê cada passo aqui depois de enviar.</p></div>
       </section>
     </div>
   </div>`);
@@ -532,7 +532,7 @@ function telaRelatar() {
 }
 
 function mostrarRastroPendente() {
-  const passos = ["triagem", "protocolos", "prioridade", "resposta"];
+  const passos = ["triagem", "protocolos", "prioridade"];
   $("#r-result").innerHTML = String(html`<div class="cartao cartao-corpo"><h2 class="tit-rastro">Analisando seu relato</h2>
     <ol class="rastro" id="rastro">${passos.map((p, i) => { const [n, ic, d] = agente(p); return html`<li class="${raw(i === 0 ? "ativo" : "")}" data-ag="${p}"><span class="r-ico">${ico(i === 0 ? "refresh-cw" : ic, "ico-s")}</span><div><div class="r-cab"><span class="r-nome">${n}</span><span class="r-ms"></span></div><div class="r-saida">${d}</div></div></li>`; })}</ol></div>`);
 }

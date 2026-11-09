@@ -1,0 +1,5 @@
+# Site demo publicado (GitHub Pages) em celular 390 px, 09/11/2026 03:05
+selo: Modo demonstração — dados simulados no navegador
+nível: Observação | rio: 1,10m
+scrollWidth/innerWidth: [390, 390]
+erros de console: ['Failed to load resource: the server responded with a status of 404 ()']

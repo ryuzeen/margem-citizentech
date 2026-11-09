@@ -99,7 +99,6 @@ export function triar(texto, { nivelBairro = "observacao", vulnPerfil = [], nome
     { agente: "triagem", ms: ms1, saida: partesTri.join(" · ") },
     { agente: "protocolos", ms: 14 + fontes.length * 6, saida: `${fontes.length} trecho${fontes.length > 1 ? "s" : ""} recuperado${fontes.length > 1 ? "s" : ""}: ${fontes.map((f) => f.titulo).join("; ")}` },
     { agente: "prioridade", ms: 3, saida: `${p.total}/100 = gravidade ${grav} (${p.pGrav}) + vulneráveis ${Math.min(vulneraveis.length, 2)} (${p.pVuln}) + risco do bairro ${ROTULO[nivelBairro]} (${p.pRisco}) + espera (${p.pEspera})` },
-    { agente: "resposta", ms: 6, saida: orientacao },
   ];
 
   return {

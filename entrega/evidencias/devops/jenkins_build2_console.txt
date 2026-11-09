@@ -1,0 +1,453 @@
+Started by an SCM change
+Obtained Jenkinsfile from git https://github.com/ryuzeen/margem-citizentech.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/margem
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+The recommended git tool is: git
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/margem/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/ryuzeen/margem-citizentech.git # timeout=10
+Fetching upstream changes from https://github.com/ryuzeen/margem-citizentech.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git fetch --tags --force --progress -- https://github.com/ryuzeen/margem-citizentech.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 5c1097cad7d180b9edaee1089af504d675913f32 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 5c1097cad7d180b9edaee1089af504d675913f32 # timeout=10
+Commit message: "CI: testes usam .env.example; numpy 2.2.6 (Python 3.13 no Jenkins); Jenkins com docker:cli"
+ > git rev-list --no-walk 8014c060cdc7a093d2974e3f365e4602bb0d0fbc # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] timeout
+[2026-11-09T05:37:16.067Z] Timeout set to expire in 30 min
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Ambiente)
+[Pipeline] sh
+[2026-11-09T05:37:16.391Z] + python3 -m venv /var/jenkins_home/workspace/margem/.venv
+[Pipeline] sh
+[2026-11-09T05:37:17.211Z] + /var/jenkins_home/workspace/margem/.venv/bin/pip install -q -r requirements-dev.txt
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Qualidade (lint))
+[Pipeline] sh
+[2026-11-09T05:37:56.104Z] + /var/jenkins_home/workspace/margem/.venv/bin/ruff check . --output-format=concise
+[2026-11-09T05:37:56.104Z] + tee ruff.txt
+[2026-11-09T05:37:56.104Z] All checks passed!
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Testes)
+[Pipeline] sh
+[2026-11-09T05:37:56.447Z] + /var/jenkins_home/workspace/margem/.venv/bin/python -m pytest -m not e2e --junitxml=relatorios/junit.xml --cov=. --cov-report=xml:relatorios/cobertura.xml --cov-report=term
+[2026-11-09T05:38:07.084Z] ........................................................................ [ 58%]
+[2026-11-09T05:38:15.169Z] ...................................................                      [100%]
+[2026-11-09T05:38:15.169Z] =============================== warnings summary ===============================
+[2026-11-09T05:38:15.169Z] .venv/lib/python3.13/site-packages/starlette/testclient.py:40
+[2026-11-09T05:38:15.169Z]   /var/jenkins_home/workspace/margem/.venv/lib/python3.13/site-packages/starlette/testclient.py:40: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+[2026-11-09T05:38:15.169Z]     _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+[2026-11-09T05:38:15.169Z] 
+[2026-11-09T05:38:15.169Z] -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+[2026-11-09T05:38:15.169Z] - generated xml file: /var/jenkins_home/workspace/margem/relatorios/junit.xml --
+[2026-11-09T05:38:15.169Z] 
+[2026-11-09T05:38:15.169Z] ---------- coverage: platform linux, python 3.13.5-final-0 -----------
+[2026-11-09T05:38:15.169Z] Name                                              Stmts   Miss  Cover
+[2026-11-09T05:38:15.169Z] ---------------------------------------------------------------------
+[2026-11-09T05:38:15.169Z] area1_ia/__init__.py                                  0      0   100%
+[2026-11-09T05:38:15.169Z] area1_ia/agentes/__init__.py                          3      0   100%
+[2026-11-09T05:38:15.169Z] area1_ia/agentes/comunicador.py                      87     12    86%
+[2026-11-09T05:38:15.169Z] area1_ia/agentes/llm.py                              45      6    87%
+[2026-11-09T05:38:15.169Z] area1_ia/agentes/orquestrador.py                     23      0   100%
+[2026-11-09T05:38:15.169Z] area1_ia/agentes/prioridade.py                       24      0   100%
+[2026-11-09T05:38:15.169Z] area1_ia/agentes/protocolos.py                       71      2    97%
+[2026-11-09T05:38:15.169Z] area1_ia/agentes/triagem.py                          11      0   100%
+[2026-11-09T05:38:15.169Z] area1_ia/avaliacao/__init__.py                        0      0   100%
+[2026-11-09T05:38:15.169Z] area1_ia/avaliacao/__main__.py                      183    183     0%
+[2026-11-09T05:38:15.169Z] area1_ia/avaliacao/graficos.py                       90     90     0%
+[2026-11-09T05:38:15.169Z] area1_ia/modelo_risco/__init__.py                     2      0   100%
+[2026-11-09T05:38:15.169Z] area1_ia/modelo_risco/avaliar.py                     49      2    96%
+[2026-11-09T05:38:15.169Z] area1_ia/modelo_risco/fixture.py                     55      0   100%
+[2026-11-09T05:38:15.169Z] area1_ia/modelo_risco/prever.py                      89     10    89%
+[2026-11-09T05:38:15.169Z] area1_ia/modelo_risco/treinar.py                    169     43    75%
+[2026-11-09T05:38:15.169Z] area1_ia/rag/__init__.py                              2      0   100%
+[2026-11-09T05:38:15.169Z] area1_ia/rag/buscador.py                             78      2    97%
+[2026-11-09T05:38:15.169Z] area1_ia/tests/__init__.py                            0      0   100%
+[2026-11-09T05:38:15.169Z] area1_ia/tests/test_agentes.py                      124      0   100%
+[2026-11-09T05:38:15.169Z] area1_ia/tests/test_modelo_risco.py                  57      0   100%
+[2026-11-09T05:38:15.169Z] area1_ia/texto.py                                    18      0   100%
+[2026-11-09T05:38:15.169Z] area1_ia/triagem/__init__.py                          4      0   100%
+[2026-11-09T05:38:15.169Z] area1_ia/triagem/baseline.py                          9      0   100%
+[2026-11-09T05:38:15.169Z] area1_ia/triagem/gerar_dataset.py                   111    111     0%
+[2026-11-09T05:38:15.169Z] area1_ia/triagem/modelo.py                           74     24    68%
+[2026-11-09T05:38:15.169Z] area1_ia/triagem/treinar.py                          11     11     0%
+[2026-11-09T05:38:15.169Z] area1_ia/triagem/vulneraveis.py                      33      3    91%
+[2026-11-09T05:38:15.169Z] area2_bigdata/__init__.py                             0      0   100%
+[2026-11-09T05:38:15.169Z] area2_bigdata/analytics/__init__.py                   2      0   100%
+[2026-11-09T05:38:15.169Z] area2_bigdata/analytics/medidas.py                  167      4    98%
+[2026-11-09T05:38:15.169Z] area2_bigdata/caminhos.py                            24      0   100%
+[2026-11-09T05:38:15.169Z] area2_bigdata/features.py                            49      2    96%
+[2026-11-09T05:38:15.169Z] area2_bigdata/historico/__init__.py                   0      0   100%
+[2026-11-09T05:38:15.169Z] area2_bigdata/historico/gerar.py                    167     13    92%
+[2026-11-09T05:38:15.169Z] area2_bigdata/historico/hidrologia.py               188      0   100%
+[2026-11-09T05:38:15.169Z] area2_bigdata/ingestao/__init__.py                    4      0   100%
+[2026-11-09T05:38:15.169Z] area2_bigdata/ingestao/bruta.py                      42      3    93%
+[2026-11-09T05:38:15.169Z] area2_bigdata/ingestao/consumidor_kafka.py           20     20     0%
+[2026-11-09T05:38:15.169Z] area2_bigdata/ingestao/ponte_mqtt.py                 76     33    57%
+[2026-11-09T05:38:15.169Z] area2_bigdata/ingestao/validacao.py                  67      0   100%
+[2026-11-09T05:38:15.169Z] area2_bigdata/processamento/__init__.py               2      0   100%
+[2026-11-09T05:38:15.169Z] area2_bigdata/processamento/__main__.py              11     11     0%
+[2026-11-09T05:38:15.169Z] area2_bigdata/processamento/job_spark.py             92     92     0%
+[2026-11-09T05:38:15.169Z] area2_bigdata/processamento/pipeline.py             307     24    92%
+[2026-11-09T05:38:15.169Z] area2_bigdata/tempo.py                               25      1    96%
+[2026-11-09T05:38:15.169Z] area2_bigdata/tests/__init__.py                       0      0   100%
+[2026-11-09T05:38:15.169Z] area2_bigdata/tests/conftest.py                      20      0   100%
+[2026-11-09T05:38:15.169Z] area2_bigdata/tests/test_hidrologia.py               49      0   100%
+[2026-11-09T05:38:15.169Z] area2_bigdata/tests/test_historico_analytics.py      48      0   100%
+[2026-11-09T05:38:15.169Z] area2_bigdata/tests/test_ingestao.py                 58      0   100%
+[2026-11-09T05:38:15.169Z] area2_bigdata/tests/test_processamento.py            83      0   100%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/__init__.py                             0      0   100%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/api/__init__.py                         0      0   100%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/api/__main__.py                         6      6     0%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/api/app.py                             56      2    96%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/api/db.py                              46      2    96%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/api/metricas.py                         9      0   100%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/api/modelos.py                         90      6    93%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/api/rotas/__init__.py                   5      0   100%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/api/rotas/auth.py                      33      4    88%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/api/rotas/console.py                   80      4    95%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/api/rotas/iot.py                       38      8    79%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/api/rotas/morador.py                   33      5    85%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/api/rotas/publico.py                   27      2    93%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/api/rotas/stream.py                    30     15    50%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/api/seed.py                            20      1    95%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/api/seguranca.py                       94     12    87%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/api/servicos/__init__.py                0      0   100%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/api/servicos/estado.py                 89     24    73%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/api/servicos/fluxo.py                 128      2    98%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/api/servicos/formatos.py               49      2    96%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/api/servicos/indicadores.py           124     14    89%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/api/servicos/tarefas.py               109     31    72%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/iot/__init__.py                         0      0   100%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/iot/simulador/__init__.py              44      0   100%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/iot/simulador/__main__.py              62     15    76%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/tests/__init__.py                       0      0   100%
+[2026-11-09T05:38:15.169Z] area3_mvp_iot/tests/test_api.py                     206      0   100%
+[2026-11-09T05:38:15.170Z] area3_mvp_iot/tests/test_iot_firmware.py             38      0   100%
+[2026-11-09T05:38:15.170Z] area3_mvp_iot/tests/test_iot_simulador.py            74      0   100%
+[2026-11-09T05:38:15.170Z] comum/__init__.py                                     0      0   100%
+[2026-11-09T05:38:15.170Z] comum/config.py                                      28      1    96%
+[2026-11-09T05:38:15.170Z] comum/niveis.py                                      23      0   100%
+[2026-11-09T05:38:15.170Z] comum/seguranca_iot.py                               11      1    91%
+[2026-11-09T05:38:15.170Z] comum/territorio.py                                  20      1    95%
+[2026-11-09T05:38:15.170Z] conftest.py                                          13      0   100%
+[2026-11-09T05:38:15.170Z] iniciar.py                                           96     96     0%
+[2026-11-09T05:38:15.170Z] ---------------------------------------------------------------------
+[2026-11-09T05:38:15.170Z] TOTAL                                              4604    956    79%
+[2026-11-09T05:38:15.170Z] Coverage XML written to file relatorios/cobertura.xml
+[2026-11-09T05:38:15.170Z] 
+[2026-11-09T05:38:15.170Z] 123 passed, 1 warning in 18.44s
+Post stage
+[Pipeline] junit
+[2026-11-09T05:38:15.444Z] Recording test results
+[2026-11-09T05:38:15.491Z] [Checks API] No suitable checks publisher found.
+[Pipeline] recordCoverage
+[2026-11-09T05:38:15.604Z] [Coverage] Recording coverage results
+[2026-11-09T05:38:15.604Z] [Coverage] Creating parser for Cobertura Coverage Reports
+[2026-11-09T05:38:15.604Z] [Coverage] Searching for all files in '/var/jenkins_home/workspace/margem' that match the pattern 'relatorios/cobertura.xml'
+[2026-11-09T05:38:15.604Z] [Coverage] Traversing of symbolic links: enabled
+[2026-11-09T05:38:15.604Z] [Coverage] -> found 1 file
+[2026-11-09T05:38:15.604Z] [Coverage] Successfully parsed file '/var/jenkins_home/workspace/margem/relatorios/cobertura.xml'
+[2026-11-09T05:38:15.604Z] [Coverage] Module Coverage: 100.00% (1/1)
+[2026-11-09T05:38:15.604Z] [Coverage] Package Coverage: 86.36% (19/22)
+[2026-11-09T05:38:15.604Z] [Coverage] File Coverage: 76.14% (67/88)
+[2026-11-09T05:38:15.604Z] [Coverage] Class Coverage: 76.14% (67/88)
+[2026-11-09T05:38:15.604Z] [Coverage] Line Coverage: 79.24% (3648/4604)
+[2026-11-09T05:38:15.604Z] [Coverage] Lines of Code: 4604
+[2026-11-09T05:38:15.604Z] [Coverage] Cyclomatic Complexity: 0
+[2026-11-09T05:38:15.604Z] [Coverage] Successfully processed file 'relatorios/cobertura.xml'
+[2026-11-09T05:38:15.615Z] [Coverage] Resolving source code files...
+[2026-11-09T05:38:15.615Z] [Coverage] Searching for source code files in '/var/jenkins_home/workspace/margem/src/main/java'
+[2026-11-09T05:38:15.615Z] [Coverage] -> resolved absolute paths for all 88 source files
+[2026-11-09T05:38:15.882Z] [Checks API] No suitable checks publisher found.
+[2026-11-09T05:38:15.882Z] [Coverage] Obtaining result action of reference build
+[2026-11-09T05:38:15.882Z] [Coverage] Reference build recorder is not configured
+[2026-11-09T05:38:15.882Z] [Coverage] -> Found no reference build
+[2026-11-09T05:38:15.882Z] [Coverage] No quality gates have been set - skipping
+[2026-11-09T05:38:15.882Z] [Coverage] Executing source code painting...
+[2026-11-09T05:38:15.882Z] [Coverage] Painting 88 source files on agent
+[2026-11-09T05:38:15.882Z] [Coverage] -> finished painting successfully
+[2026-11-09T05:38:15.882Z] [Coverage] -> zipping sources from folder '/var/jenkins_home/workspace/margem/coverage' as '/var/jenkins_home/workspace/margem/coverage-sources.zip'
+[2026-11-09T05:38:15.882Z] [Coverage] Copying painted sources from agent to build folder
+[2026-11-09T05:38:15.882Z] [Coverage] -> extracting...
+[2026-11-09T05:38:15.882Z] [Coverage] -> done
+[2026-11-09T05:38:15.882Z] [Coverage] Finished coverage processing - adding the action to the build...
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build da imagem)
+[Pipeline] sh
+[2026-11-09T05:38:16.243Z] + docker build -t margem/app:2 -t margem/app:latest .
+[2026-11-09T05:38:16.243Z] DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+[2026-11-09T05:38:16.243Z]             Install the buildx component to build images with BuildKit:
+[2026-11-09T05:38:16.243Z]             https://docs.docker.com/go/buildx/
+[2026-11-09T05:38:16.243Z] 
+[2026-11-09T05:38:17.155Z] Sending build context to Docker daemon  14.16MB[2026-11-09T05:38:17.155Z] 
+[2026-11-09T05:38:17.155Z] Step 1/16 : FROM python:3.10-slim
+[2026-11-09T05:38:18.066Z] 3.10-slim: Pulling from library/python
+[2026-11-09T05:38:18.978Z] Digest: sha256:6ff506466f8b1e981719b468cc0023b8ef000b983cdec0eafe119d01f379e31d
+[2026-11-09T05:38:18.978Z] Status: Downloaded newer image for python:3.10-slim
+[2026-11-09T05:38:18.978Z]  ---> 6ff506466f8b
+[2026-11-09T05:38:18.978Z] Step 2/16 : ENV PYTHONDONTWRITEBYTECODE=1     PYTHONUNBUFFERED=1     PIP_NO_CACHE_DIR=1     MARGEM_HOST=0.0.0.0     MARGEM_PORTA=8080
+[2026-11-09T05:38:18.978Z]  ---> Running in c468c00abb26
+[2026-11-09T05:38:19.528Z]  ---> Removed intermediate container c468c00abb26
+[2026-11-09T05:38:19.529Z]  ---> 58235bc9bfab
+[2026-11-09T05:38:19.529Z] Step 3/16 : WORKDIR /app
+[2026-11-09T05:38:19.529Z]  ---> Running in a49eb01ba342
+[2026-11-09T05:38:20.079Z]  ---> Removed intermediate container a49eb01ba342
+[2026-11-09T05:38:20.079Z]  ---> b743cb5644ad
+[2026-11-09T05:38:20.079Z] Step 4/16 : COPY requirements.txt ./
+[2026-11-09T05:38:20.630Z]  ---> 5bc5c9091064
+[2026-11-09T05:38:20.630Z] Step 5/16 : RUN pip install -r requirements.txt kafka-python==2.0.6
+[2026-11-09T05:38:20.630Z]  ---> Running in efc9b92d4291
+[2026-11-09T05:38:21.541Z] Collecting kafka-python==2.0.6
+[2026-11-09T05:38:21.541Z]   Downloading kafka_python-2.0.6-py2.py3-none-any.whl (252 kB)
+[2026-11-09T05:38:21.541Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 252.1/252.1 kB 14.5 MB/s eta 0:00:00
+[2026-11-09T05:38:21.792Z] Collecting fastapi==0.115.6
+[2026-11-09T05:38:21.792Z]   Downloading fastapi-0.115.6-py3-none-any.whl (94 kB)
+[2026-11-09T05:38:21.792Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 94.8/94.8 kB 13.0 MB/s eta 0:00:00
+[2026-11-09T05:38:21.792Z] Collecting uvicorn==0.34.0
+[2026-11-09T05:38:21.792Z]   Downloading uvicorn-0.34.0-py3-none-any.whl (62 kB)
+[2026-11-09T05:38:21.792Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.3/62.3 kB 14.2 MB/s eta 0:00:00
+[2026-11-09T05:38:22.043Z] Collecting pydantic==2.10.4
+[2026-11-09T05:38:22.043Z]   Downloading pydantic-2.10.4-py3-none-any.whl (431 kB)
+[2026-11-09T05:38:22.043Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 431.8/431.8 kB 13.6 MB/s eta 0:00:00
+[2026-11-09T05:38:22.043Z] Collecting email-validator==2.2.0
+[2026-11-09T05:38:22.043Z]   Downloading email_validator-2.2.0-py3-none-any.whl (33 kB)
+[2026-11-09T05:38:22.043Z] Collecting PyJWT==2.10.1
+[2026-11-09T05:38:22.043Z]   Downloading PyJWT-2.10.1-py3-none-any.whl (22 kB)
+[2026-11-09T05:38:22.043Z] Collecting bcrypt==4.2.1
+[2026-11-09T05:38:22.043Z]   Downloading bcrypt-4.2.1-cp39-abi3-manylinux_2_28_x86_64.whl (278 kB)
+[2026-11-09T05:38:22.043Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 278.6/278.6 kB 15.9 MB/s eta 0:00:00
+[2026-11-09T05:38:22.043Z] Collecting python-dotenv==1.0.1
+[2026-11-09T05:38:22.043Z]   Downloading python_dotenv-1.0.1-py3-none-any.whl (19 kB)
+[2026-11-09T05:38:22.594Z] Collecting numpy==2.2.6
+[2026-11-09T05:38:22.594Z]   Downloading numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.8 MB)
+[2026-11-09T05:38:23.937Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.8/16.8 MB 13.2 MB/s eta 0:00:00
+[2026-11-09T05:38:23.938Z] Collecting pandas==2.2.3
+[2026-11-09T05:38:23.938Z]   Downloading pandas-2.2.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.1 MB)
+[2026-11-09T05:38:24.849Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.1/13.1 MB 13.5 MB/s eta 0:00:00
+[2026-11-09T05:38:25.099Z] Collecting pyarrow==18.1.0
+[2026-11-09T05:38:25.099Z]   Downloading pyarrow-18.1.0-cp310-cp310-manylinux_2_28_x86_64.whl (40.1 MB)
+[2026-11-09T05:38:28.328Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.1/40.1 MB 13.7 MB/s eta 0:00:00
+[2026-11-09T05:38:28.328Z] Collecting scikit-learn==1.6.0
+[2026-11-09T05:38:28.328Z]   Downloading scikit_learn-1.6.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.5 MB)
+[2026-11-09T05:38:29.239Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.5/13.5 MB 13.8 MB/s eta 0:00:00
+[2026-11-09T05:38:29.239Z] Collecting joblib==1.4.2
+[2026-11-09T05:38:29.239Z]   Downloading joblib-1.4.2-py3-none-any.whl (301 kB)
+[2026-11-09T05:38:29.239Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 301.8/301.8 kB 24.4 MB/s eta 0:00:00
+[2026-11-09T05:38:29.240Z] Collecting paho-mqtt==2.1.0
+[2026-11-09T05:38:29.240Z]   Downloading paho_mqtt-2.1.0-py3-none-any.whl (67 kB)
+[2026-11-09T05:38:29.240Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.2/67.2 kB 13.5 MB/s eta 0:00:00
+[2026-11-09T05:38:29.240Z] Collecting prometheus-client==0.21.1
+[2026-11-09T05:38:29.240Z]   Downloading prometheus_client-0.21.1-py3-none-any.whl (54 kB)
+[2026-11-09T05:38:29.240Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 54.7/54.7 kB 14.0 MB/s eta 0:00:00
+[2026-11-09T05:38:29.490Z] Collecting matplotlib==3.9.4
+[2026-11-09T05:38:29.490Z]   Downloading matplotlib-3.9.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.3 MB)
+[2026-11-09T05:38:30.041Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.3/8.3 MB 13.7 MB/s eta 0:00:00
+[2026-11-09T05:38:30.292Z] Collecting scipy==1.15.3
+[2026-11-09T05:38:30.292Z]   Downloading scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
+[2026-11-09T05:38:33.519Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 13.1 MB/s eta 0:00:00
+[2026-11-09T05:38:33.519Z] Collecting typing-extensions>=4.8.0
+[2026-11-09T05:38:33.519Z]   Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+[2026-11-09T05:38:33.519Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 14.7 MB/s eta 0:00:00
+[2026-11-09T05:38:33.519Z] Collecting starlette<0.42.0,>=0.40.0
+[2026-11-09T05:38:33.519Z]   Downloading starlette-0.41.3-py3-none-any.whl (73 kB)
+[2026-11-09T05:38:33.519Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.2/73.2 kB 15.8 MB/s eta 0:00:00
+[2026-11-09T05:38:33.519Z] Collecting h11>=0.8
+[2026-11-09T05:38:33.519Z]   Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+[2026-11-09T05:38:33.519Z] Collecting click>=7.0
+[2026-11-09T05:38:33.519Z]   Downloading click-8.5.1-py3-none-any.whl (126 kB)
+[2026-11-09T05:38:33.519Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 126.2/126.2 kB 16.9 MB/s eta 0:00:00
+[2026-11-09T05:38:34.863Z] Collecting pydantic-core==2.27.2
+[2026-11-09T05:38:34.863Z]   Downloading pydantic_core-2.27.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+[2026-11-09T05:38:34.863Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 15.3 MB/s eta 0:00:00
+[2026-11-09T05:38:34.863Z] Collecting annotated-types>=0.6.0
+[2026-11-09T05:38:34.863Z]   Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+[2026-11-09T05:38:34.863Z] Collecting dnspython>=2.0.0
+[2026-11-09T05:38:34.863Z]   Downloading dnspython-2.8.0-py3-none-any.whl (331 kB)
+[2026-11-09T05:38:34.863Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 331.1/331.1 kB 13.1 MB/s eta 0:00:00
+[2026-11-09T05:38:34.863Z] Collecting idna>=2.0.0
+[2026-11-09T05:38:34.863Z]   Downloading idna-3.20-py3-none-any.whl (69 kB)
+[2026-11-09T05:38:34.863Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.6/69.6 kB 17.2 MB/s eta 0:00:00
+[2026-11-09T05:38:34.863Z] Collecting tzdata>=2022.7
+[2026-11-09T05:38:34.863Z]   Downloading tzdata-2026.6-py2.py3-none-any.whl (348 kB)
+[2026-11-09T05:38:34.863Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 348.2/348.2 kB 13.2 MB/s eta 0:00:00
+[2026-11-09T05:38:34.863Z] Collecting pytz>=2020.1
+[2026-11-09T05:38:34.863Z]   Downloading pytz-2026.6-py2.py3-none-any.whl (506 kB)
+[2026-11-09T05:38:35.114Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 506.3/506.3 kB 13.8 MB/s eta 0:00:00
+[2026-11-09T05:38:35.114Z] Collecting python-dateutil>=2.8.2
+[2026-11-09T05:38:35.114Z]   Downloading python_dateutil-3.0.0-py2.py3-none-any.whl (94 kB)
+[2026-11-09T05:38:35.114Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 94.7/94.7 kB 13.8 MB/s eta 0:00:00
+[2026-11-09T05:38:35.114Z] Collecting threadpoolctl>=3.1.0
+[2026-11-09T05:38:35.114Z]   Downloading threadpoolctl-3.8.0-py3-none-any.whl (32 kB)
+[2026-11-09T05:38:35.114Z] Collecting cycler>=0.10
+[2026-11-09T05:38:35.114Z]   Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+[2026-11-09T05:38:35.364Z] Collecting pillow>=8
+[2026-11-09T05:38:35.364Z]   Downloading pillow-12.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+[2026-11-09T05:38:35.915Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 13.3 MB/s eta 0:00:00
+[2026-11-09T05:38:36.166Z] Collecting kiwisolver>=1.3.1
+[2026-11-09T05:38:36.166Z]   Downloading kiwisolver-1.5.1-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+[2026-11-09T05:38:36.166Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 13.3 MB/s eta 0:00:00
+[2026-11-09T05:38:36.416Z] Collecting fonttools>=4.22.0
+[2026-11-09T05:38:36.416Z]   Downloading fonttools-4.65.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.3 MB)
+[2026-11-09T05:38:36.967Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.3/5.3 MB 13.0 MB/s eta 0:00:00
+[2026-11-09T05:38:36.967Z] Collecting contourpy>=1.0.1
+[2026-11-09T05:38:36.967Z]   Downloading contourpy-1.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (325 kB)
+[2026-11-09T05:38:36.967Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 325.0/325.0 kB 12.8 MB/s eta 0:00:00
+[2026-11-09T05:38:36.967Z] Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.10/site-packages (from matplotlib==3.9.4->-r requirements.txt (line 15)) (26.3)
+[2026-11-09T05:38:36.967Z] Collecting pyparsing>=2.3.1
+[2026-11-09T05:38:36.967Z]   Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+[2026-11-09T05:38:36.967Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 126.4/126.4 kB 13.5 MB/s eta 0:00:00
+[2026-11-09T05:38:37.218Z] Collecting six>=1.6
+[2026-11-09T05:38:37.218Z]   Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+[2026-11-09T05:38:37.218Z] Collecting anyio<5,>=3.4.0
+[2026-11-09T05:38:37.218Z]   Downloading anyio-4.16.0-py3-none-any.whl (134 kB)
+[2026-11-09T05:38:37.218Z]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.5/134.5 kB 18.3 MB/s eta 0:00:00
+[2026-11-09T05:38:37.218Z] Collecting exceptiongroup>=1.0.2
+[2026-11-09T05:38:37.218Z]   Downloading exceptiongroup-1.3.1-py3-none-any.whl (16 kB)
+[2026-11-09T05:38:37.468Z] Installing collected packages: pytz, kafka-python, tzdata, typing-extensions, threadpoolctl, six, python-dotenv, pyparsing, PyJWT, pyarrow, prometheus-client, pillow, paho-mqtt, numpy, kiwisolver, joblib, idna, h11, fonttools, dnspython, cycler, click, bcrypt, annotated-types, uvicorn, scipy, python-dateutil, pydantic-core, exceptiongroup, email-validator, contourpy, scikit-learn, pydantic, pandas, matplotlib, anyio, starlette, fastapi
+[2026-11-09T05:38:47.345Z] Successfully installed PyJWT-2.10.1 annotated-types-0.8.0 anyio-4.16.0 bcrypt-4.2.1 click-8.5.1 contourpy-1.3.2 cycler-0.12.1 dnspython-2.8.0 email-validator-2.2.0 exceptiongroup-1.3.1 fastapi-0.115.6 fonttools-4.65.0 h11-0.16.0 idna-3.20 joblib-1.4.2 kafka-python-2.0.6 kiwisolver-1.5.1 matplotlib-3.9.4 numpy-2.2.6 paho-mqtt-2.1.0 pandas-2.2.3 pillow-12.3.0 prometheus-client-0.21.1 pyarrow-18.1.0 pydantic-2.10.4 pydantic-core-2.27.2 pyparsing-3.3.3 python-dateutil-3.0.0 python-dotenv-1.0.1 pytz-2026.6 scikit-learn-1.6.0 scipy-1.15.3 six-1.17.0 starlette-0.41.3 threadpoolctl-3.8.0 typing-extensions-4.16.0 tzdata-2026.6 uvicorn-0.34.0
+[2026-11-09T05:38:47.345Z] [91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+[2026-11-09T05:38:47.345Z] [0m[91m
+[2026-11-09T05:38:47.345Z] [notice] A new release of pip is available: 23.0.1 -> 26.3
+[2026-11-09T05:38:47.345Z] [notice] To update, run: pip install --upgrade pip
+[2026-11-09T05:39:05.305Z] [0m ---> Removed intermediate container efc9b92d4291
+[2026-11-09T05:39:05.305Z]  ---> d4b07024d11c
+[2026-11-09T05:39:05.305Z] Step 6/16 : COPY comum ./comum
+[2026-11-09T05:39:08.533Z]  ---> 81e8a02ad7dd
+[2026-11-09T05:39:08.533Z] Step 7/16 : COPY config ./config
+[2026-11-09T05:39:10.395Z]  ---> cbc52789fd8c
+[2026-11-09T05:39:10.395Z] Step 8/16 : COPY area1_ia ./area1_ia
+[2026-11-09T05:39:12.257Z]  ---> 1571aa40b910
+[2026-11-09T05:39:12.257Z] Step 9/16 : COPY area2_bigdata ./area2_bigdata
+[2026-11-09T05:39:14.119Z]  ---> 8fbf28c10891
+[2026-11-09T05:39:14.119Z] Step 10/16 : COPY area3_mvp_iot ./area3_mvp_iot
+[2026-11-09T05:39:15.463Z]  ---> 21b1b33fd9a0
+[2026-11-09T05:39:15.463Z] Step 11/16 : COPY .env.example ./.env.example
+[2026-11-09T05:39:17.325Z]  ---> 0454895e1b28
+[2026-11-09T05:39:17.325Z] Step 12/16 : RUN useradd --create-home --uid 1000 margem && mkdir -p /app/dados && chown -R margem:margem /app
+[2026-11-09T05:39:17.325Z]  ---> Running in aff93f4c4014
+[2026-11-09T05:39:20.553Z]  ---> Removed intermediate container aff93f4c4014
+[2026-11-09T05:39:20.553Z]  ---> 6cecb70fb701
+[2026-11-09T05:39:20.553Z] Step 13/16 : USER margem
+[2026-11-09T05:39:20.553Z]  ---> Running in ecabfce7d780
+[2026-11-09T05:39:21.897Z]  ---> Removed intermediate container ecabfce7d780
+[2026-11-09T05:39:21.897Z]  ---> 7241a1d99e35
+[2026-11-09T05:39:21.897Z] Step 14/16 : EXPOSE 8080
+[2026-11-09T05:39:21.897Z]  ---> Running in f66a76aed79b
+[2026-11-09T05:39:23.241Z]  ---> Removed intermediate container f66a76aed79b
+[2026-11-09T05:39:23.241Z]  ---> 74ef2360c3a5
+[2026-11-09T05:39:23.241Z] Step 15/16 : HEALTHCHECK --interval=15s --timeout=5s --start-period=40s --retries=3   CMD python -c "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8080/api/v1/health', timeout=4).status==200 else 1)"
+[2026-11-09T05:39:23.241Z]  ---> Running in b5addb4b1e8a
+[2026-11-09T05:39:25.103Z]  ---> Removed intermediate container b5addb4b1e8a
+[2026-11-09T05:39:25.103Z]  ---> e9bf137cfba6
+[2026-11-09T05:39:25.103Z] Step 16/16 : CMD ["python", "-m", "area3_mvp_iot.api"]
+[2026-11-09T05:39:25.103Z]  ---> Running in 659b3c1f0ed8
+[2026-11-09T05:39:26.964Z]  ---> Removed intermediate container 659b3c1f0ed8
+[2026-11-09T05:39:26.964Z]  ---> 64aad8c99af5
+[2026-11-09T05:39:26.964Z] Successfully built 64aad8c99af5
+[2026-11-09T05:39:26.964Z] Successfully tagged margem/app:2
+[2026-11-09T05:39:26.964Z] Successfully tagged margem/app:latest
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy)
+[Pipeline] sh
+[2026-11-09T05:39:27.306Z] + docker compose -p margem up -d --no-build api
+[2026-11-09T05:39:27.307Z]  Container margem-api  Recreate
+[2026-11-09T05:39:28.218Z]  Container margem-api  Recreated
+[2026-11-09T05:39:28.218Z]  Container margem-api  Starting
+[2026-11-09T05:39:28.218Z]  Container margem-api  Started
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Smoke test)
+[Pipeline] sh
+[2026-11-09T05:39:28.557Z] + seq 1 30
+[2026-11-09T05:39:28.557Z] + docker exec margem-api python -c import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/api/v1/health', timeout=3)
+[2026-11-09T05:39:28.557Z] Traceback (most recent call last):
+[2026-11-09T05:39:28.557Z]   File "/usr/local/lib/python3.10/urllib/request.py", line 1361, in do_open
+[2026-11-09T05:39:28.557Z]     h.request(req.get_method(), req.selector, req.data, headers,
+[2026-11-09T05:39:28.557Z]   File "/usr/local/lib/python3.10/http/client.py", line 1331, in request
+[2026-11-09T05:39:28.557Z]     self._send_request(method, url, body, headers, encode_chunked)
+[2026-11-09T05:39:28.557Z]   File "/usr/local/lib/python3.10/http/client.py", line 1377, in _send_request
+[2026-11-09T05:39:28.557Z]     self.endheaders(body, encode_chunked=encode_chunked)
+[2026-11-09T05:39:28.557Z]   File "/usr/local/lib/python3.10/http/client.py", line 1326, in endheaders
+[2026-11-09T05:39:28.557Z]     self._send_output(message_body, encode_chunked=encode_chunked)
+[2026-11-09T05:39:28.557Z]   File "/usr/local/lib/python3.10/http/client.py", line 1086, in _send_output
+[2026-11-09T05:39:28.557Z]     self.send(msg)
+[2026-11-09T05:39:28.557Z]   File "/usr/local/lib/python3.10/http/client.py", line 1024, in send
+[2026-11-09T05:39:28.557Z]     self.connect()
+[2026-11-09T05:39:28.557Z]   File "/usr/local/lib/python3.10/http/client.py", line 990, in connect
+[2026-11-09T05:39:28.557Z]     self.sock = self._create_connection(
+[2026-11-09T05:39:28.557Z]   File "/usr/local/lib/python3.10/socket.py", line 857, in create_connection
+[2026-11-09T05:39:28.557Z]     raise err
+[2026-11-09T05:39:28.557Z]   File "/usr/local/lib/python3.10/socket.py", line 845, in create_connection
+[2026-11-09T05:39:28.557Z]     sock.connect(sa)
+[2026-11-09T05:39:28.557Z] ConnectionRefusedError: [Errno 111] Connection refused
+[2026-11-09T05:39:28.557Z] 
+[2026-11-09T05:39:28.557Z] During handling of the above exception, another exception occurred:
+[2026-11-09T05:39:28.557Z] 
+[2026-11-09T05:39:28.557Z] Traceback (most recent call last):
+[2026-11-09T05:39:28.557Z]   File "<string>", line 1, in <module>
+[2026-11-09T05:39:28.557Z]   File "/usr/local/lib/python3.10/urllib/request.py", line 216, in urlopen
+[2026-11-09T05:39:28.557Z]     return opener.open(url, data, timeout)
+[2026-11-09T05:39:28.557Z]   File "/usr/local/lib/python3.10/urllib/request.py", line 519, in open
+[2026-11-09T05:39:28.557Z]     response = self._open(req, data)
+[2026-11-09T05:39:28.557Z]   File "/usr/local/lib/python3.10/urllib/request.py", line 536, in _open
+[2026-11-09T05:39:28.557Z]     result = self._call_chain(self.handle_open, protocol, protocol +
+[2026-11-09T05:39:28.557Z]   File "/usr/local/lib/python3.10/urllib/request.py", line 496, in _call_chain
+[2026-11-09T05:39:28.557Z]     result = func(*args)
+[2026-11-09T05:39:28.557Z]   File "/usr/local/lib/python3.10/urllib/request.py", line 1390, in http_open
+[2026-11-09T05:39:28.557Z]     return self.do_open(http.client.HTTPConnection, req)
+[2026-11-09T05:39:28.557Z]   File "/usr/local/lib/python3.10/urllib/request.py", line 1364, in do_open
+[2026-11-09T05:39:28.557Z]     raise URLError(err)
+[2026-11-09T05:39:28.557Z] urllib.error.URLError: <urlopen error [Errno 111] Connection refused>
+[2026-11-09T05:39:28.557Z] + sleep 2
+[2026-11-09T05:39:31.040Z] + docker exec margem-api python -c import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/api/v1/health', timeout=3)
+[2026-11-09T05:39:31.040Z] + echo API no ar
+[2026-11-09T05:39:31.040Z] API no ar
+[2026-11-09T05:39:31.040Z] + exit 0
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] archiveArtifacts
+[2026-11-09T05:39:31.133Z] Archiving artifacts
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
