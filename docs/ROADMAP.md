@@ -9,5 +9,5 @@
 - [ ] Power BI (PBIP) com DAX
 - [ ] Área 4: Docker compose, Jenkins, CI/Pages, monitoramento, segurança, plano de testes
 - [ ] QA visual + revisão de segurança
-- [ ] README, PDF de entrega, .txt, PITCH.md, zip
+- [x] README, PDF de entrega, .txt, PITCH.md, zip (09/11; PDF por `entrega/pdf/gerar_pdf.py`, zip por `git archive` — refazer os dois depois dos links)
 - [ ] Pendências do grupo: entrevistas, gravação do pitch, link
