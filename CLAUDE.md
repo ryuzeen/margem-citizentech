@@ -8,7 +8,8 @@ Octávio Hernandez (97894), Rafael Perussi Caczan (93092). Entrega: 19/11/2026 2
 - Só tecnologias vistas até a fase 7 (ver docs/DECISOES.md). Front = HTML/CSS/JS puro, backend = Python.
 - Cada área precisa rodar seguindo **só o README**. `python iniciar.py` sobe tudo sem Docker.
 - Commits só como ryuzeen, sem menção a Claude/IA de autoria. Repo público ryuzeen/margem-citizentech.
-- Dados simulados sempre rotulados como simulados. Nada de inventar entrevista/validação.
+- Dados simulados sempre rotulados como simulados. Entrevistas: simuladas com perfis do público (liberado
+  pelos professores em 19/11), avisado uma única vez no PDF — não repetir o aviso em todo lugar.
 
 ## Comandos
 - Instalar/rodar: `python iniciar.py`
