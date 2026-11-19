@@ -17,6 +17,7 @@ Cotas (de `config/territorio.json`): alerta **260 cm**, transbordo **340 cm**, a
 (60 % da cota de alerta). Token de demonstração: o mesmo de `.env.example` (`MARGEM_TOKEN_EST_PANTANAL_01`).
 
 ## Rodar no wokwi.com (navegador, sem instalar nada)
+Projeto pronto: https://wokwi.com/projects/481149677665132545 (é só abrir e apertar ▶). Para montar do zero:
 1. Acesse https://wokwi.com → **New Project** → **ESP32** (template "ESP32", Arduino).
 2. Na aba `sketch.ino`, apague o conteúdo e cole o `sketch.ino` desta pasta.
 3. Na aba `diagram.json`, cole o `diagram.json` desta pasta (os componentes aparecem ligados).

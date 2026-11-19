@@ -181,7 +181,7 @@ docker compose --profile completo run --rm spark-job           # mesmo pipeline 
   potenciômetros, display OLED, LEDs verde/amarelo/vermelho e buzzer por nível,
   MQTT com assinatura HMAC-SHA256 e número de sequência anti-replay. Passo a passo:
   [`area3_mvp_iot/iot/firmware/README.md`](area3_mvp_iot/iot/firmware/README.md).
-  Projeto no Wokwi: _LINK DO WOKWI — preencher_.
+  Projeto no Wokwi: https://wokwi.com/projects/481149677665132545
 - **Simulador** das 4 estações (cenários normal, chuva forte, enchente):
 
 ```bash
