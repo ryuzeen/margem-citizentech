@@ -11,4 +11,4 @@
 - [ ] QA visual + revisão de segurança
 - [x] README, PDF de entrega, .txt, PITCH.md, zip (09/11; PDF por `entrega/pdf/gerar_pdf.py`, zip por `git archive` — refazer os dois depois dos links)
 - [x] Entrevistas simuladas com personas (19/11, liberado pelos professores)
-- [ ] Link do pitch
+- [x] Link do pitch (19/11)

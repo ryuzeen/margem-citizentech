@@ -10,7 +10,7 @@ ajuda de quem mais precisa chegar **primeiro**.
 | | |
 |---|---|
 | **Site (demonstração)** | https://ryuzeen.github.io/margem-citizentech/ |
-| **Vídeo pitch** | _LINK DO PITCH — preencher antes da entrega_ |
+| **Vídeo pitch** | https://youtu.be/eGEbFNOgjFI |
 | **Repositório** | https://github.com/ryuzeen/margem-citizentech |
 | **ODS** | 11 (cidades sustentáveis), 13 (ação climática), 10 (redução das desigualdades), 3 (saúde) |
 
